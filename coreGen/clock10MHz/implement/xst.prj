@@ -1,0 +1,2 @@
+verilog work ../../clock10MHz.v
+verilog work ../example_design/clock10MHz_exdes.v

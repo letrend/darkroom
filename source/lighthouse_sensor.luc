@@ -1,0 +1,97 @@
+module lighthouse_sensor #(
+    ID = 0 : ID >= 0
+  )(
+    input signal,           // signal in from sensor
+    input signal_inverted,  // signal in from sensor inverted
+    input timer[32],      // 32-bit counter
+    input rst,
+    output sweep_detected,  // true when a sweep is detected, else false
+    output value[32]        // the values following our custom protocol
+  ) {
+  
+  .clk(signal) {
+    edge_detector rising_edge(#RISE(1), #FALL(0)); // detect rising edges
+    edge_detector falling_edge(#RISE(0), #FALL(1)); // detect falling edges     
+    .rst(rst) {
+    }
+  }  
+  
+  dff t_0[32](.clk(signal), .rst(rst));
+	dff t_sweep_start[32](.clk(signal_inverted), .rst(rst));
+	dff t_sweep_duration[32](.clk(signal_inverted), .rst(rst));
+	sig data;
+	sig rotor;
+	sig lighthouse;
+  dff start_valid_sync[32](.clk(signal_inverted), .rst(rst));
+  dff stop_valid_sync[32](.clk(signal_inverted), .rst(rst));
+  
+  sig duration[32];
+	
+  sig sync_gap_duration[32];
+ 
+  always {
+    rising_edge.in = signal;
+    falling_edge.in = signal;
+    
+    data = 0;
+    rotor = 0;
+    lighthouse = 0;
+    sweep_detected = 0;
+    
+    if(rising_edge.out){
+      t_0.d = timer; 
+    }else if(falling_edge.out){
+      duration = timer - t_0.q;
+			if(duration < 500){ // this is a sweep
+				t_sweep_duration.d = t_0.q-t_sweep_start.q;
+				sweep_detected = 1;
+			} else if (duration > (630 - 50) && duration < (940 + 50)){ // this is a sync pulse, NOT skipping
+				t_sweep_start.d = t_0.q;
+				
+				if(start_valid_sync.q == 0){
+					start_valid_sync.d = t_0.q;
+				}else if(start_valid_sync.q != 0 && stop_valid_sync.q == 0){
+         	stop_valid_sync.d = t_0.q;
+				}
+      }		
+			
+      if((start_valid_sync.q > 0) && (stop_valid_sync.q > 0)){
+				sync_gap_duration = stop_valid_sync.q - start_valid_sync.q;
+				start_valid_sync.d = t_0.q;
+				stop_valid_sync.d = 0;
+			
+        if((sync_gap_duration - 83330 ) > 1000 ){
+  					lighthouse = 1;
+  			}else if((sync_gap_duration - 83330 ) < -1000 ){
+  					lighthouse = 0;
+  			}
+			}
+			
+			if((duration > (630 - 50) && duration < (630 + 50)) || (duration > (1040 - 50) && duration < (1040 + 50))){
+				rotor = 0;
+				data  = 0;
+			}else if((duration > (730 - 50) && duration < (730 + 50)) || (duration > (1150 - 50) && duration < (1150 + 50))){
+        rotor = 1;
+				data  = 0;
+			}else if((duration > (830 - 50) && duration < (830 + 50)) || (duration > (1250 - 50) && duration < (1250 + 50))){
+				rotor = 0;
+				data  = 1;
+			}else if((duration > (940 - 50) && duration < (940 + 50)) || (duration > (1350 - 50) && duration < (1350 + 50))){
+        rotor = 1;
+				data  = 1;
+			}
+			
+			if(t_sweep_duration.q < 81920 && t_sweep_duration.q > 0 ){
+        value[12] = 0; // valid sweep
+			}else{
+				value[12] = 1; // not valid
+			}
+			
+			value[8:0] = ID;
+			value[9] = lighthouse;
+			value[10] = rotor;
+			value[11] = data;
+      value[31:13] = t_sweep_duration.q[18:0];
+    }
+  }
+}
