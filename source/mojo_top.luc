@@ -11,7 +11,8 @@ module mojo_top (
     input avr_tx,           // AVR TX (FPGA RX)
     output avr_rx,          // AVR RX (FPGA TX)
     input avr_rx_busy,      // AVR RX buffer full
-    input sensor            // lighthouse sensor input
+    input sensor,            // lighthouse sensor input
+    output esp_tx
   ) {
   
   sig rst;                  // reset signal
@@ -34,6 +35,8 @@ module mojo_top (
   
   lighthouse_sensor sensor0(#ID(0), .signal(sensor), .signal_inverted(~sensor), .rst(rst), .timer(timer.value));
   
+  uart_tx esp(#BAUD(115200), .clk(clk), .rst(rst), .block(rst) );
+  
   always {
     reset_cond.in = ~rst_n; // input raw inverted reset signal
     rst = reset_cond.out;   // conditioned reset
@@ -52,13 +55,18 @@ module mojo_top (
     spi_channel = avr.spi_channel;
     avr_rx = avr.tx;
     
-    if (timer.value[25]){ // if new data
-      avr.new_tx_data = 1;
-      data.d = timer.value; // write it to data
-      avr.tx_data = 1;
+    esp_tx = esp.tx;
+    
+    avr.new_tx_data = 1;
+    avr.new_tx_data = 0;
+    avr.tx_data = 0;
+    
+    if (timer.value[24] ){ // if new data
+      esp.data = sensor0.value[7:0];
+      esp.new_data = 1;
     }else{
-      avr.new_tx_data = 0;
-      avr.tx_data = 0;
+      esp.data = sensor0.value[7:0];
+      esp.new_data = 0;
     }
     
     led = timer.value[29:23]; // connect the LEDs to our flip-flop

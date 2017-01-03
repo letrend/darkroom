@@ -1,8 +1,8 @@
 INTSTYLE=pa
-INFILE=/home/letrend/mojo/darkroom/work/planAhead/darkroom/darkroom.runs/impl_1/mojo_top_0_routed.ncd
-OUTFILE=/home/letrend/mojo/darkroom/work/planAhead/darkroom/darkroom.runs/impl_1/mojo_top_0.bit
+INFILE=/home/letrend/workspace/darkroom/work/planAhead/darkroom/darkroom.runs/impl_1/mojo_top_0_routed.ncd
+OUTFILE=/home/letrend/workspace/darkroom/work/planAhead/darkroom/darkroom.runs/impl_1/mojo_top_0.bit
 FAMILY=Spartan6
 PART=xc6slx9-2tqg144
-WORKINGDIR=/home/letrend/mojo/darkroom/work/planAhead/darkroom/darkroom.runs/impl_1
+WORKINGDIR=/home/letrend/workspace/darkroom/work/planAhead/darkroom/darkroom.runs/impl_1
 LICENSE=WebPack
 USER_INFO=211279219_0_0_813

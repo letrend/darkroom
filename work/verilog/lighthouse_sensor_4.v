@@ -22,14 +22,14 @@ module lighthouse_sensor_4 (
   
   wire [1-1:0] M_rising_edge_out;
   reg [1-1:0] M_rising_edge_in;
-  edge_detector_9 rising_edge (
+  edge_detector_10 rising_edge (
     .clk(signal),
     .in(M_rising_edge_in),
     .out(M_rising_edge_out)
   );
   wire [1-1:0] M_falling_edge_out;
   reg [1-1:0] M_falling_edge_in;
-  edge_detector_10 falling_edge (
+  edge_detector_11 falling_edge (
     .clk(signal),
     .in(M_falling_edge_in),
     .out(M_falling_edge_out)
@@ -135,24 +135,6 @@ module lighthouse_sensor_4 (
   
   always @(posedge signal_inverted) begin
     if (rst == 1'b1) begin
-      M_t_sweep_duration_q <= 1'h0;
-    end else begin
-      M_t_sweep_duration_q <= M_t_sweep_duration_d;
-    end
-  end
-  
-  
-  always @(posedge signal_inverted) begin
-    if (rst == 1'b1) begin
-      M_stop_valid_sync_q <= 1'h0;
-    end else begin
-      M_stop_valid_sync_q <= M_stop_valid_sync_d;
-    end
-  end
-  
-  
-  always @(posedge signal_inverted) begin
-    if (rst == 1'b1) begin
       M_t_sweep_start_q <= 1'h0;
     end else begin
       M_t_sweep_start_q <= M_t_sweep_start_d;
@@ -171,9 +153,27 @@ module lighthouse_sensor_4 (
   
   always @(posedge signal_inverted) begin
     if (rst == 1'b1) begin
+      M_t_sweep_duration_q <= 1'h0;
+    end else begin
+      M_t_sweep_duration_q <= M_t_sweep_duration_d;
+    end
+  end
+  
+  
+  always @(posedge signal_inverted) begin
+    if (rst == 1'b1) begin
       M_start_valid_sync_q <= 1'h0;
     end else begin
       M_start_valid_sync_q <= M_start_valid_sync_d;
+    end
+  end
+  
+  
+  always @(posedge signal_inverted) begin
+    if (rst == 1'b1) begin
+      M_stop_valid_sync_q <= 1'h0;
+    end else begin
+      M_stop_valid_sync_q <= M_stop_valid_sync_d;
     end
   end
   

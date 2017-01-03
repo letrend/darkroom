@@ -1,0 +1,2 @@
+NET "esp_tx" LOC = P1;
+NET "esp_tx" IOSTANDARD = LVTTL;

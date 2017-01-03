@@ -9,14 +9,12 @@
      CLK_FREQ = CLK_FREQ
      BAUD = BAUD
 */
-module uart_tx_8 (
+module uart_rx_8 (
     input clk,
     input rst,
-    output reg tx,
-    input block,
-    output reg busy,
-    input [7:0] data,
-    input new_data
+    input rx,
+    output reg [7:0] data,
+    output reg new_data
   );
   
   localparam CLK_FREQ = 26'h2faf080;
@@ -28,65 +26,59 @@ module uart_tx_8 (
   localparam CTR_SIZE = 3'h7;
   
   localparam IDLE_state = 2'd0;
-  localparam START_BIT_state = 2'd1;
-  localparam DATA_state = 2'd2;
-  localparam STOP_BIT_state = 2'd3;
+  localparam WAIT_HALF_state = 2'd1;
+  localparam WAIT_FULL_state = 2'd2;
+  localparam WAIT_HIGH_state = 2'd3;
   
   reg [1:0] M_state_d, M_state_q = IDLE_state;
   reg [6:0] M_ctr_d, M_ctr_q = 1'h0;
   reg [2:0] M_bitCtr_d, M_bitCtr_q = 1'h0;
   reg [7:0] M_savedData_d, M_savedData_q = 1'h0;
-  reg M_txReg_d, M_txReg_q = 1'h0;
-  reg M_blockFlag_d, M_blockFlag_q = 1'h0;
+  reg M_newData_d, M_newData_q = 1'h0;
+  reg M_rxd_d, M_rxd_q = 1'h0;
   
   always @* begin
     M_state_d = M_state_q;
     M_ctr_d = M_ctr_q;
-    M_blockFlag_d = M_blockFlag_q;
-    M_txReg_d = M_txReg_q;
     M_savedData_d = M_savedData_q;
     M_bitCtr_d = M_bitCtr_q;
+    M_newData_d = M_newData_q;
+    M_rxd_d = M_rxd_q;
     
-    tx = M_txReg_q;
-    busy = 1'h1;
-    M_blockFlag_d = block;
+    M_rxd_d = rx;
+    M_newData_d = 1'h0;
+    data = M_savedData_q;
+    new_data = M_newData_q;
     
     case (M_state_q)
       IDLE_state: begin
-        M_txReg_d = 1'h1;
-        if (!M_blockFlag_q) begin
-          busy = 1'h0;
-          M_bitCtr_d = 1'h0;
-          M_ctr_d = 1'h0;
-          if (new_data) begin
-            M_savedData_d = data;
-            M_state_d = START_BIT_state;
-          end
+        M_bitCtr_d = 1'h0;
+        M_ctr_d = 1'h0;
+        if (M_rxd_q == 1'h0) begin
+          M_state_d = WAIT_HALF_state;
         end
       end
-      START_BIT_state: begin
+      WAIT_HALF_state: begin
         M_ctr_d = M_ctr_q + 1'h1;
-        M_txReg_d = 1'h0;
-        if (M_ctr_q == 29'h00000063) begin
+        if (M_ctr_q == 28'h0000032) begin
           M_ctr_d = 1'h0;
-          M_state_d = DATA_state;
+          M_state_d = WAIT_FULL_state;
         end
       end
-      DATA_state: begin
-        M_txReg_d = M_savedData_q[(M_bitCtr_q)*1+0-:1];
+      WAIT_FULL_state: begin
         M_ctr_d = M_ctr_q + 1'h1;
         if (M_ctr_q == 29'h00000063) begin
-          M_ctr_d = 1'h0;
+          M_savedData_d = {M_rxd_q, M_savedData_q[1+6-:7]};
           M_bitCtr_d = M_bitCtr_q + 1'h1;
+          M_ctr_d = 1'h0;
           if (M_bitCtr_q == 3'h7) begin
-            M_state_d = STOP_BIT_state;
+            M_state_d = WAIT_HIGH_state;
+            M_newData_d = 1'h1;
           end
         end
       end
-      STOP_BIT_state: begin
-        M_txReg_d = 1'h1;
-        M_ctr_d = M_ctr_q + 1'h1;
-        if (M_ctr_q == 29'h00000063) begin
+      WAIT_HIGH_state: begin
+        if (M_rxd_q == 1'h1) begin
           M_state_d = IDLE_state;
         end
       end
@@ -100,8 +92,8 @@ module uart_tx_8 (
     M_ctr_q <= M_ctr_d;
     M_bitCtr_q <= M_bitCtr_d;
     M_savedData_q <= M_savedData_d;
-    M_txReg_q <= M_txReg_d;
-    M_blockFlag_q <= M_blockFlag_d;
+    M_newData_q <= M_newData_d;
+    M_rxd_q <= M_rxd_d;
     
     if (rst == 1'b1) begin
       M_state_q <= 1'h0;

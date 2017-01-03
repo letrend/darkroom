@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Mon Jan 02 16:44:12 2017
+// Written by: Map P.20131013 on Tue Jan 03 20:25:29 2017
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -8,6 +8,7 @@ COMP "spi_sck" LOCATE = SITE "P43" LEVEL 1;
 COMP "clk" LOCATE = SITE "P56" LEVEL 1;
 COMP "avr_rx_busy" LOCATE = SITE "P39" LEVEL 1;
 COMP "spi_miso" LOCATE = SITE "P45" LEVEL 1;
+COMP "esp_tx" LOCATE = SITE "P1" LEVEL 1;
 COMP "spi_mosi" LOCATE = SITE "P44" LEVEL 1;
 COMP "led[0]" LOCATE = SITE "P134" LEVEL 1;
 COMP "led[1]" LOCATE = SITE "P133" LEVEL 1;
@@ -30,30 +31,27 @@ PIN SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0> = BEL "SP6_BUFIO_INSERT_ML_BUFIO2_0"
         PINNAME DIVCLK;
 PIN clock_10MHz/dcm_sp_inst_pins<3> = BEL "clock_10MHz/dcm_sp_inst" PINNAME
         CLKIN;
-TIMEGRP clk = BEL "clk_IBUFG_BUFG" BEL "avr/M_block_q_3" BEL "avr/M_busy_q"
-        BEL "avr/M_block_q_2" BEL "avr/spi_slave/M_ss_reg_q" BEL
-        "avr/spi_slave/M_sck_reg_q_1" BEL "avr/spi_slave/M_sck_reg_q_0" BEL
-        "avr/spi_slave/M_miso_reg_q" BEL "avr/spi_slave/M_bit_ct_q_2" BEL
-        "avr/spi_slave/M_bit_ct_q_1" BEL "avr/spi_slave/M_bit_ct_q_0" BEL
-        "avr/spi_slave/M_data_q_0" BEL "avr/cclk_detector/M_ctr_q_13" BEL
-        "avr/cclk_detector/M_ctr_q_12" BEL "avr/cclk_detector/M_ctr_q_11" BEL
-        "avr/cclk_detector/M_ctr_q_10" BEL "avr/cclk_detector/M_ctr_q_9" BEL
-        "avr/cclk_detector/M_ctr_q_8" BEL "avr/cclk_detector/M_ctr_q_7" BEL
-        "avr/cclk_detector/M_ctr_q_6" BEL "avr/cclk_detector/M_ctr_q_5" BEL
-        "avr/cclk_detector/M_ctr_q_4" BEL "avr/cclk_detector/M_ctr_q_3" BEL
-        "avr/cclk_detector/M_ctr_q_2" BEL "avr/cclk_detector/M_ctr_q_1" BEL
-        "avr/cclk_detector/M_ctr_q_0" BEL "avr/uart_tx/M_ctr_q_6" BEL
-        "avr/uart_tx/M_ctr_q_5" BEL "avr/uart_tx/M_ctr_q_4" BEL
-        "avr/uart_tx/M_ctr_q_3" BEL "avr/uart_tx/M_ctr_q_2" BEL
-        "avr/uart_tx/M_ctr_q_1" BEL "avr/uart_tx/M_ctr_q_0" BEL
-        "avr/uart_tx/M_txReg_q" BEL "avr/uart_tx/M_blockFlag_q" BEL
-        "avr/uart_tx/M_savedData_q_0" BEL "avr/uart_tx/M_state_q_FSM_FFd1" BEL
-        "avr/uart_tx/M_bitCtr_q_2" BEL "avr/uart_tx/M_bitCtr_q_1" BEL
-        "avr/uart_tx/M_bitCtr_q_0" BEL "avr/uart_tx/M_state_q_FSM_FFd2" BEL
-        "avr/Mshreg_M_block_q_2" BEL "reset_cond/M_stage_q_3" BEL
+TIMEGRP clk = BEL "clk_IBUFG_BUFG" BEL "reset_cond/M_stage_q_3" BEL
         "reset_cond/M_stage_q_2" BEL "reset_cond/M_stage_q_1" BEL
-        "reset_cond/M_stage_q_0" PIN "SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0>"
-        PIN "clock_10MHz/dcm_sp_inst_pins<3>";
+        "reset_cond/M_stage_q_0" BEL "esp/M_state_q_FSM_FFd1" BEL
+        "esp/M_state_q_FSM_FFd2" BEL "esp/M_bitCtr_q_2" BEL "esp/M_bitCtr_q_1"
+        BEL "esp/M_bitCtr_q_0" BEL "esp/M_ctr_q_8" BEL "esp/M_ctr_q_7" BEL
+        "esp/M_ctr_q_6" BEL "esp/M_ctr_q_5" BEL "esp/M_ctr_q_4" BEL
+        "esp/M_ctr_q_3" BEL "esp/M_ctr_q_2" BEL "esp/M_ctr_q_1" BEL
+        "esp/M_ctr_q_0" BEL "esp/M_txReg_q" BEL "esp/M_blockFlag_q" BEL
+        "avr/spi_slave/M_ss_reg_q" BEL "avr/spi_slave/M_sck_reg_q_1" BEL
+        "avr/spi_slave/M_sck_reg_q_0" BEL "avr/spi_slave/M_bit_ct_q_2" BEL
+        "avr/spi_slave/M_bit_ct_q_1" BEL "avr/spi_slave/M_bit_ct_q_0" BEL
+        "avr/spi_slave/M_miso_reg_q" BEL "avr/spi_slave/M_data_q_0" BEL
+        "avr/cclk_detector/M_ctr_q_13" BEL "avr/cclk_detector/M_ctr_q_12" BEL
+        "avr/cclk_detector/M_ctr_q_11" BEL "avr/cclk_detector/M_ctr_q_10" BEL
+        "avr/cclk_detector/M_ctr_q_9" BEL "avr/cclk_detector/M_ctr_q_8" BEL
+        "avr/cclk_detector/M_ctr_q_7" BEL "avr/cclk_detector/M_ctr_q_6" BEL
+        "avr/cclk_detector/M_ctr_q_5" BEL "avr/cclk_detector/M_ctr_q_4" BEL
+        "avr/cclk_detector/M_ctr_q_3" BEL "avr/cclk_detector/M_ctr_q_2" BEL
+        "avr/cclk_detector/M_ctr_q_1" BEL "avr/cclk_detector/M_ctr_q_0" BEL
+        "avr/uart_tx/M_txReg_q" PIN "SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0>" PIN
+        "clock_10MHz/dcm_sp_inst_pins<3>";
 TIMEGRP clock_10MHz_clkfx = BEL "timer/M_ctr_q_0" BEL "timer/M_ctr_q_1" BEL
         "timer/M_ctr_q_2" BEL "timer/M_ctr_q_3" BEL "timer/M_ctr_q_4" BEL
         "timer/M_ctr_q_5" BEL "timer/M_ctr_q_6" BEL "timer/M_ctr_q_7" BEL

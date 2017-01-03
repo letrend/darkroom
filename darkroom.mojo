@@ -4,6 +4,7 @@
     <src top="true">mojo_top.luc</src>
     <src>lighthouse_sensor.luc</src>
     <ucf lib="true">mojo.ucf</ucf>
+    <ucf>esp.ucf</ucf>
     <component>counter.luc</component>
     <component>cclk_detector.luc</component>
     <component>uart_rx.luc</component>
