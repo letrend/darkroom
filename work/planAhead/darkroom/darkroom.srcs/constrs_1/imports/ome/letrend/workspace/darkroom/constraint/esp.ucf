@@ -1,1 +1,3 @@
-NET "esp_tx" LOC = P1 | IOSTANDARD = LVTTL;
+NET "esp_rx" LOC = P27 | IOSTANDARD = LVTTL;
+NET "esp_tx" LOC = P26 | IOSTANDARD = LVTTL;
+NET "data_available" LOC = P35 | IOSTANDARD = LVTTL;

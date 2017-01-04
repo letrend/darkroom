@@ -18,7 +18,9 @@ module mojo_top_0 (
     output reg avr_rx,
     input avr_rx_busy,
     input sensor,
-    output reg esp_tx
+    output reg esp_tx,
+    input esp_rx,
+    output reg data_available
   );
   
   
@@ -98,21 +100,36 @@ module mojo_top_0 (
     .value(M_sensor0_value)
   );
   
-  wire [1-1:0] M_esp_tx;
-  wire [1-1:0] M_esp_busy;
-  reg [8-1:0] M_esp_data;
-  reg [1-1:0] M_esp_new_data;
-  uart_tx_5 esp (
+  wire [1-1:0] M_esp_transmit_tx;
+  wire [1-1:0] M_esp_transmit_busy;
+  reg [8-1:0] M_esp_transmit_data;
+  reg [1-1:0] M_esp_transmit_new_data;
+  uart_tx_5 esp_transmit (
     .clk(clk),
     .rst(rst),
     .block(rst),
-    .data(M_esp_data),
-    .new_data(M_esp_new_data),
-    .tx(M_esp_tx),
-    .busy(M_esp_busy)
+    .data(M_esp_transmit_data),
+    .new_data(M_esp_transmit_new_data),
+    .tx(M_esp_transmit_tx),
+    .busy(M_esp_transmit_busy)
   );
   
+  wire [8-1:0] M_esp_receive_data;
+  wire [1-1:0] M_esp_receive_new_data;
+  reg [1-1:0] M_esp_receive_rx;
+  uart_rx_6 esp_receive (
+    .clk(clk),
+    .rst(rst),
+    .rx(M_esp_receive_rx),
+    .data(M_esp_receive_data),
+    .new_data(M_esp_receive_new_data)
+  );
+  
+  reg [2:0] M_counter_d, M_counter_q = 1'h0;
+  
   always @* begin
+    M_counter_d = M_counter_q;
+    
     M_reset_cond_in = ~rst_n;
     rst = M_reset_cond_out;
     M_avr_cclk = cclk;
@@ -125,16 +142,42 @@ module mojo_top_0 (
     spi_miso = M_avr_spi_miso;
     spi_channel = M_avr_spi_channel;
     avr_rx = M_avr_tx;
-    esp_tx = M_esp_tx;
     M_avr_new_tx_data = 1'h1;
     M_avr_new_tx_data = 1'h0;
     M_avr_tx_data = 1'h0;
-    if (M_timer_value[24+0-:1]) begin
-      M_esp_data = M_sensor0_value[0+7-:8];
-      M_esp_new_data = 1'h1;
+    esp_tx = M_esp_transmit_tx;
+    M_esp_receive_rx = esp_rx;
+    M_esp_transmit_data = 1'h0;
+    M_esp_transmit_new_data = 1'h0;
+    data_available = 1'h0;
+    if (M_timer_value[24+0-:1] && M_counter_q < 3'h4) begin
+      data_available = 1'h1;
+      if (!M_esp_transmit_busy) begin
+        
+        case (M_counter_q)
+          1'h0: begin
+            M_esp_transmit_data = 7'h41;
+          end
+          1'h1: begin
+            M_esp_transmit_data = 7'h42;
+          end
+          2'h2: begin
+            M_esp_transmit_data = 7'h43;
+          end
+          2'h3: begin
+            M_esp_transmit_data = 7'h44;
+          end
+        endcase
+        M_esp_transmit_new_data = 1'h1;
+        M_counter_d = M_counter_q + 1'h1;
+      end
     end else begin
-      M_esp_data = M_sensor0_value[0+7-:8];
-      M_esp_new_data = 1'h0;
+      if (!M_timer_value[24+0-:1] && M_counter_q >= 3'h4) begin
+        data_available = 1'h0;
+        M_counter_d = 1'h0;
+      end else begin
+        data_available = 1'h1;
+      end
     end
     led = M_timer_value[23+6-:7];
   end
@@ -144,6 +187,15 @@ module mojo_top_0 (
       M_data_q <= 1'h0;
     end else begin
       M_data_q <= M_data_d;
+    end
+  end
+  
+  
+  always @(posedge clk) begin
+    if (rst == 1'b1) begin
+      M_counter_q <= 1'h0;
+    end else begin
+      M_counter_q <= M_counter_d;
     end
   end
   

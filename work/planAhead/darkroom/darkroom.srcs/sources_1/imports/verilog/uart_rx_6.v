@@ -6,10 +6,10 @@
 
 /*
    Parameters:
-     CLK_FREQ = CLK_FREQ
-     BAUD = BAUD
+     CLK_FREQ = 50000000
+     BAUD = 115200
 */
-module uart_rx_8 (
+module uart_rx_6 (
     input clk,
     input rst,
     input rx,
@@ -18,12 +18,12 @@ module uart_rx_8 (
   );
   
   localparam CLK_FREQ = 26'h2faf080;
-  localparam BAUD = 19'h7a120;
+  localparam BAUD = 17'h1c200;
   
   
-  localparam CLK_PER_BIT = 28'h0000064;
+  localparam CLK_PER_BIT = 28'h00001b2;
   
-  localparam CTR_SIZE = 3'h7;
+  localparam CTR_SIZE = 4'h9;
   
   localparam IDLE_state = 2'd0;
   localparam WAIT_HALF_state = 2'd1;
@@ -31,7 +31,7 @@ module uart_rx_8 (
   localparam WAIT_HIGH_state = 2'd3;
   
   reg [1:0] M_state_d, M_state_q = IDLE_state;
-  reg [6:0] M_ctr_d, M_ctr_q = 1'h0;
+  reg [8:0] M_ctr_d, M_ctr_q = 1'h0;
   reg [2:0] M_bitCtr_d, M_bitCtr_q = 1'h0;
   reg [7:0] M_savedData_d, M_savedData_q = 1'h0;
   reg M_newData_d, M_newData_q = 1'h0;
@@ -60,14 +60,14 @@ module uart_rx_8 (
       end
       WAIT_HALF_state: begin
         M_ctr_d = M_ctr_q + 1'h1;
-        if (M_ctr_q == 28'h0000032) begin
+        if (M_ctr_q == 28'h00000d9) begin
           M_ctr_d = 1'h0;
           M_state_d = WAIT_FULL_state;
         end
       end
       WAIT_FULL_state: begin
         M_ctr_d = M_ctr_q + 1'h1;
-        if (M_ctr_q == 29'h00000063) begin
+        if (M_ctr_q == 29'h000001b1) begin
           M_savedData_d = {M_rxd_q, M_savedData_q[1+6-:7]};
           M_bitCtr_d = M_bitCtr_q + 1'h1;
           M_ctr_d = 1'h0;

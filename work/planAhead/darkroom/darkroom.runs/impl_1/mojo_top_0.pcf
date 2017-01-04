@@ -1,18 +1,9 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Tue Jan 03 20:25:29 2017
+// Written by: Map P.20131013 on Wed Jan 04 20:36:14 2017
 //! **************************************************************************
 
 SCHEMATIC START;
 CONFIG VCCAUX = "3.3";
-COMP "spi_sck" LOCATE = SITE "P43" LEVEL 1;
-COMP "clk" LOCATE = SITE "P56" LEVEL 1;
-COMP "avr_rx_busy" LOCATE = SITE "P39" LEVEL 1;
-COMP "spi_miso" LOCATE = SITE "P45" LEVEL 1;
-COMP "esp_tx" LOCATE = SITE "P1" LEVEL 1;
-COMP "spi_mosi" LOCATE = SITE "P44" LEVEL 1;
-COMP "led[0]" LOCATE = SITE "P134" LEVEL 1;
-COMP "led[1]" LOCATE = SITE "P133" LEVEL 1;
-COMP "led[2]" LOCATE = SITE "P132" LEVEL 1;
 COMP "avr_rx" LOCATE = SITE "P59" LEVEL 1;
 COMP "led[3]" LOCATE = SITE "P131" LEVEL 1;
 COMP "spi_ss" LOCATE = SITE "P48" LEVEL 1;
@@ -22,36 +13,53 @@ COMP "led[5]" LOCATE = SITE "P126" LEVEL 1;
 COMP "led[6]" LOCATE = SITE "P124" LEVEL 1;
 COMP "rst_n" LOCATE = SITE "P38" LEVEL 1;
 COMP "led[7]" LOCATE = SITE "P123" LEVEL 1;
+COMP "data_available" LOCATE = SITE "P35" LEVEL 1;
 COMP "spi_channel[0]" LOCATE = SITE "P46" LEVEL 1;
 COMP "spi_channel[1]" LOCATE = SITE "P61" LEVEL 1;
 COMP "spi_channel[2]" LOCATE = SITE "P62" LEVEL 1;
 COMP "spi_channel[3]" LOCATE = SITE "P65" LEVEL 1;
 COMP "cclk" LOCATE = SITE "P70" LEVEL 1;
+COMP "spi_sck" LOCATE = SITE "P43" LEVEL 1;
+COMP "clk" LOCATE = SITE "P56" LEVEL 1;
+COMP "avr_rx_busy" LOCATE = SITE "P39" LEVEL 1;
+COMP "spi_miso" LOCATE = SITE "P45" LEVEL 1;
+COMP "esp_rx" LOCATE = SITE "P27" LEVEL 1;
+COMP "esp_tx" LOCATE = SITE "P26" LEVEL 1;
+COMP "spi_mosi" LOCATE = SITE "P44" LEVEL 1;
+COMP "led[0]" LOCATE = SITE "P134" LEVEL 1;
+COMP "led[1]" LOCATE = SITE "P133" LEVEL 1;
+COMP "led[2]" LOCATE = SITE "P132" LEVEL 1;
 PIN SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0> = BEL "SP6_BUFIO_INSERT_ML_BUFIO2_0"
         PINNAME DIVCLK;
 PIN clock_10MHz/dcm_sp_inst_pins<3> = BEL "clock_10MHz/dcm_sp_inst" PINNAME
         CLKIN;
-TIMEGRP clk = BEL "clk_IBUFG_BUFG" BEL "reset_cond/M_stage_q_3" BEL
-        "reset_cond/M_stage_q_2" BEL "reset_cond/M_stage_q_1" BEL
-        "reset_cond/M_stage_q_0" BEL "esp/M_state_q_FSM_FFd1" BEL
-        "esp/M_state_q_FSM_FFd2" BEL "esp/M_bitCtr_q_2" BEL "esp/M_bitCtr_q_1"
-        BEL "esp/M_bitCtr_q_0" BEL "esp/M_ctr_q_8" BEL "esp/M_ctr_q_7" BEL
-        "esp/M_ctr_q_6" BEL "esp/M_ctr_q_5" BEL "esp/M_ctr_q_4" BEL
-        "esp/M_ctr_q_3" BEL "esp/M_ctr_q_2" BEL "esp/M_ctr_q_1" BEL
-        "esp/M_ctr_q_0" BEL "esp/M_txReg_q" BEL "esp/M_blockFlag_q" BEL
-        "avr/spi_slave/M_ss_reg_q" BEL "avr/spi_slave/M_sck_reg_q_1" BEL
-        "avr/spi_slave/M_sck_reg_q_0" BEL "avr/spi_slave/M_bit_ct_q_2" BEL
+TIMEGRP clk = BEL "M_counter_q_1" BEL "M_counter_q_2" BEL "M_counter_q_0" BEL
+        "clk_IBUFG_BUFG" BEL "avr/spi_slave/M_ss_reg_q" BEL
+        "avr/spi_slave/M_sck_reg_q_1" BEL "avr/spi_slave/M_sck_reg_q_0" BEL
+        "avr/spi_slave/M_miso_reg_q" BEL "avr/spi_slave/M_bit_ct_q_2" BEL
         "avr/spi_slave/M_bit_ct_q_1" BEL "avr/spi_slave/M_bit_ct_q_0" BEL
-        "avr/spi_slave/M_miso_reg_q" BEL "avr/spi_slave/M_data_q_0" BEL
-        "avr/cclk_detector/M_ctr_q_13" BEL "avr/cclk_detector/M_ctr_q_12" BEL
-        "avr/cclk_detector/M_ctr_q_11" BEL "avr/cclk_detector/M_ctr_q_10" BEL
-        "avr/cclk_detector/M_ctr_q_9" BEL "avr/cclk_detector/M_ctr_q_8" BEL
-        "avr/cclk_detector/M_ctr_q_7" BEL "avr/cclk_detector/M_ctr_q_6" BEL
-        "avr/cclk_detector/M_ctr_q_5" BEL "avr/cclk_detector/M_ctr_q_4" BEL
-        "avr/cclk_detector/M_ctr_q_3" BEL "avr/cclk_detector/M_ctr_q_2" BEL
-        "avr/cclk_detector/M_ctr_q_1" BEL "avr/cclk_detector/M_ctr_q_0" BEL
-        "avr/uart_tx/M_txReg_q" PIN "SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0>" PIN
-        "clock_10MHz/dcm_sp_inst_pins<3>";
+        "avr/spi_slave/M_data_q_0" BEL "avr/cclk_detector/M_ctr_q_13" BEL
+        "avr/cclk_detector/M_ctr_q_12" BEL "avr/cclk_detector/M_ctr_q_11" BEL
+        "avr/cclk_detector/M_ctr_q_10" BEL "avr/cclk_detector/M_ctr_q_9" BEL
+        "avr/cclk_detector/M_ctr_q_8" BEL "avr/cclk_detector/M_ctr_q_7" BEL
+        "avr/cclk_detector/M_ctr_q_6" BEL "avr/cclk_detector/M_ctr_q_5" BEL
+        "avr/cclk_detector/M_ctr_q_4" BEL "avr/cclk_detector/M_ctr_q_3" BEL
+        "avr/cclk_detector/M_ctr_q_2" BEL "avr/cclk_detector/M_ctr_q_1" BEL
+        "avr/cclk_detector/M_ctr_q_0" BEL "avr/uart_tx/M_txReg_q" BEL
+        "reset_cond/M_stage_q_3" BEL "reset_cond/M_stage_q_2" BEL
+        "reset_cond/M_stage_q_1" BEL "reset_cond/M_stage_q_0" BEL
+        "esp_transmit/M_state_q_FSM_FFd1" BEL
+        "esp_transmit/M_state_q_FSM_FFd2" BEL "esp_transmit/M_ctr_q_8" BEL
+        "esp_transmit/M_ctr_q_7" BEL "esp_transmit/M_ctr_q_6" BEL
+        "esp_transmit/M_ctr_q_5" BEL "esp_transmit/M_ctr_q_4" BEL
+        "esp_transmit/M_ctr_q_3" BEL "esp_transmit/M_ctr_q_2" BEL
+        "esp_transmit/M_ctr_q_1" BEL "esp_transmit/M_ctr_q_0" BEL
+        "esp_transmit/M_txReg_q" BEL "esp_transmit/M_savedData_q_6" BEL
+        "esp_transmit/M_savedData_q_2" BEL "esp_transmit/M_savedData_q_1" BEL
+        "esp_transmit/M_savedData_q_0" BEL "esp_transmit/M_blockFlag_q" BEL
+        "esp_transmit/M_bitCtr_q_2" BEL "esp_transmit/M_bitCtr_q_1" BEL
+        "esp_transmit/M_bitCtr_q_0" PIN "SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0>"
+        PIN "clock_10MHz/dcm_sp_inst_pins<3>";
 TIMEGRP clock_10MHz_clkfx = BEL "timer/M_ctr_q_0" BEL "timer/M_ctr_q_1" BEL
         "timer/M_ctr_q_2" BEL "timer/M_ctr_q_3" BEL "timer/M_ctr_q_4" BEL
         "timer/M_ctr_q_5" BEL "timer/M_ctr_q_6" BEL "timer/M_ctr_q_7" BEL

@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-x220::  Tue Jan 03 20:25:31 2017
+base::  Wed Jan 04 20:36:16 2017
 
 par -intstyle pa -w -mt on mojo_top_0.ncd mojo_top_0_routed.ncd 
 
@@ -21,16 +21,16 @@ Device speed data version:  "PRODUCTION 1.23 2013-10-13".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                    69 out of  11,440    1%
-    Number used as Flip Flops:                  69
+  Number of Slice Registers:                    76 out of  11,440    1%
+    Number used as Flip Flops:                  76
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                         70 out of   5,720    1%
-    Number used as logic:                       68 out of   5,720    1%
-      Number using O6 output only:              18
+  Number of Slice LUTs:                        106 out of   5,720    1%
+    Number used as logic:                      104 out of   5,720    1%
+      Number using O6 output only:              48
       Number using O5 output only:              40
-      Number using O5 and O6:                   10
+      Number using O5 and O6:                   16
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   1,440    0%
     Number used exclusively as route-thrus:      2
@@ -39,12 +39,12 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                    25 out of   1,430    1%
+  Number of occupied Slices:                    34 out of   1,430    2%
   Number of MUXCYs used:                        48 out of   2,860    1%
-  Number of LUT Flip Flop pairs used:           74
-    Number with an unused Flip Flop:             8 out of      74   10%
-    Number with an unused LUT:                   4 out of      74    5%
-    Number of fully used LUT-FF pairs:          62 out of      74   83%
+  Number of LUT Flip Flop pairs used:          109
+    Number with an unused Flip Flop:            37 out of     109   33%
+    Number with an unused LUT:                   3 out of     109    2%
+    Number of fully used LUT-FF pairs:          69 out of     109   63%
     Number of slice register sites lost
       to control set restrictions:               0 out of  11,440    0%
 
@@ -55,8 +55,8 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        23 out of     102   22%
-    Number of LOCed IOBs:                       23 out of      23  100%
+  Number of bonded IOBs:                        25 out of     102   24%
+    Number of LOCed IOBs:                       25 out of      25  100%
     IOB Flip Flops:                              4
 
 Specific Feature Utilization:
@@ -99,35 +99,36 @@ Overall effort level (-ol):   Standard
 Router effort level (-rl):    High 
 
 PAR will use up to 2 processors
-WARNING:Par:288 - The signal avr_rx_busy_IBUF has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal spi_mosi_IBUF has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal avr_tx_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal avr_rx_busy_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal esp_rx_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal spi_mosi_IBUF has no load.  PAR will not attempt to route this signal.
 Starting Multi-threaded Router
 
 
-Phase  1  : 325 unrouted;      REAL time: 3 secs 
+Phase  1  : 519 unrouted;      REAL time: 4 secs 
 
-Phase  2  : 239 unrouted;      REAL time: 3 secs 
+Phase  2  : 424 unrouted;      REAL time: 4 secs 
 
-Phase  3  : 79 unrouted;      REAL time: 3 secs 
+Phase  3  : 163 unrouted;      REAL time: 4 secs 
 
-Phase  4  : 79 unrouted; (Setup:0, Hold:1630, Component Switching Limit:0)     REAL time: 4 secs 
+Phase  4  : 163 unrouted; (Setup:0, Hold:11864, Component Switching Limit:0)     REAL time: 4 secs 
 
 Updating file: mojo_top_0_routed.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Setup:0, Hold:1322, Component Switching Limit:0)     REAL time: 4 secs 
+Phase  5  : 0 unrouted; (Setup:0, Hold:11802, Component Switching Limit:0)     REAL time: 5 secs 
 
-Phase  6  : 0 unrouted; (Setup:0, Hold:1322, Component Switching Limit:0)     REAL time: 4 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:11802, Component Switching Limit:0)     REAL time: 5 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:1322, Component Switching Limit:0)     REAL time: 4 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:11802, Component Switching Limit:0)     REAL time: 5 secs 
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:1322, Component Switching Limit:0)     REAL time: 4 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:11802, Component Switching Limit:0)     REAL time: 5 secs 
 
-Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 4 secs 
+Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
 
-Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 4 secs 
-Total REAL time to Router completion: 4 secs 
-Total CPU time to Router completion (all processors): 4 secs 
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
+Total REAL time to Router completion: 5 secs 
+Total CPU time to Router completion (all processors): 5 secs 
 
 Generating "PAR" statistics.
 
@@ -138,10 +139,10 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|      clk_IBUFG_BUFG | BUFGMUX_X2Y11| No   |   20 |  0.667     |  2.087      |
+|      clk_IBUFG_BUFG | BUFGMUX_X2Y11| No   |   23 |  0.691     |  2.087      |
 +---------------------+--------------+------+------+------------+-------------+
 |M_clock_10MHz_clk_ou |              |      |      |            |             |
-|                   t | BUFGMUX_X3Y13| No   |    8 |  0.066     |  1.494      |
+|                   t | BUFGMUX_X3Y13| No   |    8 |  0.011     |  1.431      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -161,13 +162,13 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH | SETUP       |    14.202ns|     5.798ns|       0|           0
-   50%                                      | HOLD        |     0.454ns|            |       0|           0
-                                            | MINLOWPULSE |    12.000ns|     8.000ns|       0|           0
-----------------------------------------------------------------------------------------------------------
-  TS_clock_10MHz_clkfx = PERIOD TIMEGRP "cl | SETUP       |    12.289ns|    38.555ns|       0|           0
-  ock_10MHz_clkfx" TS_clk * 0.2 HIGH        | HOLD        |     0.505ns|            |       0|           0
+  TS_clock_10MHz_clkfx = PERIOD TIMEGRP "cl | SETUP       |    11.822ns|    40.890ns|       0|           0
+  ock_10MHz_clkfx" TS_clk * 0.2 HIGH        | HOLD        |     0.530ns|            |       0|           0
     50%                                     |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH | SETUP       |    13.309ns|     6.691ns|       0|           0
+   50%                                      | HOLD        |     0.437ns|            |       0|           0
+                                            | MINLOWPULSE |    12.000ns|     8.000ns|       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -181,8 +182,8 @@ Derived Constraints for TS_clk
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_clk                         |     20.000ns|      8.000ns|      7.711ns|            0|            0|          632|          495|
-| TS_clock_10MHz_clkfx          |    100.000ns|     38.555ns|          N/A|            0|            0|          495|            0|
+|TS_clk                         |     20.000ns|      8.000ns|      8.178ns|            0|            0|          770|          495|
+| TS_clock_10MHz_clkfx          |    100.000ns|     40.890ns|          N/A|            0|            0|          495|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 All constraints were met.
@@ -192,19 +193,19 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-WARNING:Par:283 - There are 3 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+WARNING:Par:283 - There are 4 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Total REAL time to PAR completion: 4 secs 
-Total CPU time to PAR completion (all processors): 4 secs 
+Total REAL time to PAR completion: 5 secs 
+Total CPU time to PAR completion (all processors): 5 secs 
 
-Peak Memory Usage:  798 MB
+Peak Memory Usage:  759 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.
 Timing: Completed - No errors found.
 
 Number of error messages: 0
-Number of warning messages: 5
+Number of warning messages: 6
 Number of info messages: 0
 
 Writing design to file mojo_top_0_routed.ncd

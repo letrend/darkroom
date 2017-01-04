@@ -12,7 +12,9 @@ module mojo_top (
     output avr_rx,          // AVR RX (FPGA TX)
     input avr_rx_busy,      // AVR RX buffer full
     input sensor,            // lighthouse sensor input
-    output esp_tx
+    output esp_tx,
+    input esp_rx,
+    output data_available
   ) {
   
   sig rst;                  // reset signal
@@ -35,7 +37,10 @@ module mojo_top (
   
   lighthouse_sensor sensor0(#ID(0), .signal(sensor), .signal_inverted(~sensor), .rst(rst), .timer(timer.value));
   
-  uart_tx esp(#BAUD(115200), .clk(clk), .rst(rst), .block(rst) );
+  uart_tx esp_transmit(#BAUD(115200), .clk(clk), .rst(rst), .block(rst));
+  uart_rx esp_receive(#BAUD(115200), .clk(clk), .rst(rst));
+
+  dff counter[3](.clk(clk), .rst(rst));
   
   always {
     reset_cond.in = ~rst_n; // input raw inverted reset signal
@@ -55,18 +60,37 @@ module mojo_top (
     spi_channel = avr.spi_channel;
     avr_rx = avr.tx;
     
-    esp_tx = esp.tx;
-    
     avr.new_tx_data = 1;
     avr.new_tx_data = 0;
     avr.tx_data = 0;
     
-    if (timer.value[24] ){ // if new data
-      esp.data = sensor0.value[7:0];
-      esp.new_data = 1;
+    
+    esp_tx = esp_transmit.tx;
+    esp_receive.rx = esp_rx;    
+    
+    
+    esp_transmit.data = 0;
+    esp_transmit.new_data = 0;
+    
+    data_available = 0;
+    
+    if (timer.value[24] && counter.q < 4 ){ // if new data and not all data was sent
+      data_available = 1;
+      if(!esp_transmit.busy){ // if data previous data was sent
+        case (counter.q){
+            0: esp_transmit.data = "A";// sensor0.value[7:0];
+            1: esp_transmit.data = "B";// sensor0.value[15:8];
+            2: esp_transmit.data = "C";// sensor0.value[23:16];
+            3: esp_transmit.data = "D";// sensor0.value[31:24];
+        }
+        esp_transmit.new_data = 1;
+        counter.d = counter.q + 1;
+      }
+    }else if(!timer.value[24] && counter.q >= 4){
+       data_available = 0;
+       counter.d = 0; 
     }else{
-      esp.data = sensor0.value[7:0];
-      esp.new_data = 0;
+       data_available = 1; 
     }
     
     led = timer.value[29:23]; // connect the LEDs to our flip-flop
