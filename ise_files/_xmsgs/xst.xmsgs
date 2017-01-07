@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"/home/letrend/workspace/darkroom/src/mojo_top.vhd" Line 40: Net &lt;<arg fmt="%s" index="1">channel[3]</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"/home/letrend/workspace/darkroom/src/mojo_top.vhd" Line 44: Net &lt;<arg fmt="%s" index="1">tx_data[7]</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"/home/letrend/workspace/darkroom/src/mojo_top.vhd" Line 46: Net &lt;<arg fmt="%s" index="1">new_tx_data</arg>&gt; does not have a driver.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">/home/letrend/workspace/darkroom/src/mojo_top.vhd</arg>&quot; line <arg fmt="%d" index="2">116</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">sweep_counter</arg>&gt; of block &lt;<arg fmt="%s" index="4">counter</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2972" delta="new" >&quot;<arg fmt="%s" index="1">/home/letrend/workspace/darkroom/src/mojo_top.vhd</arg>&quot; line <arg fmt="%d" index="2">122</arg>. All outputs of instance &lt;<arg fmt="%s" index="3">lighthouse</arg>&gt; of block &lt;<arg fmt="%s" index="4">lighthouse</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="5">mojo_top</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/letrend/workspace/darkroom/src/mojo_top.vhd</arg>&quot; line <arg fmt="%s" index="2">82</arg>: Output port &lt;<arg fmt="%s" index="3">sample</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">avr_interface</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/letrend/workspace/darkroom/src/mojo_top.vhd</arg>&quot; line <arg fmt="%s" index="2">82</arg>: Output port &lt;<arg fmt="%s" index="3">sample_channel</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">avr_interface</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/letrend/workspace/darkroom/src/mojo_top.vhd</arg>&quot; line <arg fmt="%s" index="2">82</arg>: Output port &lt;<arg fmt="%s" index="3">rx_data</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">avr_interface</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/letrend/workspace/darkroom/src/mojo_top.vhd</arg>&quot; line <arg fmt="%s" index="2">82</arg>: Output port &lt;<arg fmt="%s" index="3">new_sample</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">avr_interface</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/letrend/workspace/darkroom/src/mojo_top.vhd</arg>&quot; line <arg fmt="%s" index="2">82</arg>: Output port &lt;<arg fmt="%s" index="3">tx_busy</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">avr_interface</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/letrend/workspace/darkroom/src/mojo_top.vhd</arg>&quot; line <arg fmt="%s" index="2">82</arg>: Output port &lt;<arg fmt="%s" index="3">new_rx_data</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">avr_interface</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/letrend/workspace/darkroom/src/mojo_top.vhd</arg>&quot; line <arg fmt="%s" index="2">116</arg>: Output port &lt;<arg fmt="%s" index="3">output</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">sweep_counter</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/letrend/workspace/darkroom/src/mojo_top.vhd</arg>&quot; line <arg fmt="%s" index="2">122</arg>: Output port &lt;<arg fmt="%s" index="3">sensor_value</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">lighthouse</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/letrend/workspace/darkroom/src/mojo_top.vhd</arg>&quot; line <arg fmt="%s" index="2">129</arg>: Output port &lt;<arg fmt="%s" index="3">RX_Data</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">uart</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/letrend/workspace/darkroom/src/mojo_top.vhd</arg>&quot; line <arg fmt="%s" index="2">129</arg>: Output port &lt;<arg fmt="%s" index="3">RX_Busy</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">uart</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">channel</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">tx_data</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">new_tx_data</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+</msg>
+
+<msg type="warning" file="Xst" num="1290" delta="old" >Hierarchical block &lt;<arg fmt="%s" index="1">serial_rx</arg>&gt; is unconnected in block &lt;<arg fmt="%s" index="2">avr_interface</arg>&gt;.
+It will be removed from the design.
+</msg>
+
+<msg type="info" file="Xst" num="3231" delta="old" >The small RAM &lt;<arg fmt="%s" index="1">Mram_uart_counter[2]_PWR_6_o_wide_mux_1_OUT</arg>&gt; will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">tx_uart_data_6</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">mojo_top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">txsr_9</arg>&gt; has a constant value of <arg fmt="%d" index="2">1</arg> in block &lt;<arg fmt="%s" index="3">RS232</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">counter/temp_27</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">counter/temp_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">counter/temp_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">counter/temp_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">counter/temp_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">tx_uart_data_3</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;tx_uart_data_4&gt; &lt;tx_uart_data_5&gt; &lt;tx_uart_data_7&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/serial_tx/block_q</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/sample_q_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/sample_q_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/sample_q_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/sample_q_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/sample_q_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/sample_q_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/sample_q_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/sample_q_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/sample_q_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/sample_q_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/sample_channel_q_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/sample_channel_q_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/sample_channel_q_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/sample_channel_q_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/byte_ct_q</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/new_sample_q</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2973" delta="old" >All outputs of instance &lt;<arg fmt="%s" index="1">avr_interface/serial_rx</arg>&gt; of block &lt;<arg fmt="%s" index="2">serial_rx</arg>&gt; are unconnected in block &lt;<arg fmt="%s" index="3">mojo_top</arg>&gt;. Underlying logic will be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/spi_slave/dout_q_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/spi_slave/dout_q_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/spi_slave/dout_q_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/spi_slave/dout_q_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/spi_slave/dout_q_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/spi_slave/dout_q_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/spi_slave/dout_q_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/spi_slave/dout_q_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">avr_interface/spi_slave/done_q</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxbitcnt_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxbitcnt_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxbitcnt_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxbitcnt_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxcnt_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxcnt_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxcnt_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxcnt_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxcnt_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxcnt_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxcnt_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxcnt_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxcnt_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxsr_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxsr_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxsr_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxsr_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxsr_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxsr_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxsr_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxsr_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxd_sr_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxd_sr_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxd_sr_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart/rxd_sr_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">tx_uart_data_3</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">mojo_top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">tx_uart_data_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;uart_counter_0&gt; </arg>
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">tx_uart_data_1</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">mojo_top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;uart_counter_1&gt; </arg>
+</msg>
+
+</messages>
+

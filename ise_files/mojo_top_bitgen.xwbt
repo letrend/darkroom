@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/letrend/workspace/darkroom/ise_files/mojo_top.ncd
+OUTFILE=/home/letrend/workspace/darkroom/ise_files/mojo_top.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=/home/letrend/workspace/darkroom/ise_files
+LICENSE=WebPack
+USER_INFO=211279219_0_0_813
