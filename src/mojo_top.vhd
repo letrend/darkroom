@@ -1,10 +1,3 @@
-----------------------------------------------------------------------------------
--- Mojo_top VHDL
--- Translated from Mojo-base Verilog project @ http://embeddedmicro.com/frontend/files/userfiles/files/Mojo-Base.zip
--- by Xark
---
-----------------------------------------------------------------------------------
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
@@ -53,6 +46,8 @@ signal data_to_send		: std_logic;					-- indicates data to send in uart_data
 
 -- signals for sample test
 signal temp_timer		: std_logic_vector(31 downto 0);
+signal clk_10Mhz		: std_logic;
+signal clk_FB			: std_logic;
 signal tx_uart_block		: std_logic;
 signal tx_uart_busy		: std_logic;
 signal tx_uart_newData	: std_logic;
@@ -107,9 +102,16 @@ avr_interface : entity work.avr_interface
 		rx_data		=> rx_data			-- received data (only when new_tx_data = '1')
 	);
 
+clock10MHz: entity work.clk10MHz
+port map(
+		clk 	=> clk,
+		rst	=> rst,
+		clk_out 	=> clk_10Mhz
+	);
+
 counter: entity work.counter
 	port map(
-		clock 	=> clk,
+		clock 	=> clk_10Mhz,
 		output 	=> temp_timer
 	);
 
@@ -121,9 +123,11 @@ sweep_counter: entity work.counter
 	
 lighthouse: entity work.lighthouse
 	port map(
-		sensor		=> sensor,
+		clk 			=> clk,
+		sensor	 	=> sensor,
 		timer			=> temp_timer,
-		sweep_detected => sweep_detected
+		sweep_detected => sweep_detected,
+		sensor_value => sweep_value
 	);
 	
 uart: entity work.RS232
@@ -145,21 +149,21 @@ begin
 		tx_uart_newData <= '0';
 		if(tx_uart_busy = '0') and (uart_counter < 4) then -- if uart not busy and not all data was sent
 			case uart_counter is
-			  when 0      =>  tx_uart_data <= std_logic_vector(to_unsigned(65,8));--sweep_value(7 downto 0);
-			  when 1      =>  tx_uart_data <= std_logic_vector(to_unsigned(66,8));--sweep_value(15 downto 8);
-			  when 2		  =>  tx_uart_data <= std_logic_vector(to_unsigned(67,8));--sweep_value(23 downto 16);
-			  when 3		  =>  tx_uart_data <= std_logic_vector(to_unsigned(68,8));--sweep_value(31 downto 24);
+			  when 0      =>  tx_uart_data <= sweep_value(7 downto 0);--std_logic_vector(to_unsigned(65,8));--;
+			  when 1      =>  tx_uart_data <= sweep_value(15 downto 8);--std_logic_vector(to_unsigned(66,8));--sweep_value(15 downto 8);
+			  when 2		  =>  tx_uart_data <= sweep_value(23 downto 16);--std_logic_vector(to_unsigned(67,8));--sweep_value(23 downto 16);
+			  when 3		  =>  tx_uart_data <= sweep_value(31 downto 24);--std_logic_vector(to_unsigned(68,8));--sweep_value(31 downto 24);
 			  when others 	  => 	tx_uart_data <= "11111111";
 			end case;
 			tx_uart_newData <= '1';
 			uart_counter <= uart_counter + 1;	
-		elsif (uart_counter >= 4) and (temp_timer(16) = '1') then  -- if all data was sent and there is new data available
+		elsif (uart_counter >= 4) and (sweep_detected = '1') then  -- if all data was sent and there is new data available
 			uart_counter <= 0; 
 			esp_newData <= '0';
 		elsif (uart_counter >= 4) then
 			esp_newData <= '1'; -- active low
 		end if;
-		led <= temp_timer(26 downto 19);
+		led <= sweep_count(7 downto 0);
 	end if;
 end process darkroom;
 	

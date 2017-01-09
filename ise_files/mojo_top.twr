@@ -30,21 +30,21 @@ INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on
 Timing constraint: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
 For more information, see Period Analysis in the Timing Closure User Guide (UG612).
 
- 1632 paths analyzed, 442 endpoints analyzed, 0 failing endpoints
+ 44755833 paths analyzed, 1159 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is   4.402ns.
+ Minimum period is  19.067ns.
 --------------------------------------------------------------------------------
 
-Paths for end point uart/txcnt_8_1 (SLICE_X9Y26.BX), 90 paths
+Paths for end point lighthouse/lighthouse (SLICE_X16Y33.B2), 13450500 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     15.598ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               uart/txcnt_1 (FF)
-  Destination:          uart/txcnt_8_1 (FF)
+Slack (setup path):     0.933ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               lighthouse/t_0_0 (FF)
+  Destination:          lighthouse/lighthouse (FF)
   Requirement:          20.000ns
-  Data Path Delay:      4.356ns (Levels of Logic = 5)
-  Clock Path Skew:      -0.011ns (0.189 - 0.200)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Data Path Delay:      19.002ns (Levels of Logic = 20)
+  Clock Path Skew:      -0.030ns (0.688 - 0.718)
+  Source Clock:         clk_IBUFG_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 20.000ns
   Clock Uncertainty:    0.035ns
 
   Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
@@ -53,43 +53,184 @@ Slack (setup path):     15.598ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: uart/txcnt_1 to uart/txcnt_8_1
+  Maximum Data Path at Slow Process Corner: lighthouse/t_0_0 to lighthouse/lighthouse
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X8Y26.BQ       Tcko                  0.525   uart/txcnt<3>
-                                                       uart/txcnt_1
-    SLICE_X9Y26.A4       net (fanout=3)        1.001   uart/txcnt<1>
-    SLICE_X9Y26.A        Tilo                  0.259   uart/txcnt_8_1
-                                                       uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv11_1
-    SLICE_X9Y26.B6       net (fanout=2)        0.150   uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv11
-    SLICE_X9Y26.B        Tilo                  0.259   uart/txcnt_8_1
-                                                       uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv12
-    SLICE_X8Y26.AX       net (fanout=1)        0.757   uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv
-    SLICE_X8Y26.COUT     Taxcy                 0.259   uart/txcnt<3>
-                                                       uart/Mcount_txcnt_cy<3>
-    SLICE_X8Y27.CIN      net (fanout=1)        0.003   uart/Mcount_txcnt_cy<3>
-    SLICE_X8Y27.COUT     Tbyp                  0.093   uart/txcnt<7>
-                                                       uart/Mcount_txcnt_cy<7>
-    SLICE_X8Y28.CIN      net (fanout=1)        0.003   uart/Mcount_txcnt_cy<7>
-    SLICE_X8Y28.AMUX     Tcina                 0.220   uart/Mcount_txcnt8
-                                                       uart/Mcount_txcnt_xor<8>
-    SLICE_X9Y26.BX       net (fanout=2)        0.713   uart/Mcount_txcnt8
-    SLICE_X9Y26.CLK      Tdick                 0.114   uart/txcnt_8_1
-                                                       uart/txcnt_8_1
+    SLICE_X18Y29.AQ      Tcko                  0.476   lighthouse/t_0<3>
+                                                       lighthouse/t_0_0
+    SLICE_X6Y28.A4       net (fanout=8)        1.277   lighthouse/t_0<0>
+    SLICE_X6Y28.COUT     Topcya                0.472   lighthouse/Msub_n0113_Madd_cy<3>
+                                                       lighthouse/Msub_n0113_Madd_lut<0>
+                                                       lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<7>
+                                                       lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<11>
+                                                       lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<15>
+                                                       lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.CIN      net (fanout=1)        0.135   lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<19>
+                                                       lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<23>
+                                                       lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<27>
+                                                       lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.DMUX     Tcind                 0.289   lighthouse/sensor_previous
+                                                       lighthouse/Msub_n0113_Madd_xor<31>
+    SLICE_X10Y31.B2      net (fanout=28)       1.955   lighthouse/n0113<31>
+    SLICE_X10Y31.BMUX    Topbb                 0.529   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_lut<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C2      net (fanout=39)       6.165   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C       Tilo                  0.235   lighthouse/stop_valid_sync<2>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT121
+    SLICE_X20Y29.B3      net (fanout=2)        1.013   lighthouse/stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT<1>
+    SLICE_X20Y29.BMUX    Tilo                  0.326   lighthouse/n0126<3>
+                                                       lighthouse/Msub_n0126_Madd1
+    SLICE_X20Y29.C5      net (fanout=2)        0.442   lighthouse/Msub_n0126_Madd1
+    SLICE_X20Y29.COUT    Topcyc                0.328   lighthouse/n0126<3>
+                                                       lighthouse/Msub_n0126_Madd_lut<0>2
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_2
+    SLICE_X20Y30.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>3
+    SLICE_X20Y30.COUT    Tbyp                  0.093   lighthouse/n0126<7>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_6
+    SLICE_X20Y31.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>7
+    SLICE_X20Y31.COUT    Tbyp                  0.093   lighthouse/n0126<11>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_10
+    SLICE_X20Y32.CIN     net (fanout=1)        0.135   lighthouse/Msub_n0126_Madd_cy<0>11
+    SLICE_X20Y32.COUT    Tbyp                  0.093   lighthouse/n0126<15>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_14
+    SLICE_X20Y33.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>15
+    SLICE_X20Y33.COUT    Tbyp                  0.093   lighthouse/n0126<19>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_18
+    SLICE_X20Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>19
+    SLICE_X20Y34.COUT    Tbyp                  0.093   lighthouse/n0126<23>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_22
+    SLICE_X20Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>23
+    SLICE_X20Y35.DQ      Tito_logic            0.798   lighthouse/n0126<27>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_26
+                                                       lighthouse/n0126<27>_rt
+    SLICE_X22Y31.B1      net (fanout=2)        1.291   lighthouse/n0126<27>
+    SLICE_X22Y31.CMUX    Topbc                 0.601   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_23_o_cy<6>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_23_o_lut<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_23_o_cy<6>
+    SLICE_X16Y33.B2      net (fanout=1)        1.152   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_23_o_cy<6>
+    SLICE_X16Y33.CLK     Tas                   0.339   lighthouse/lighthouse
+                                                       lighthouse/lighthouse_rstpot
+                                                       lighthouse/lighthouse
     -------------------------------------------------  ---------------------------
-    Total                                      4.356ns (1.729ns logic, 2.627ns route)
-                                                       (39.7% logic, 60.3% route)
+    Total                                     19.002ns (5.404ns logic, 13.598ns route)
+                                                       (28.4% logic, 71.6% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     15.666ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               uart/txcnt_0 (FF)
-  Destination:          uart/txcnt_8_1 (FF)
+Slack (setup path):     0.936ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               counter/temp_3 (FF)
+  Destination:          lighthouse/lighthouse (FF)
   Requirement:          20.000ns
-  Data Path Delay:      4.288ns (Levels of Logic = 5)
-  Clock Path Skew:      -0.011ns (0.189 - 0.200)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Data Path Delay:      18.858ns (Levels of Logic = 20)
+  Clock Path Skew:      1.079ns (1.723 - 0.644)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 20.000ns
+  Clock Uncertainty:    1.285ns
+
+  Clock Uncertainty:          1.285ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.150ns
+
+  Maximum Data Path at Slow Process Corner: counter/temp_3 to lighthouse/lighthouse
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y30.DQ       Tcko                  0.525   counter/temp<3>
+                                                       counter/temp_3
+    SLICE_X6Y28.D2       net (fanout=4)        1.266   counter/temp<3>
+    SLICE_X6Y28.COUT     Topcyd                0.290   lighthouse/Msub_n0113_Madd_cy<3>
+                                                       lighthouse/Msub_n0113_Madd_lut<3>
+                                                       lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<7>
+                                                       lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<11>
+                                                       lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<15>
+                                                       lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.CIN      net (fanout=1)        0.135   lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<19>
+                                                       lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<23>
+                                                       lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<27>
+                                                       lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.DMUX     Tcind                 0.289   lighthouse/sensor_previous
+                                                       lighthouse/Msub_n0113_Madd_xor<31>
+    SLICE_X10Y31.B2      net (fanout=28)       1.955   lighthouse/n0113<31>
+    SLICE_X10Y31.BMUX    Topbb                 0.529   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_lut<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C2      net (fanout=39)       6.165   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C       Tilo                  0.235   lighthouse/stop_valid_sync<2>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT121
+    SLICE_X20Y29.B3      net (fanout=2)        1.013   lighthouse/stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT<1>
+    SLICE_X20Y29.BMUX    Tilo                  0.326   lighthouse/n0126<3>
+                                                       lighthouse/Msub_n0126_Madd1
+    SLICE_X20Y29.C5      net (fanout=2)        0.442   lighthouse/Msub_n0126_Madd1
+    SLICE_X20Y29.COUT    Topcyc                0.328   lighthouse/n0126<3>
+                                                       lighthouse/Msub_n0126_Madd_lut<0>2
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_2
+    SLICE_X20Y30.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>3
+    SLICE_X20Y30.COUT    Tbyp                  0.093   lighthouse/n0126<7>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_6
+    SLICE_X20Y31.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>7
+    SLICE_X20Y31.COUT    Tbyp                  0.093   lighthouse/n0126<11>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_10
+    SLICE_X20Y32.CIN     net (fanout=1)        0.135   lighthouse/Msub_n0126_Madd_cy<0>11
+    SLICE_X20Y32.COUT    Tbyp                  0.093   lighthouse/n0126<15>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_14
+    SLICE_X20Y33.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>15
+    SLICE_X20Y33.COUT    Tbyp                  0.093   lighthouse/n0126<19>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_18
+    SLICE_X20Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>19
+    SLICE_X20Y34.COUT    Tbyp                  0.093   lighthouse/n0126<23>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_22
+    SLICE_X20Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>23
+    SLICE_X20Y35.DQ      Tito_logic            0.798   lighthouse/n0126<27>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_26
+                                                       lighthouse/n0126<27>_rt
+    SLICE_X22Y31.B1      net (fanout=2)        1.291   lighthouse/n0126<27>
+    SLICE_X22Y31.CMUX    Topbc                 0.601   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_23_o_cy<6>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_23_o_lut<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_23_o_cy<6>
+    SLICE_X16Y33.B2      net (fanout=1)        1.152   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_23_o_cy<6>
+    SLICE_X16Y33.CLK     Tas                   0.339   lighthouse/lighthouse
+                                                       lighthouse/lighthouse_rstpot
+                                                       lighthouse/lighthouse
+    -------------------------------------------------  ---------------------------
+    Total                                     18.858ns (5.271ns logic, 13.587ns route)
+                                                       (28.0% logic, 72.0% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.965ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               lighthouse/t_0_0 (FF)
+  Destination:          lighthouse/lighthouse (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      18.970ns (Levels of Logic = 20)
+  Clock Path Skew:      -0.030ns (0.688 - 0.718)
+  Source Clock:         clk_IBUFG_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 20.000ns
   Clock Uncertainty:    0.035ns
 
   Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
@@ -98,43 +239,94 @@ Slack (setup path):     15.666ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: uart/txcnt_0 to uart/txcnt_8_1
+  Maximum Data Path at Slow Process Corner: lighthouse/t_0_0 to lighthouse/lighthouse
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X8Y26.AQ       Tcko                  0.525   uart/txcnt<3>
-                                                       uart/txcnt_0
-    SLICE_X9Y26.A5       net (fanout=3)        0.933   uart/txcnt<0>
-    SLICE_X9Y26.A        Tilo                  0.259   uart/txcnt_8_1
-                                                       uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv11_1
-    SLICE_X9Y26.B6       net (fanout=2)        0.150   uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv11
-    SLICE_X9Y26.B        Tilo                  0.259   uart/txcnt_8_1
-                                                       uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv12
-    SLICE_X8Y26.AX       net (fanout=1)        0.757   uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv
-    SLICE_X8Y26.COUT     Taxcy                 0.259   uart/txcnt<3>
-                                                       uart/Mcount_txcnt_cy<3>
-    SLICE_X8Y27.CIN      net (fanout=1)        0.003   uart/Mcount_txcnt_cy<3>
-    SLICE_X8Y27.COUT     Tbyp                  0.093   uart/txcnt<7>
-                                                       uart/Mcount_txcnt_cy<7>
-    SLICE_X8Y28.CIN      net (fanout=1)        0.003   uart/Mcount_txcnt_cy<7>
-    SLICE_X8Y28.AMUX     Tcina                 0.220   uart/Mcount_txcnt8
-                                                       uart/Mcount_txcnt_xor<8>
-    SLICE_X9Y26.BX       net (fanout=2)        0.713   uart/Mcount_txcnt8
-    SLICE_X9Y26.CLK      Tdick                 0.114   uart/txcnt_8_1
-                                                       uart/txcnt_8_1
+    SLICE_X18Y29.AQ      Tcko                  0.476   lighthouse/t_0<3>
+                                                       lighthouse/t_0_0
+    SLICE_X6Y28.A4       net (fanout=8)        1.277   lighthouse/t_0<0>
+    SLICE_X6Y28.COUT     Topcya                0.472   lighthouse/Msub_n0113_Madd_cy<3>
+                                                       lighthouse/Msub_n0113_Madd_lut<0>
+                                                       lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<7>
+                                                       lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<11>
+                                                       lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<15>
+                                                       lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.CIN      net (fanout=1)        0.135   lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<19>
+                                                       lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<23>
+                                                       lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<27>
+                                                       lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.DMUX     Tcind                 0.289   lighthouse/sensor_previous
+                                                       lighthouse/Msub_n0113_Madd_xor<31>
+    SLICE_X10Y31.B2      net (fanout=28)       1.955   lighthouse/n0113<31>
+    SLICE_X10Y31.BMUX    Topbb                 0.497   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_lutdi5
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C2      net (fanout=39)       6.165   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C       Tilo                  0.235   lighthouse/stop_valid_sync<2>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT121
+    SLICE_X20Y29.B3      net (fanout=2)        1.013   lighthouse/stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT<1>
+    SLICE_X20Y29.BMUX    Tilo                  0.326   lighthouse/n0126<3>
+                                                       lighthouse/Msub_n0126_Madd1
+    SLICE_X20Y29.C5      net (fanout=2)        0.442   lighthouse/Msub_n0126_Madd1
+    SLICE_X20Y29.COUT    Topcyc                0.328   lighthouse/n0126<3>
+                                                       lighthouse/Msub_n0126_Madd_lut<0>2
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_2
+    SLICE_X20Y30.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>3
+    SLICE_X20Y30.COUT    Tbyp                  0.093   lighthouse/n0126<7>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_6
+    SLICE_X20Y31.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>7
+    SLICE_X20Y31.COUT    Tbyp                  0.093   lighthouse/n0126<11>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_10
+    SLICE_X20Y32.CIN     net (fanout=1)        0.135   lighthouse/Msub_n0126_Madd_cy<0>11
+    SLICE_X20Y32.COUT    Tbyp                  0.093   lighthouse/n0126<15>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_14
+    SLICE_X20Y33.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>15
+    SLICE_X20Y33.COUT    Tbyp                  0.093   lighthouse/n0126<19>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_18
+    SLICE_X20Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>19
+    SLICE_X20Y34.COUT    Tbyp                  0.093   lighthouse/n0126<23>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_22
+    SLICE_X20Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>23
+    SLICE_X20Y35.DQ      Tito_logic            0.798   lighthouse/n0126<27>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_26
+                                                       lighthouse/n0126<27>_rt
+    SLICE_X22Y31.B1      net (fanout=2)        1.291   lighthouse/n0126<27>
+    SLICE_X22Y31.CMUX    Topbc                 0.601   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_23_o_cy<6>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_23_o_lut<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_23_o_cy<6>
+    SLICE_X16Y33.B2      net (fanout=1)        1.152   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_23_o_cy<6>
+    SLICE_X16Y33.CLK     Tas                   0.339   lighthouse/lighthouse
+                                                       lighthouse/lighthouse_rstpot
+                                                       lighthouse/lighthouse
     -------------------------------------------------  ---------------------------
-    Total                                      4.288ns (1.729ns logic, 2.559ns route)
-                                                       (40.3% logic, 59.7% route)
+    Total                                     18.970ns (5.372ns logic, 13.598ns route)
+                                                       (28.3% logic, 71.7% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     15.693ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               uart/txcnt_5 (FF)
-  Destination:          uart/txcnt_8_1 (FF)
+
+Paths for end point lighthouse/lighthouse (SLICE_X16Y33.B6), 13986000 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     1.709ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               lighthouse/t_0_0 (FF)
+  Destination:          lighthouse/lighthouse (FF)
   Requirement:          20.000ns
-  Data Path Delay:      4.258ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.014ns (0.189 - 0.203)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Data Path Delay:      18.226ns (Levels of Logic = 21)
+  Clock Path Skew:      -0.030ns (0.688 - 0.718)
+  Source Clock:         clk_IBUFG_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 20.000ns
   Clock Uncertainty:    0.035ns
 
   Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
@@ -143,44 +335,190 @@ Slack (setup path):     15.693ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: uart/txcnt_5 to uart/txcnt_8_1
+  Maximum Data Path at Slow Process Corner: lighthouse/t_0_0 to lighthouse/lighthouse
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X8Y27.BQ       Tcko                  0.525   uart/txcnt<7>
-                                                       uart/txcnt_5
-    SLICE_X8Y25.B3       net (fanout=3)        1.058   uart/txcnt<5>
-    SLICE_X8Y25.B        Tilo                  0.254   uart/txbitcnt<3>
-                                                       uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv11
-    SLICE_X8Y26.B3       net (fanout=21)       0.792   uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv1
-    SLICE_X8Y26.COUT     Topcyb                0.483   uart/txcnt<3>
-                                                       uart/Mcount_txcnt_lut<1>
-                                                       uart/Mcount_txcnt_cy<3>
-    SLICE_X8Y27.CIN      net (fanout=1)        0.003   uart/Mcount_txcnt_cy<3>
-    SLICE_X8Y27.COUT     Tbyp                  0.093   uart/txcnt<7>
-                                                       uart/Mcount_txcnt_cy<7>
-    SLICE_X8Y28.CIN      net (fanout=1)        0.003   uart/Mcount_txcnt_cy<7>
-    SLICE_X8Y28.AMUX     Tcina                 0.220   uart/Mcount_txcnt8
-                                                       uart/Mcount_txcnt_xor<8>
-    SLICE_X9Y26.BX       net (fanout=2)        0.713   uart/Mcount_txcnt8
-    SLICE_X9Y26.CLK      Tdick                 0.114   uart/txcnt_8_1
-                                                       uart/txcnt_8_1
+    SLICE_X18Y29.AQ      Tcko                  0.476   lighthouse/t_0<3>
+                                                       lighthouse/t_0_0
+    SLICE_X6Y28.A4       net (fanout=8)        1.277   lighthouse/t_0<0>
+    SLICE_X6Y28.COUT     Topcya                0.472   lighthouse/Msub_n0113_Madd_cy<3>
+                                                       lighthouse/Msub_n0113_Madd_lut<0>
+                                                       lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<7>
+                                                       lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<11>
+                                                       lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<15>
+                                                       lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.CIN      net (fanout=1)        0.135   lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<19>
+                                                       lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<23>
+                                                       lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<27>
+                                                       lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.DMUX     Tcind                 0.289   lighthouse/sensor_previous
+                                                       lighthouse/Msub_n0113_Madd_xor<31>
+    SLICE_X10Y31.B2      net (fanout=28)       1.955   lighthouse/n0113<31>
+    SLICE_X10Y31.BMUX    Topbb                 0.529   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_lut<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C2      net (fanout=39)       6.165   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C       Tilo                  0.235   lighthouse/stop_valid_sync<2>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT121
+    SLICE_X20Y29.B3      net (fanout=2)        1.013   lighthouse/stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT<1>
+    SLICE_X20Y29.BMUX    Tilo                  0.326   lighthouse/n0126<3>
+                                                       lighthouse/Msub_n0126_Madd1
+    SLICE_X20Y29.C5      net (fanout=2)        0.442   lighthouse/Msub_n0126_Madd1
+    SLICE_X20Y29.COUT    Topcyc                0.328   lighthouse/n0126<3>
+                                                       lighthouse/Msub_n0126_Madd_lut<0>2
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_2
+    SLICE_X20Y30.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>3
+    SLICE_X20Y30.COUT    Tbyp                  0.093   lighthouse/n0126<7>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_6
+    SLICE_X20Y31.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>7
+    SLICE_X20Y31.COUT    Tbyp                  0.093   lighthouse/n0126<11>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_10
+    SLICE_X20Y32.CIN     net (fanout=1)        0.135   lighthouse/Msub_n0126_Madd_cy<0>11
+    SLICE_X20Y32.COUT    Tbyp                  0.093   lighthouse/n0126<15>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_14
+    SLICE_X20Y33.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>15
+    SLICE_X20Y33.COUT    Tbyp                  0.093   lighthouse/n0126<19>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_18
+    SLICE_X20Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>19
+    SLICE_X20Y34.COUT    Tbyp                  0.093   lighthouse/n0126<23>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_22
+    SLICE_X20Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>23
+    SLICE_X20Y35.COUT    Tbyp                  0.093   lighthouse/n0126<27>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_26
+    SLICE_X20Y36.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>27
+    SLICE_X20Y36.AQ      Tito_logic            0.698   lighthouse/n0126<29>
+                                                       lighthouse/Msub_n0126_Madd_xor<0>_30
+                                                       lighthouse/n0126<28>_rt
+    SLICE_X22Y33.B2      net (fanout=2)        1.005   lighthouse/n0126<28>
+    SLICE_X22Y33.BMUX    Topbb                 0.529   lighthouse/Mcompar_PWR_24_o_GND_28_o_LessThan_25_o_cy<5>
+                                                       lighthouse/Mcompar_PWR_24_o_GND_28_o_LessThan_25_o_lut<5>
+                                                       lighthouse/Mcompar_PWR_24_o_GND_28_o_LessThan_25_o_cy<5>
+    SLICE_X16Y33.B6      net (fanout=1)        0.738   lighthouse/Mcompar_PWR_24_o_GND_28_o_LessThan_25_o_cy<5>
+    SLICE_X16Y33.CLK     Tas                   0.339   lighthouse/lighthouse
+                                                       lighthouse/lighthouse_rstpot
+                                                       lighthouse/lighthouse
     -------------------------------------------------  ---------------------------
-    Total                                      4.258ns (1.689ns logic, 2.569ns route)
-                                                       (39.7% logic, 60.3% route)
+    Total                                     18.226ns (5.325ns logic, 12.901ns route)
+                                                       (29.2% logic, 70.8% route)
 
 --------------------------------------------------------------------------------
-
-Paths for end point esp_newData (SLICE_X9Y21.SR), 2 paths
---------------------------------------------------------------------------------
-Slack (setup path):     15.762ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               counter/temp_16 (FF)
-  Destination:          esp_newData (FF)
+Slack (setup path):     1.712ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               counter/temp_3 (FF)
+  Destination:          lighthouse/lighthouse (FF)
   Requirement:          20.000ns
-  Data Path Delay:      4.109ns (Levels of Logic = 1)
-  Clock Path Skew:      -0.094ns (0.710 - 0.804)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Data Path Delay:      18.082ns (Levels of Logic = 21)
+  Clock Path Skew:      1.079ns (1.723 - 0.644)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 20.000ns
+  Clock Uncertainty:    1.285ns
+
+  Clock Uncertainty:          1.285ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.150ns
+
+  Maximum Data Path at Slow Process Corner: counter/temp_3 to lighthouse/lighthouse
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y30.DQ       Tcko                  0.525   counter/temp<3>
+                                                       counter/temp_3
+    SLICE_X6Y28.D2       net (fanout=4)        1.266   counter/temp<3>
+    SLICE_X6Y28.COUT     Topcyd                0.290   lighthouse/Msub_n0113_Madd_cy<3>
+                                                       lighthouse/Msub_n0113_Madd_lut<3>
+                                                       lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<7>
+                                                       lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<11>
+                                                       lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<15>
+                                                       lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.CIN      net (fanout=1)        0.135   lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<19>
+                                                       lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<23>
+                                                       lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<27>
+                                                       lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.DMUX     Tcind                 0.289   lighthouse/sensor_previous
+                                                       lighthouse/Msub_n0113_Madd_xor<31>
+    SLICE_X10Y31.B2      net (fanout=28)       1.955   lighthouse/n0113<31>
+    SLICE_X10Y31.BMUX    Topbb                 0.529   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_lut<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C2      net (fanout=39)       6.165   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C       Tilo                  0.235   lighthouse/stop_valid_sync<2>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT121
+    SLICE_X20Y29.B3      net (fanout=2)        1.013   lighthouse/stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT<1>
+    SLICE_X20Y29.BMUX    Tilo                  0.326   lighthouse/n0126<3>
+                                                       lighthouse/Msub_n0126_Madd1
+    SLICE_X20Y29.C5      net (fanout=2)        0.442   lighthouse/Msub_n0126_Madd1
+    SLICE_X20Y29.COUT    Topcyc                0.328   lighthouse/n0126<3>
+                                                       lighthouse/Msub_n0126_Madd_lut<0>2
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_2
+    SLICE_X20Y30.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>3
+    SLICE_X20Y30.COUT    Tbyp                  0.093   lighthouse/n0126<7>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_6
+    SLICE_X20Y31.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>7
+    SLICE_X20Y31.COUT    Tbyp                  0.093   lighthouse/n0126<11>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_10
+    SLICE_X20Y32.CIN     net (fanout=1)        0.135   lighthouse/Msub_n0126_Madd_cy<0>11
+    SLICE_X20Y32.COUT    Tbyp                  0.093   lighthouse/n0126<15>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_14
+    SLICE_X20Y33.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>15
+    SLICE_X20Y33.COUT    Tbyp                  0.093   lighthouse/n0126<19>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_18
+    SLICE_X20Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>19
+    SLICE_X20Y34.COUT    Tbyp                  0.093   lighthouse/n0126<23>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_22
+    SLICE_X20Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>23
+    SLICE_X20Y35.COUT    Tbyp                  0.093   lighthouse/n0126<27>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_26
+    SLICE_X20Y36.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>27
+    SLICE_X20Y36.AQ      Tito_logic            0.698   lighthouse/n0126<29>
+                                                       lighthouse/Msub_n0126_Madd_xor<0>_30
+                                                       lighthouse/n0126<28>_rt
+    SLICE_X22Y33.B2      net (fanout=2)        1.005   lighthouse/n0126<28>
+    SLICE_X22Y33.BMUX    Topbb                 0.529   lighthouse/Mcompar_PWR_24_o_GND_28_o_LessThan_25_o_cy<5>
+                                                       lighthouse/Mcompar_PWR_24_o_GND_28_o_LessThan_25_o_lut<5>
+                                                       lighthouse/Mcompar_PWR_24_o_GND_28_o_LessThan_25_o_cy<5>
+    SLICE_X16Y33.B6      net (fanout=1)        0.738   lighthouse/Mcompar_PWR_24_o_GND_28_o_LessThan_25_o_cy<5>
+    SLICE_X16Y33.CLK     Tas                   0.339   lighthouse/lighthouse
+                                                       lighthouse/lighthouse_rstpot
+                                                       lighthouse/lighthouse
+    -------------------------------------------------  ---------------------------
+    Total                                     18.082ns (5.192ns logic, 12.890ns route)
+                                                       (28.7% logic, 71.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     1.741ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               lighthouse/t_0_0 (FF)
+  Destination:          lighthouse/lighthouse (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      18.194ns (Levels of Logic = 21)
+  Clock Path Skew:      -0.030ns (0.688 - 0.718)
+  Source Clock:         clk_IBUFG_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 20.000ns
   Clock Uncertainty:    0.035ns
 
   Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
@@ -189,31 +527,169 @@ Slack (setup path):     15.762ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: counter/temp_16 to esp_newData
+  Maximum Data Path at Slow Process Corner: lighthouse/t_0_0 to lighthouse/lighthouse
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X10Y52.AQ      Tcko                  0.476   counter/temp<19>
-                                                       counter/temp_16
-    SLICE_X8Y22.D5       net (fanout=2)        2.407   counter/temp<16>
-    SLICE_X8Y22.D        Tilo                  0.254   _n0035
-                                                       _n00351
-    SLICE_X9Y21.SR       net (fanout=2)        0.562   _n0035
-    SLICE_X9Y21.CLK      Tsrck                 0.410   esp_newData_OBUF
-                                                       esp_newData
+    SLICE_X18Y29.AQ      Tcko                  0.476   lighthouse/t_0<3>
+                                                       lighthouse/t_0_0
+    SLICE_X6Y28.A4       net (fanout=8)        1.277   lighthouse/t_0<0>
+    SLICE_X6Y28.COUT     Topcya                0.472   lighthouse/Msub_n0113_Madd_cy<3>
+                                                       lighthouse/Msub_n0113_Madd_lut<0>
+                                                       lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<7>
+                                                       lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<11>
+                                                       lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<15>
+                                                       lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.CIN      net (fanout=1)        0.135   lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<19>
+                                                       lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<23>
+                                                       lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<27>
+                                                       lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.DMUX     Tcind                 0.289   lighthouse/sensor_previous
+                                                       lighthouse/Msub_n0113_Madd_xor<31>
+    SLICE_X10Y31.B2      net (fanout=28)       1.955   lighthouse/n0113<31>
+    SLICE_X10Y31.BMUX    Topbb                 0.497   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_lutdi5
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C2      net (fanout=39)       6.165   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C       Tilo                  0.235   lighthouse/stop_valid_sync<2>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT121
+    SLICE_X20Y29.B3      net (fanout=2)        1.013   lighthouse/stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT<1>
+    SLICE_X20Y29.BMUX    Tilo                  0.326   lighthouse/n0126<3>
+                                                       lighthouse/Msub_n0126_Madd1
+    SLICE_X20Y29.C5      net (fanout=2)        0.442   lighthouse/Msub_n0126_Madd1
+    SLICE_X20Y29.COUT    Topcyc                0.328   lighthouse/n0126<3>
+                                                       lighthouse/Msub_n0126_Madd_lut<0>2
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_2
+    SLICE_X20Y30.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>3
+    SLICE_X20Y30.COUT    Tbyp                  0.093   lighthouse/n0126<7>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_6
+    SLICE_X20Y31.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>7
+    SLICE_X20Y31.COUT    Tbyp                  0.093   lighthouse/n0126<11>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_10
+    SLICE_X20Y32.CIN     net (fanout=1)        0.135   lighthouse/Msub_n0126_Madd_cy<0>11
+    SLICE_X20Y32.COUT    Tbyp                  0.093   lighthouse/n0126<15>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_14
+    SLICE_X20Y33.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>15
+    SLICE_X20Y33.COUT    Tbyp                  0.093   lighthouse/n0126<19>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_18
+    SLICE_X20Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>19
+    SLICE_X20Y34.COUT    Tbyp                  0.093   lighthouse/n0126<23>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_22
+    SLICE_X20Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>23
+    SLICE_X20Y35.COUT    Tbyp                  0.093   lighthouse/n0126<27>
+                                                       lighthouse/Msub_n0126_Madd_cy<0>_26
+    SLICE_X20Y36.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0126_Madd_cy<0>27
+    SLICE_X20Y36.AQ      Tito_logic            0.698   lighthouse/n0126<29>
+                                                       lighthouse/Msub_n0126_Madd_xor<0>_30
+                                                       lighthouse/n0126<28>_rt
+    SLICE_X22Y33.B2      net (fanout=2)        1.005   lighthouse/n0126<28>
+    SLICE_X22Y33.BMUX    Topbb                 0.529   lighthouse/Mcompar_PWR_24_o_GND_28_o_LessThan_25_o_cy<5>
+                                                       lighthouse/Mcompar_PWR_24_o_GND_28_o_LessThan_25_o_lut<5>
+                                                       lighthouse/Mcompar_PWR_24_o_GND_28_o_LessThan_25_o_cy<5>
+    SLICE_X16Y33.B6      net (fanout=1)        0.738   lighthouse/Mcompar_PWR_24_o_GND_28_o_LessThan_25_o_cy<5>
+    SLICE_X16Y33.CLK     Tas                   0.339   lighthouse/lighthouse
+                                                       lighthouse/lighthouse_rstpot
+                                                       lighthouse/lighthouse
     -------------------------------------------------  ---------------------------
-    Total                                      4.109ns (1.140ns logic, 2.969ns route)
-                                                       (27.7% logic, 72.3% route)
+    Total                                     18.194ns (5.293ns logic, 12.901ns route)
+                                                       (29.1% logic, 70.9% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     17.518ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               uart_counter_2 (FF)
-  Destination:          esp_newData (FF)
+
+Paths for end point lighthouse/start_valid_sync_2 (SLICE_X15Y29.CE), 259845 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     3.747ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               counter/temp_3 (FF)
+  Destination:          lighthouse/start_valid_sync_2 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      2.439ns (Levels of Logic = 1)
-  Clock Path Skew:      -0.008ns (0.189 - 0.197)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Data Path Delay:      16.046ns (Levels of Logic = 13)
+  Clock Path Skew:      1.078ns (1.722 - 0.644)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 20.000ns
+  Clock Uncertainty:    1.285ns
+
+  Clock Uncertainty:          1.285ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.150ns
+
+  Maximum Data Path at Slow Process Corner: counter/temp_3 to lighthouse/start_valid_sync_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y30.DQ       Tcko                  0.525   counter/temp<3>
+                                                       counter/temp_3
+    SLICE_X6Y28.D2       net (fanout=4)        1.266   counter/temp<3>
+    SLICE_X6Y28.COUT     Topcyd                0.290   lighthouse/Msub_n0113_Madd_cy<3>
+                                                       lighthouse/Msub_n0113_Madd_lut<3>
+                                                       lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<7>
+                                                       lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<11>
+                                                       lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<15>
+                                                       lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.CIN      net (fanout=1)        0.135   lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<19>
+                                                       lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<23>
+                                                       lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<27>
+                                                       lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.DMUX     Tcind                 0.289   lighthouse/sensor_previous
+                                                       lighthouse/Msub_n0113_Madd_xor<31>
+    SLICE_X10Y31.B2      net (fanout=28)       1.955   lighthouse/n0113<31>
+    SLICE_X10Y31.BMUX    Topbb                 0.529   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_lut<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C2      net (fanout=39)       6.165   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C       Tilo                  0.235   lighthouse/stop_valid_sync<2>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT121
+    SLICE_X18Y32.A4      net (fanout=2)        1.157   lighthouse/stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT<1>
+    SLICE_X18Y32.COUT    Topcya                0.472   lighthouse/Mcompar_stop_valid_sync[31]_GND_28_o_LessThan_20_o_cy<3>
+                                                       lighthouse/Mcompar_stop_valid_sync[31]_GND_28_o_LessThan_20_o_lut<0>
+                                                       lighthouse/Mcompar_stop_valid_sync[31]_GND_28_o_LessThan_20_o_cy<3>
+    SLICE_X18Y33.CIN     net (fanout=1)        0.003   lighthouse/Mcompar_stop_valid_sync[31]_GND_28_o_LessThan_20_o_cy<3>
+    SLICE_X18Y33.CMUX    Tcinc                 0.296   lighthouse/_n0272_inv1
+                                                       lighthouse/_n0272_inv11_cy
+    SLICE_X16Y33.D4      net (fanout=2)        0.544   lighthouse/Mcompar_stop_valid_sync[31]_GND_28_o_LessThan_20_o_cy<6>
+    SLICE_X16Y33.D       Tilo                  0.254   lighthouse/lighthouse
+                                                       lighthouse/_n0272_inv3
+    SLICE_X15Y29.CE      net (fanout=8)        0.959   lighthouse/_n0272_inv
+    SLICE_X15Y29.CLK     Tceck                 0.408   lighthouse/start_valid_sync<3>
+                                                       lighthouse/start_valid_sync_2
+    -------------------------------------------------  ---------------------------
+    Total                                     16.046ns (3.844ns logic, 12.202ns route)
+                                                       (24.0% logic, 76.0% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     3.756ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               lighthouse/t_0_0 (FF)
+  Destination:          lighthouse/start_valid_sync_2 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      16.190ns (Levels of Logic = 13)
+  Clock Path Skew:      -0.019ns (0.294 - 0.313)
+  Source Clock:         clk_IBUFG_BUFG rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 20.000ns
   Clock Uncertainty:    0.035ns
 
   Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
@@ -222,275 +698,1147 @@ Slack (setup path):     17.518ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: uart_counter_2 to esp_newData
+  Maximum Data Path at Slow Process Corner: lighthouse/t_0_0 to lighthouse/start_valid_sync_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X8Y22.DMUX     Tshcko                0.576   _n0035
-                                                       uart_counter_2
-    SLICE_X8Y22.D1       net (fanout=5)        0.637   uart_counter<2>
-    SLICE_X8Y22.D        Tilo                  0.254   _n0035
-                                                       _n00351
-    SLICE_X9Y21.SR       net (fanout=2)        0.562   _n0035
-    SLICE_X9Y21.CLK      Tsrck                 0.410   esp_newData_OBUF
-                                                       esp_newData
+    SLICE_X18Y29.AQ      Tcko                  0.476   lighthouse/t_0<3>
+                                                       lighthouse/t_0_0
+    SLICE_X6Y28.A4       net (fanout=8)        1.277   lighthouse/t_0<0>
+    SLICE_X6Y28.COUT     Topcya                0.472   lighthouse/Msub_n0113_Madd_cy<3>
+                                                       lighthouse/Msub_n0113_Madd_lut<0>
+                                                       lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<7>
+                                                       lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<11>
+                                                       lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<15>
+                                                       lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.CIN      net (fanout=1)        0.135   lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<19>
+                                                       lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<23>
+                                                       lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<27>
+                                                       lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.DMUX     Tcind                 0.289   lighthouse/sensor_previous
+                                                       lighthouse/Msub_n0113_Madd_xor<31>
+    SLICE_X10Y31.B2      net (fanout=28)       1.955   lighthouse/n0113<31>
+    SLICE_X10Y31.BMUX    Topbb                 0.529   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_lut<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C2      net (fanout=39)       6.165   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C       Tilo                  0.235   lighthouse/stop_valid_sync<2>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT121
+    SLICE_X18Y32.A4      net (fanout=2)        1.157   lighthouse/stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT<1>
+    SLICE_X18Y32.COUT    Topcya                0.472   lighthouse/Mcompar_stop_valid_sync[31]_GND_28_o_LessThan_20_o_cy<3>
+                                                       lighthouse/Mcompar_stop_valid_sync[31]_GND_28_o_LessThan_20_o_lut<0>
+                                                       lighthouse/Mcompar_stop_valid_sync[31]_GND_28_o_LessThan_20_o_cy<3>
+    SLICE_X18Y33.CIN     net (fanout=1)        0.003   lighthouse/Mcompar_stop_valid_sync[31]_GND_28_o_LessThan_20_o_cy<3>
+    SLICE_X18Y33.CMUX    Tcinc                 0.296   lighthouse/_n0272_inv1
+                                                       lighthouse/_n0272_inv11_cy
+    SLICE_X16Y33.D4      net (fanout=2)        0.544   lighthouse/Mcompar_stop_valid_sync[31]_GND_28_o_LessThan_20_o_cy<6>
+    SLICE_X16Y33.D       Tilo                  0.254   lighthouse/lighthouse
+                                                       lighthouse/_n0272_inv3
+    SLICE_X15Y29.CE      net (fanout=8)        0.959   lighthouse/_n0272_inv
+    SLICE_X15Y29.CLK     Tceck                 0.408   lighthouse/start_valid_sync<3>
+                                                       lighthouse/start_valid_sync_2
     -------------------------------------------------  ---------------------------
-    Total                                      2.439ns (1.240ns logic, 1.199ns route)
-                                                       (50.8% logic, 49.2% route)
+    Total                                     16.190ns (3.977ns logic, 12.213ns route)
+                                                       (24.6% logic, 75.4% route)
 
 --------------------------------------------------------------------------------
-
-Paths for end point uart/txcnt_8 (SLICE_X9Y27.DX), 90 paths
---------------------------------------------------------------------------------
-Slack (setup path):     15.836ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               uart/txcnt_1 (FF)
-  Destination:          uart/txcnt_8 (FF)
+Slack (setup path):     3.779ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               counter/temp_3 (FF)
+  Destination:          lighthouse/start_valid_sync_2 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      4.121ns (Levels of Logic = 5)
-  Clock Path Skew:      -0.008ns (0.192 - 0.200)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
+  Data Path Delay:      16.014ns (Levels of Logic = 13)
+  Clock Path Skew:      1.078ns (1.722 - 0.644)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 20.000ns
+  Clock Uncertainty:    1.285ns
 
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+  Clock Uncertainty:          1.285ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter (TSJ):  0.070ns
     Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.150ns
 
-  Maximum Data Path at Slow Process Corner: uart/txcnt_1 to uart/txcnt_8
+  Maximum Data Path at Slow Process Corner: counter/temp_3 to lighthouse/start_valid_sync_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X8Y26.BQ       Tcko                  0.525   uart/txcnt<3>
-                                                       uart/txcnt_1
-    SLICE_X9Y26.A4       net (fanout=3)        1.001   uart/txcnt<1>
-    SLICE_X9Y26.A        Tilo                  0.259   uart/txcnt_8_1
-                                                       uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv11_1
-    SLICE_X9Y26.B6       net (fanout=2)        0.150   uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv11
-    SLICE_X9Y26.B        Tilo                  0.259   uart/txcnt_8_1
-                                                       uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv12
-    SLICE_X8Y26.AX       net (fanout=1)        0.757   uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv
-    SLICE_X8Y26.COUT     Taxcy                 0.259   uart/txcnt<3>
-                                                       uart/Mcount_txcnt_cy<3>
-    SLICE_X8Y27.CIN      net (fanout=1)        0.003   uart/Mcount_txcnt_cy<3>
-    SLICE_X8Y27.COUT     Tbyp                  0.093   uart/txcnt<7>
-                                                       uart/Mcount_txcnt_cy<7>
-    SLICE_X8Y28.CIN      net (fanout=1)        0.003   uart/Mcount_txcnt_cy<7>
-    SLICE_X8Y28.AMUX     Tcina                 0.220   uart/Mcount_txcnt8
-                                                       uart/Mcount_txcnt_xor<8>
-    SLICE_X9Y27.DX       net (fanout=2)        0.478   uart/Mcount_txcnt8
-    SLICE_X9Y27.CLK      Tdick                 0.114   uart/txcnt<8>
-                                                       uart/txcnt_8
+    SLICE_X8Y30.DQ       Tcko                  0.525   counter/temp<3>
+                                                       counter/temp_3
+    SLICE_X6Y28.D2       net (fanout=4)        1.266   counter/temp<3>
+    SLICE_X6Y28.COUT     Topcyd                0.290   lighthouse/Msub_n0113_Madd_cy<3>
+                                                       lighthouse/Msub_n0113_Madd_lut<3>
+                                                       lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<3>
+    SLICE_X6Y29.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<7>
+                                                       lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X6Y30.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<11>
+                                                       lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<15>
+                                                       lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.CIN      net (fanout=1)        0.135   lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X6Y32.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<19>
+                                                       lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<19>
+    SLICE_X6Y33.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<23>
+                                                       lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X6Y34.COUT     Tbyp                  0.091   lighthouse/Msub_n0113_Madd_cy<27>
+                                                       lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.CIN      net (fanout=1)        0.003   lighthouse/Msub_n0113_Madd_cy<27>
+    SLICE_X6Y35.DMUX     Tcind                 0.289   lighthouse/sensor_previous
+                                                       lighthouse/Msub_n0113_Madd_xor<31>
+    SLICE_X10Y31.B2      net (fanout=28)       1.955   lighthouse/n0113<31>
+    SLICE_X10Y31.BMUX    Topbb                 0.497   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_lutdi5
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C2      net (fanout=39)       6.165   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X18Y28.C       Tilo                  0.235   lighthouse/stop_valid_sync<2>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT121
+    SLICE_X18Y32.A4      net (fanout=2)        1.157   lighthouse/stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT<1>
+    SLICE_X18Y32.COUT    Topcya                0.472   lighthouse/Mcompar_stop_valid_sync[31]_GND_28_o_LessThan_20_o_cy<3>
+                                                       lighthouse/Mcompar_stop_valid_sync[31]_GND_28_o_LessThan_20_o_lut<0>
+                                                       lighthouse/Mcompar_stop_valid_sync[31]_GND_28_o_LessThan_20_o_cy<3>
+    SLICE_X18Y33.CIN     net (fanout=1)        0.003   lighthouse/Mcompar_stop_valid_sync[31]_GND_28_o_LessThan_20_o_cy<3>
+    SLICE_X18Y33.CMUX    Tcinc                 0.296   lighthouse/_n0272_inv1
+                                                       lighthouse/_n0272_inv11_cy
+    SLICE_X16Y33.D4      net (fanout=2)        0.544   lighthouse/Mcompar_stop_valid_sync[31]_GND_28_o_LessThan_20_o_cy<6>
+    SLICE_X16Y33.D       Tilo                  0.254   lighthouse/lighthouse
+                                                       lighthouse/_n0272_inv3
+    SLICE_X15Y29.CE      net (fanout=8)        0.959   lighthouse/_n0272_inv
+    SLICE_X15Y29.CLK     Tceck                 0.408   lighthouse/start_valid_sync<3>
+                                                       lighthouse/start_valid_sync_2
     -------------------------------------------------  ---------------------------
-    Total                                      4.121ns (1.729ns logic, 2.392ns route)
-                                                       (42.0% logic, 58.0% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     15.904ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               uart/txcnt_0 (FF)
-  Destination:          uart/txcnt_8 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.053ns (Levels of Logic = 5)
-  Clock Path Skew:      -0.008ns (0.192 - 0.200)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: uart/txcnt_0 to uart/txcnt_8
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X8Y26.AQ       Tcko                  0.525   uart/txcnt<3>
-                                                       uart/txcnt_0
-    SLICE_X9Y26.A5       net (fanout=3)        0.933   uart/txcnt<0>
-    SLICE_X9Y26.A        Tilo                  0.259   uart/txcnt_8_1
-                                                       uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv11_1
-    SLICE_X9Y26.B6       net (fanout=2)        0.150   uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv11
-    SLICE_X9Y26.B        Tilo                  0.259   uart/txcnt_8_1
-                                                       uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv12
-    SLICE_X8Y26.AX       net (fanout=1)        0.757   uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv
-    SLICE_X8Y26.COUT     Taxcy                 0.259   uart/txcnt<3>
-                                                       uart/Mcount_txcnt_cy<3>
-    SLICE_X8Y27.CIN      net (fanout=1)        0.003   uart/Mcount_txcnt_cy<3>
-    SLICE_X8Y27.COUT     Tbyp                  0.093   uart/txcnt<7>
-                                                       uart/Mcount_txcnt_cy<7>
-    SLICE_X8Y28.CIN      net (fanout=1)        0.003   uart/Mcount_txcnt_cy<7>
-    SLICE_X8Y28.AMUX     Tcina                 0.220   uart/Mcount_txcnt8
-                                                       uart/Mcount_txcnt_xor<8>
-    SLICE_X9Y27.DX       net (fanout=2)        0.478   uart/Mcount_txcnt8
-    SLICE_X9Y27.CLK      Tdick                 0.114   uart/txcnt<8>
-                                                       uart/txcnt_8
-    -------------------------------------------------  ---------------------------
-    Total                                      4.053ns (1.729ns logic, 2.324ns route)
-                                                       (42.7% logic, 57.3% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     15.931ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               uart/txcnt_5 (FF)
-  Destination:          uart/txcnt_8 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      4.023ns (Levels of Logic = 4)
-  Clock Path Skew:      -0.011ns (0.192 - 0.203)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: uart/txcnt_5 to uart/txcnt_8
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X8Y27.BQ       Tcko                  0.525   uart/txcnt<7>
-                                                       uart/txcnt_5
-    SLICE_X8Y25.B3       net (fanout=3)        1.058   uart/txcnt<5>
-    SLICE_X8Y25.B        Tilo                  0.254   uart/txbitcnt<3>
-                                                       uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv11
-    SLICE_X8Y26.B3       net (fanout=21)       0.792   uart/txcnt[8]_PWR_24_o_LessThan_1_o_inv_inv1
-    SLICE_X8Y26.COUT     Topcyb                0.483   uart/txcnt<3>
-                                                       uart/Mcount_txcnt_lut<1>
-                                                       uart/Mcount_txcnt_cy<3>
-    SLICE_X8Y27.CIN      net (fanout=1)        0.003   uart/Mcount_txcnt_cy<3>
-    SLICE_X8Y27.COUT     Tbyp                  0.093   uart/txcnt<7>
-                                                       uart/Mcount_txcnt_cy<7>
-    SLICE_X8Y28.CIN      net (fanout=1)        0.003   uart/Mcount_txcnt_cy<7>
-    SLICE_X8Y28.AMUX     Tcina                 0.220   uart/Mcount_txcnt8
-                                                       uart/Mcount_txcnt_xor<8>
-    SLICE_X9Y27.DX       net (fanout=2)        0.478   uart/Mcount_txcnt8
-    SLICE_X9Y27.CLK      Tdick                 0.114   uart/txcnt<8>
-                                                       uart/txcnt_8
-    -------------------------------------------------  ---------------------------
-    Total                                      4.023ns (1.689ns logic, 2.334ns route)
-                                                       (42.0% logic, 58.0% route)
+    Total                                     16.014ns (3.812ns logic, 12.202ns route)
+                                                       (23.8% logic, 76.2% route)
 
 --------------------------------------------------------------------------------
 
 Hold Paths: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point tx_uart_data_2 (SLICE_X7Y21.B5), 1 path
+Paths for end point lighthouse/stop_valid_sync_20 (SLICE_X19Y33.C3), 1825 paths
 --------------------------------------------------------------------------------
-Slack (hold path):      0.427ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               tx_uart_data_1 (FF)
-  Destination:          tx_uart_data_2 (FF)
+Slack (hold path):      0.003ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               counter/temp_30 (FF)
+  Destination:          lighthouse/stop_valid_sync_20 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.427ns (Levels of Logic = 1)
-  Clock Path Skew:      0.000ns
-  Source Clock:         clk_BUFGP rising at 20.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.000ns
+  Data Path Delay:      2.574ns (Levels of Logic = 3)
+  Clock Path Skew:      1.286ns (1.093 - -0.193)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 0.000ns
+  Clock Uncertainty:    1.285ns
 
-  Minimum Data Path at Fast Process Corner: tx_uart_data_1 to tx_uart_data_2
+  Clock Uncertainty:          1.285ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.150ns
+
+  Minimum Data Path at Fast Process Corner: counter/temp_30 to lighthouse/stop_valid_sync_20
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X7Y21.BQ       Tcko                  0.198   tx_uart_data<1>
-                                                       tx_uart_data_1
-    SLICE_X7Y21.B5       net (fanout=3)        0.074   tx_uart_data<1>
-    SLICE_X7Y21.CLK      Tah         (-Th)    -0.155   tx_uart_data<1>
-                                                       tx_uart_data_2_dpot
-                                                       tx_uart_data_2
+    SLICE_X8Y37.CQ       Tcko                  0.234   counter/temp<31>
+                                                       counter/temp_30
+    SLICE_X6Y35.CX       net (fanout=4)        0.402   counter/temp<30>
+    SLICE_X6Y35.DMUX     Tcxd                  0.148   lighthouse/sensor_previous
+                                                       lighthouse/Msub_n0113_Madd_xor<31>
+    SLICE_X10Y29.CX      net (fanout=28)       0.616   lighthouse/n0113<31>
+    SLICE_X10Y29.CMUX    Tcxc                  0.160   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+    SLICE_X19Y33.C3      net (fanout=37)       0.799   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+    SLICE_X19Y33.CLK     Tah         (-Th)    -0.215   lighthouse/stop_valid_sync<21>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT131
+                                                       lighthouse/stop_valid_sync_20
     -------------------------------------------------  ---------------------------
-    Total                                      0.427ns (0.353ns logic, 0.074ns route)
-                                                       (82.7% logic, 17.3% route)
+    Total                                      2.574ns (0.757ns logic, 1.817ns route)
+                                                       (29.4% logic, 70.6% route)
 
 --------------------------------------------------------------------------------
-
-Paths for end point esp_newData (SLICE_X9Y21.A6), 1 path
---------------------------------------------------------------------------------
-Slack (hold path):      0.440ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               esp_newData (FF)
-  Destination:          esp_newData (FF)
+Slack (hold path):      0.045ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               counter/temp_6 (FF)
+  Destination:          lighthouse/stop_valid_sync_20 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.440ns (Levels of Logic = 1)
-  Clock Path Skew:      0.000ns
-  Source Clock:         clk_BUFGP rising at 20.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.000ns
+  Data Path Delay:      2.609ns (Levels of Logic = 4)
+  Clock Path Skew:      1.279ns (1.093 - -0.186)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 0.000ns
+  Clock Uncertainty:    1.285ns
 
-  Minimum Data Path at Fast Process Corner: esp_newData to esp_newData
+  Clock Uncertainty:          1.285ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.150ns
+
+  Minimum Data Path at Fast Process Corner: counter/temp_6 to lighthouse/stop_valid_sync_20
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X9Y21.AQ       Tcko                  0.198   esp_newData_OBUF
-                                                       esp_newData
-    SLICE_X9Y21.A6       net (fanout=2)        0.027   esp_newData_OBUF
-    SLICE_X9Y21.CLK      Tah         (-Th)    -0.215   esp_newData_OBUF
-                                                       esp_newData_glue_set
-                                                       esp_newData
+    SLICE_X8Y31.CQ       Tcko                  0.234   counter/temp<7>
+                                                       counter/temp_6
+    SLICE_X6Y29.CX       net (fanout=4)        0.402   counter/temp<6>
+    SLICE_X6Y29.DMUX     Tcxd                  0.148   lighthouse/Msub_n0113_Madd_cy<7>
+                                                       lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X10Y28.B5      net (fanout=20)       0.428   lighthouse/n0113<7>
+    SLICE_X10Y28.COUT    Topcyb                0.230   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<3>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_lutdi1
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<3>
+    SLICE_X10Y29.CIN     net (fanout=1)        0.001   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<3>
+    SLICE_X10Y29.CMUX    Tcinc                 0.152   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+    SLICE_X19Y33.C3      net (fanout=37)       0.799   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+    SLICE_X19Y33.CLK     Tah         (-Th)    -0.215   lighthouse/stop_valid_sync<21>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT131
+                                                       lighthouse/stop_valid_sync_20
     -------------------------------------------------  ---------------------------
-    Total                                      0.440ns (0.413ns logic, 0.027ns route)
-                                                       (93.9% logic, 6.1% route)
+    Total                                      2.609ns (0.979ns logic, 1.630ns route)
+                                                       (37.5% logic, 62.5% route)
 
 --------------------------------------------------------------------------------
-
-Paths for end point uart/txbitcnt_0 (SLICE_X9Y24.A6), 1 path
---------------------------------------------------------------------------------
-Slack (hold path):      0.444ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               uart/txbitcnt_0 (FF)
-  Destination:          uart/txbitcnt_0 (FF)
+Slack (hold path):      0.048ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               counter/temp_29 (FF)
+  Destination:          lighthouse/stop_valid_sync_20 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.444ns (Levels of Logic = 1)
-  Clock Path Skew:      0.000ns
-  Source Clock:         clk_BUFGP rising at 20.000ns
-  Destination Clock:    clk_BUFGP rising at 20.000ns
-  Clock Uncertainty:    0.000ns
+  Data Path Delay:      2.619ns (Levels of Logic = 3)
+  Clock Path Skew:      1.286ns (1.093 - -0.193)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 0.000ns
+  Clock Uncertainty:    1.285ns
 
-  Minimum Data Path at Fast Process Corner: uart/txbitcnt_0 to uart/txbitcnt_0
+  Clock Uncertainty:          1.285ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.150ns
+
+  Minimum Data Path at Fast Process Corner: counter/temp_29 to lighthouse/stop_valid_sync_20
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X9Y24.AQ       Tcko                  0.198   uart/txbitcnt<0>
-                                                       uart/txbitcnt_0
-    SLICE_X9Y24.A6       net (fanout=4)        0.031   uart/txbitcnt<0>
-    SLICE_X9Y24.CLK      Tah         (-Th)    -0.215   uart/txbitcnt<0>
-                                                       uart/txbitcnt_0_dpot
-                                                       uart/txbitcnt_0
+    SLICE_X8Y37.BQ       Tcko                  0.234   counter/temp<31>
+                                                       counter/temp_29
+    SLICE_X6Y35.BX       net (fanout=4)        0.411   counter/temp<29>
+    SLICE_X6Y35.DMUX     Tbxd                  0.184   lighthouse/sensor_previous
+                                                       lighthouse/Msub_n0113_Madd_xor<31>
+    SLICE_X10Y29.CX      net (fanout=28)       0.616   lighthouse/n0113<31>
+    SLICE_X10Y29.CMUX    Tcxc                  0.160   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+    SLICE_X19Y33.C3      net (fanout=37)       0.799   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+    SLICE_X19Y33.CLK     Tah         (-Th)    -0.215   lighthouse/stop_valid_sync<21>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT131
+                                                       lighthouse/stop_valid_sync_20
     -------------------------------------------------  ---------------------------
-    Total                                      0.444ns (0.413ns logic, 0.031ns route)
-                                                       (93.0% logic, 7.0% route)
+    Total                                      2.619ns (0.793ns logic, 1.826ns route)
+                                                       (30.3% logic, 69.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point lighthouse/stop_valid_sync_2 (SLICE_X18Y28.D3), 1825 paths
+--------------------------------------------------------------------------------
+Slack (hold path):      0.011ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               counter/temp_30 (FF)
+  Destination:          lighthouse/stop_valid_sync_2 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      2.579ns (Levels of Logic = 3)
+  Clock Path Skew:      1.283ns (1.090 - -0.193)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 0.000ns
+  Clock Uncertainty:    1.285ns
+
+  Clock Uncertainty:          1.285ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.150ns
+
+  Minimum Data Path at Fast Process Corner: counter/temp_30 to lighthouse/stop_valid_sync_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y37.CQ       Tcko                  0.234   counter/temp<31>
+                                                       counter/temp_30
+    SLICE_X6Y35.CX       net (fanout=4)        0.402   counter/temp<30>
+    SLICE_X6Y35.DMUX     Tcxd                  0.148   lighthouse/sensor_previous
+                                                       lighthouse/Msub_n0113_Madd_xor<31>
+    SLICE_X10Y29.CX      net (fanout=28)       0.616   lighthouse/n0113<31>
+    SLICE_X10Y29.CMUX    Tcxc                  0.160   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+    SLICE_X18Y28.D3      net (fanout=37)       0.829   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+    SLICE_X18Y28.CLK     Tah         (-Th)    -0.190   lighthouse/stop_valid_sync<2>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT231
+                                                       lighthouse/stop_valid_sync_2
+    -------------------------------------------------  ---------------------------
+    Total                                      2.579ns (0.732ns logic, 1.847ns route)
+                                                       (28.4% logic, 71.6% route)
+
+--------------------------------------------------------------------------------
+Slack (hold path):      0.053ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               counter/temp_6 (FF)
+  Destination:          lighthouse/stop_valid_sync_2 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      2.614ns (Levels of Logic = 4)
+  Clock Path Skew:      1.276ns (1.090 - -0.186)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 0.000ns
+  Clock Uncertainty:    1.285ns
+
+  Clock Uncertainty:          1.285ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.150ns
+
+  Minimum Data Path at Fast Process Corner: counter/temp_6 to lighthouse/stop_valid_sync_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y31.CQ       Tcko                  0.234   counter/temp<7>
+                                                       counter/temp_6
+    SLICE_X6Y29.CX       net (fanout=4)        0.402   counter/temp<6>
+    SLICE_X6Y29.DMUX     Tcxd                  0.148   lighthouse/Msub_n0113_Madd_cy<7>
+                                                       lighthouse/Msub_n0113_Madd_cy<7>
+    SLICE_X10Y28.B5      net (fanout=20)       0.428   lighthouse/n0113<7>
+    SLICE_X10Y28.COUT    Topcyb                0.230   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<3>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_lutdi1
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<3>
+    SLICE_X10Y29.CIN     net (fanout=1)        0.001   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<3>
+    SLICE_X10Y29.CMUX    Tcinc                 0.152   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+    SLICE_X18Y28.D3      net (fanout=37)       0.829   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+    SLICE_X18Y28.CLK     Tah         (-Th)    -0.190   lighthouse/stop_valid_sync<2>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT231
+                                                       lighthouse/stop_valid_sync_2
+    -------------------------------------------------  ---------------------------
+    Total                                      2.614ns (0.954ns logic, 1.660ns route)
+                                                       (36.5% logic, 63.5% route)
+
+--------------------------------------------------------------------------------
+Slack (hold path):      0.056ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               counter/temp_29 (FF)
+  Destination:          lighthouse/stop_valid_sync_2 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      2.624ns (Levels of Logic = 3)
+  Clock Path Skew:      1.283ns (1.090 - -0.193)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 0.000ns
+  Clock Uncertainty:    1.285ns
+
+  Clock Uncertainty:          1.285ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.150ns
+
+  Minimum Data Path at Fast Process Corner: counter/temp_29 to lighthouse/stop_valid_sync_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y37.BQ       Tcko                  0.234   counter/temp<31>
+                                                       counter/temp_29
+    SLICE_X6Y35.BX       net (fanout=4)        0.411   counter/temp<29>
+    SLICE_X6Y35.DMUX     Tbxd                  0.184   lighthouse/sensor_previous
+                                                       lighthouse/Msub_n0113_Madd_xor<31>
+    SLICE_X10Y29.CX      net (fanout=28)       0.616   lighthouse/n0113<31>
+    SLICE_X10Y29.CMUX    Tcxc                  0.160   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+    SLICE_X18Y28.D3      net (fanout=37)       0.829   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_4_o_cy<6>
+    SLICE_X18Y28.CLK     Tah         (-Th)    -0.190   lighthouse/stop_valid_sync<2>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT231
+                                                       lighthouse/stop_valid_sync_2
+    -------------------------------------------------  ---------------------------
+    Total                                      2.624ns (0.768ns logic, 1.856ns route)
+                                                       (29.3% logic, 70.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point lighthouse/stop_valid_sync_9 (SLICE_X19Y31.C6), 3033 paths
+--------------------------------------------------------------------------------
+Slack (hold path):      0.019ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               counter/temp_10 (FF)
+  Destination:          lighthouse/stop_valid_sync_9 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      2.583ns (Levels of Logic = 5)
+  Clock Path Skew:      1.279ns (1.094 - -0.185)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 0.000ns
+  Clock Uncertainty:    1.285ns
+
+  Clock Uncertainty:          1.285ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.150ns
+
+  Minimum Data Path at Fast Process Corner: counter/temp_10 to lighthouse/stop_valid_sync_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y32.CQ       Tcko                  0.234   counter/temp<11>
+                                                       counter/temp_10
+    SLICE_X6Y30.CX       net (fanout=4)        0.410   counter/temp<10>
+    SLICE_X6Y30.COUT     Tcxcy                 0.062   lighthouse/Msub_n0113_Madd_cy<11>
+                                                       lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.CIN      net (fanout=1)        0.001   lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.AMUX     Tcina                 0.127   lighthouse/Msub_n0113_Madd_cy<15>
+                                                       lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X10Y30.C5      net (fanout=19)       0.408   lighthouse/n0113<12>
+    SLICE_X10Y30.COUT    Topcyc                0.191   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<3>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_lutdi2
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<3>
+    SLICE_X10Y31.CIN     net (fanout=1)        0.001   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<3>
+    SLICE_X10Y31.BMUX    Tcinb                 0.125   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X19Y31.C6      net (fanout=39)       0.809   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X19Y31.CLK     Tah         (-Th)    -0.215   lighthouse/stop_valid_sync<10>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT321
+                                                       lighthouse/stop_valid_sync_9
+    -------------------------------------------------  ---------------------------
+    Total                                      2.583ns (0.954ns logic, 1.629ns route)
+                                                       (36.9% logic, 63.1% route)
+
+--------------------------------------------------------------------------------
+Slack (hold path):      0.023ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               counter/temp_10 (FF)
+  Destination:          lighthouse/stop_valid_sync_9 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      2.587ns (Levels of Logic = 5)
+  Clock Path Skew:      1.279ns (1.094 - -0.185)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 0.000ns
+  Clock Uncertainty:    1.285ns
+
+  Clock Uncertainty:          1.285ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.150ns
+
+  Minimum Data Path at Fast Process Corner: counter/temp_10 to lighthouse/stop_valid_sync_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y32.CQ       Tcko                  0.234   counter/temp<11>
+                                                       counter/temp_10
+    SLICE_X6Y30.CX       net (fanout=4)        0.410   counter/temp<10>
+    SLICE_X6Y30.COUT     Tcxcy                 0.062   lighthouse/Msub_n0113_Madd_cy<11>
+                                                       lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.CIN      net (fanout=1)        0.001   lighthouse/Msub_n0113_Madd_cy<11>
+    SLICE_X6Y31.AMUX     Tcina                 0.127   lighthouse/Msub_n0113_Madd_cy<15>
+                                                       lighthouse/Msub_n0113_Madd_cy<15>
+    SLICE_X10Y30.C5      net (fanout=19)       0.408   lighthouse/n0113<12>
+    SLICE_X10Y30.COUT    Topcyc                0.195   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<3>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_lut<2>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<3>
+    SLICE_X10Y31.CIN     net (fanout=1)        0.001   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<3>
+    SLICE_X10Y31.BMUX    Tcinb                 0.125   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X19Y31.C6      net (fanout=39)       0.809   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X19Y31.CLK     Tah         (-Th)    -0.215   lighthouse/stop_valid_sync<10>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT321
+                                                       lighthouse/stop_valid_sync_9
+    -------------------------------------------------  ---------------------------
+    Total                                      2.587ns (0.958ns logic, 1.629ns route)
+                                                       (37.0% logic, 63.0% route)
+
+--------------------------------------------------------------------------------
+Slack (hold path):      0.023ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               counter/temp_21 (FF)
+  Destination:          lighthouse/stop_valid_sync_9 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      2.590ns (Levels of Logic = 3)
+  Clock Path Skew:      1.282ns (1.094 - -0.188)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_IBUFG_BUFG rising at 0.000ns
+  Clock Uncertainty:    1.285ns
+
+  Clock Uncertainty:          1.285ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.150ns
+
+  Minimum Data Path at Fast Process Corner: counter/temp_21 to lighthouse/stop_valid_sync_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y35.BQ       Tcko                  0.234   counter/temp<23>
+                                                       counter/temp_21
+    SLICE_X6Y33.BX       net (fanout=4)        0.411   counter/temp<21>
+    SLICE_X6Y33.CMUX     Taxc                  0.169   lighthouse/Msub_n0113_Madd_cy<23>
+                                                       lighthouse/Msub_n0113_Madd_cy<23>
+    SLICE_X10Y31.A5      net (fanout=19)       0.436   lighthouse/n0113<22>
+    SLICE_X10Y31.BMUX    Topab                 0.316   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_lutdi4
+                                                       lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X19Y31.C6      net (fanout=39)       0.809   lighthouse/Mcompar_GND_28_o_GND_28_o_LessThan_2_o_cy<5>
+    SLICE_X19Y31.CLK     Tah         (-Th)    -0.215   lighthouse/stop_valid_sync<10>
+                                                       lighthouse/Mmux_stop_valid_sync[31]_stop_valid_sync[31]_mux_17_OUT321
+                                                       lighthouse/stop_valid_sync_9
+    -------------------------------------------------  ---------------------------
+    Total                                      2.590ns (0.934ns logic, 1.656ns route)
+                                                       (36.1% logic, 63.9% route)
 
 --------------------------------------------------------------------------------
 
 Component Switching Limit Checks: TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
 --------------------------------------------------------------------------------
-Slack: 17.334ns (period - min period limit)
+Slack: 12.000ns (period - (min low pulse limit / (low pulse / period)))
   Period: 20.000ns
-  Min period limit: 2.666ns (375.094MHz) (Tbcper_I)
-  Physical resource: clk_BUFGP/BUFG/I0
-  Logical resource: clk_BUFGP/BUFG/I0
-  Location pin: BUFGMUX_X2Y11.I0
-  Clock network: clk_BUFGP/IBUFG
+  Low pulse: 10.000ns
+  Low pulse limit: 4.000ns (Tdcmpw_CLKIN_50_100)
+  Physical resource: clock10MHz/dcm_sp_inst/CLKIN
+  Logical resource: clock10MHz/dcm_sp_inst/CLKIN
+  Location pin: DCM_X0Y1.CLKIN
+  Clock network: clock10MHz/dcm_sp_inst_ML_NEW_DIVCLK
 --------------------------------------------------------------------------------
-Slack: 19.520ns (period - min period limit)
-  Period: 20.000ns
-  Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: avr_interface/cclk_detector/ctr_q<8>/CLK
-  Logical resource: avr_interface/cclk_detector/ctr_q_8/CK
-  Location pin: SLICE_X12Y10.CLK
-  Clock network: clk_BUFGP
---------------------------------------------------------------------------------
-Slack: 19.520ns (period - (min high pulse limit / (high pulse / period)))
+Slack: 12.000ns (period - (min high pulse limit / (high pulse / period)))
   Period: 20.000ns
   High pulse: 10.000ns
-  High pulse limit: 0.240ns (Trpw)
-  Physical resource: avr_interface/cclk_detector/ctr_q<8>/SR
-  Logical resource: avr_interface/cclk_detector/ctr_q_8/SR
-  Location pin: SLICE_X12Y10.SR
-  Clock network: rst
+  High pulse limit: 4.000ns (Tdcmpw_CLKIN_50_100)
+  Physical resource: clock10MHz/dcm_sp_inst/CLKIN
+  Logical resource: clock10MHz/dcm_sp_inst/CLKIN
+  Location pin: DCM_X0Y1.CLKIN
+  Clock network: clock10MHz/dcm_sp_inst_ML_NEW_DIVCLK
+--------------------------------------------------------------------------------
+Slack: 16.000ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 4.000ns (250.000MHz) (Tdcmper_CLKIN)
+  Physical resource: clock10MHz/dcm_sp_inst/CLKIN
+  Logical resource: clock10MHz/dcm_sp_inst/CLKIN
+  Location pin: DCM_X0Y1.CLKIN
+  Clock network: clock10MHz/dcm_sp_inst_ML_NEW_DIVCLK
 --------------------------------------------------------------------------------
 
+================================================================================
+Timing constraint: TS_clock10MHz_clkfx = PERIOD TIMEGRP "clock10MHz_clkfx" 
+TS_clk * 0.2 HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 528 paths analyzed, 108 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   3.657ns.
+--------------------------------------------------------------------------------
+
+Paths for end point counter/temp_31 (SLICE_X8Y37.CIN), 28 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     96.343ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               counter/temp_0 (FF)
+  Destination:          counter/temp_31 (FF)
+  Requirement:          100.000ns
+  Data Path Delay:      2.487ns (Levels of Logic = 8)
+  Clock Path Skew:      -0.035ns (0.710 - 0.745)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_10Mhz rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: counter/temp_0 to counter/temp_31
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y30.AQ       Tcko                  0.525   counter/temp<3>
+                                                       counter/temp_0
+    SLICE_X8Y30.A5       net (fanout=4)        0.464   counter/temp<0>
+    SLICE_X8Y30.COUT     Topcya                0.474   counter/temp<3>
+                                                       counter/Mcount_temp_lut<0>_INV_0
+                                                       counter/Mcount_temp_cy<3>
+    SLICE_X8Y31.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<3>
+    SLICE_X8Y31.COUT     Tbyp                  0.093   counter/temp<7>
+                                                       counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.CIN      net (fanout=1)        0.135   counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.COUT     Tbyp                  0.093   counter/temp<11>
+                                                       counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.COUT     Tbyp                  0.093   counter/temp<15>
+                                                       counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.COUT     Tbyp                  0.093   counter/temp<19>
+                                                       counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.COUT     Tbyp                  0.093   counter/temp<23>
+                                                       counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.COUT     Tbyp                  0.093   counter/temp<27>
+                                                       counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CLK      Tcinck                0.313   counter/temp<31>
+                                                       counter/Mcount_temp_xor<31>
+                                                       counter/temp_31
+    -------------------------------------------------  ---------------------------
+    Total                                      2.487ns (1.870ns logic, 0.617ns route)
+                                                       (75.2% logic, 24.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     96.438ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               counter/temp_4 (FF)
+  Destination:          counter/temp_31 (FF)
+  Requirement:          100.000ns
+  Data Path Delay:      2.391ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.036ns (0.710 - 0.746)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_10Mhz rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: counter/temp_4 to counter/temp_31
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y31.AQ       Tcko                  0.525   counter/temp<7>
+                                                       counter/temp_4
+    SLICE_X8Y31.A5       net (fanout=4)        0.464   counter/temp<4>
+    SLICE_X8Y31.COUT     Topcya                0.474   counter/temp<7>
+                                                       counter/temp<4>_rt
+                                                       counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.CIN      net (fanout=1)        0.135   counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.COUT     Tbyp                  0.093   counter/temp<11>
+                                                       counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.COUT     Tbyp                  0.093   counter/temp<15>
+                                                       counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.COUT     Tbyp                  0.093   counter/temp<19>
+                                                       counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.COUT     Tbyp                  0.093   counter/temp<23>
+                                                       counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.COUT     Tbyp                  0.093   counter/temp<27>
+                                                       counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CLK      Tcinck                0.313   counter/temp<31>
+                                                       counter/Mcount_temp_xor<31>
+                                                       counter/temp_31
+    -------------------------------------------------  ---------------------------
+    Total                                      2.391ns (1.777ns logic, 0.614ns route)
+                                                       (74.3% logic, 25.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     96.513ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               counter/temp_3 (FF)
+  Destination:          counter/temp_31 (FF)
+  Requirement:          100.000ns
+  Data Path Delay:      2.317ns (Levels of Logic = 8)
+  Clock Path Skew:      -0.035ns (0.710 - 0.745)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_10Mhz rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: counter/temp_3 to counter/temp_31
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y30.DQ       Tcko                  0.525   counter/temp<3>
+                                                       counter/temp_3
+    SLICE_X8Y30.D5       net (fanout=4)        0.456   counter/temp<3>
+    SLICE_X8Y30.COUT     Topcyd                0.312   counter/temp<3>
+                                                       counter/temp<3>_rt
+                                                       counter/Mcount_temp_cy<3>
+    SLICE_X8Y31.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<3>
+    SLICE_X8Y31.COUT     Tbyp                  0.093   counter/temp<7>
+                                                       counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.CIN      net (fanout=1)        0.135   counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.COUT     Tbyp                  0.093   counter/temp<11>
+                                                       counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.COUT     Tbyp                  0.093   counter/temp<15>
+                                                       counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.COUT     Tbyp                  0.093   counter/temp<19>
+                                                       counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.COUT     Tbyp                  0.093   counter/temp<23>
+                                                       counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.COUT     Tbyp                  0.093   counter/temp<27>
+                                                       counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CLK      Tcinck                0.313   counter/temp<31>
+                                                       counter/Mcount_temp_xor<31>
+                                                       counter/temp_31
+    -------------------------------------------------  ---------------------------
+    Total                                      2.317ns (1.708ns logic, 0.609ns route)
+                                                       (73.7% logic, 26.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point counter/temp_29 (SLICE_X8Y37.CIN), 28 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     96.353ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               counter/temp_0 (FF)
+  Destination:          counter/temp_29 (FF)
+  Requirement:          100.000ns
+  Data Path Delay:      2.477ns (Levels of Logic = 8)
+  Clock Path Skew:      -0.035ns (0.710 - 0.745)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_10Mhz rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: counter/temp_0 to counter/temp_29
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y30.AQ       Tcko                  0.525   counter/temp<3>
+                                                       counter/temp_0
+    SLICE_X8Y30.A5       net (fanout=4)        0.464   counter/temp<0>
+    SLICE_X8Y30.COUT     Topcya                0.474   counter/temp<3>
+                                                       counter/Mcount_temp_lut<0>_INV_0
+                                                       counter/Mcount_temp_cy<3>
+    SLICE_X8Y31.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<3>
+    SLICE_X8Y31.COUT     Tbyp                  0.093   counter/temp<7>
+                                                       counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.CIN      net (fanout=1)        0.135   counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.COUT     Tbyp                  0.093   counter/temp<11>
+                                                       counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.COUT     Tbyp                  0.093   counter/temp<15>
+                                                       counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.COUT     Tbyp                  0.093   counter/temp<19>
+                                                       counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.COUT     Tbyp                  0.093   counter/temp<23>
+                                                       counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.COUT     Tbyp                  0.093   counter/temp<27>
+                                                       counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CLK      Tcinck                0.303   counter/temp<31>
+                                                       counter/Mcount_temp_xor<31>
+                                                       counter/temp_29
+    -------------------------------------------------  ---------------------------
+    Total                                      2.477ns (1.860ns logic, 0.617ns route)
+                                                       (75.1% logic, 24.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     96.448ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               counter/temp_4 (FF)
+  Destination:          counter/temp_29 (FF)
+  Requirement:          100.000ns
+  Data Path Delay:      2.381ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.036ns (0.710 - 0.746)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_10Mhz rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: counter/temp_4 to counter/temp_29
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y31.AQ       Tcko                  0.525   counter/temp<7>
+                                                       counter/temp_4
+    SLICE_X8Y31.A5       net (fanout=4)        0.464   counter/temp<4>
+    SLICE_X8Y31.COUT     Topcya                0.474   counter/temp<7>
+                                                       counter/temp<4>_rt
+                                                       counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.CIN      net (fanout=1)        0.135   counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.COUT     Tbyp                  0.093   counter/temp<11>
+                                                       counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.COUT     Tbyp                  0.093   counter/temp<15>
+                                                       counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.COUT     Tbyp                  0.093   counter/temp<19>
+                                                       counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.COUT     Tbyp                  0.093   counter/temp<23>
+                                                       counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.COUT     Tbyp                  0.093   counter/temp<27>
+                                                       counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CLK      Tcinck                0.303   counter/temp<31>
+                                                       counter/Mcount_temp_xor<31>
+                                                       counter/temp_29
+    -------------------------------------------------  ---------------------------
+    Total                                      2.381ns (1.767ns logic, 0.614ns route)
+                                                       (74.2% logic, 25.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     96.523ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               counter/temp_3 (FF)
+  Destination:          counter/temp_29 (FF)
+  Requirement:          100.000ns
+  Data Path Delay:      2.307ns (Levels of Logic = 8)
+  Clock Path Skew:      -0.035ns (0.710 - 0.745)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_10Mhz rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: counter/temp_3 to counter/temp_29
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y30.DQ       Tcko                  0.525   counter/temp<3>
+                                                       counter/temp_3
+    SLICE_X8Y30.D5       net (fanout=4)        0.456   counter/temp<3>
+    SLICE_X8Y30.COUT     Topcyd                0.312   counter/temp<3>
+                                                       counter/temp<3>_rt
+                                                       counter/Mcount_temp_cy<3>
+    SLICE_X8Y31.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<3>
+    SLICE_X8Y31.COUT     Tbyp                  0.093   counter/temp<7>
+                                                       counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.CIN      net (fanout=1)        0.135   counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.COUT     Tbyp                  0.093   counter/temp<11>
+                                                       counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.COUT     Tbyp                  0.093   counter/temp<15>
+                                                       counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.COUT     Tbyp                  0.093   counter/temp<19>
+                                                       counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.COUT     Tbyp                  0.093   counter/temp<23>
+                                                       counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.COUT     Tbyp                  0.093   counter/temp<27>
+                                                       counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CLK      Tcinck                0.303   counter/temp<31>
+                                                       counter/Mcount_temp_xor<31>
+                                                       counter/temp_29
+    -------------------------------------------------  ---------------------------
+    Total                                      2.307ns (1.698ns logic, 0.609ns route)
+                                                       (73.6% logic, 26.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point counter/temp_30 (SLICE_X8Y37.CIN), 28 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     96.384ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               counter/temp_0 (FF)
+  Destination:          counter/temp_30 (FF)
+  Requirement:          100.000ns
+  Data Path Delay:      2.446ns (Levels of Logic = 8)
+  Clock Path Skew:      -0.035ns (0.710 - 0.745)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_10Mhz rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: counter/temp_0 to counter/temp_30
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y30.AQ       Tcko                  0.525   counter/temp<3>
+                                                       counter/temp_0
+    SLICE_X8Y30.A5       net (fanout=4)        0.464   counter/temp<0>
+    SLICE_X8Y30.COUT     Topcya                0.474   counter/temp<3>
+                                                       counter/Mcount_temp_lut<0>_INV_0
+                                                       counter/Mcount_temp_cy<3>
+    SLICE_X8Y31.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<3>
+    SLICE_X8Y31.COUT     Tbyp                  0.093   counter/temp<7>
+                                                       counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.CIN      net (fanout=1)        0.135   counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.COUT     Tbyp                  0.093   counter/temp<11>
+                                                       counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.COUT     Tbyp                  0.093   counter/temp<15>
+                                                       counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.COUT     Tbyp                  0.093   counter/temp<19>
+                                                       counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.COUT     Tbyp                  0.093   counter/temp<23>
+                                                       counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.COUT     Tbyp                  0.093   counter/temp<27>
+                                                       counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CLK      Tcinck                0.272   counter/temp<31>
+                                                       counter/Mcount_temp_xor<31>
+                                                       counter/temp_30
+    -------------------------------------------------  ---------------------------
+    Total                                      2.446ns (1.829ns logic, 0.617ns route)
+                                                       (74.8% logic, 25.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     96.479ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               counter/temp_4 (FF)
+  Destination:          counter/temp_30 (FF)
+  Requirement:          100.000ns
+  Data Path Delay:      2.350ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.036ns (0.710 - 0.746)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_10Mhz rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: counter/temp_4 to counter/temp_30
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y31.AQ       Tcko                  0.525   counter/temp<7>
+                                                       counter/temp_4
+    SLICE_X8Y31.A5       net (fanout=4)        0.464   counter/temp<4>
+    SLICE_X8Y31.COUT     Topcya                0.474   counter/temp<7>
+                                                       counter/temp<4>_rt
+                                                       counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.CIN      net (fanout=1)        0.135   counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.COUT     Tbyp                  0.093   counter/temp<11>
+                                                       counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.COUT     Tbyp                  0.093   counter/temp<15>
+                                                       counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.COUT     Tbyp                  0.093   counter/temp<19>
+                                                       counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.COUT     Tbyp                  0.093   counter/temp<23>
+                                                       counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.COUT     Tbyp                  0.093   counter/temp<27>
+                                                       counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CLK      Tcinck                0.272   counter/temp<31>
+                                                       counter/Mcount_temp_xor<31>
+                                                       counter/temp_30
+    -------------------------------------------------  ---------------------------
+    Total                                      2.350ns (1.736ns logic, 0.614ns route)
+                                                       (73.9% logic, 26.1% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     96.554ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               counter/temp_3 (FF)
+  Destination:          counter/temp_30 (FF)
+  Requirement:          100.000ns
+  Data Path Delay:      2.276ns (Levels of Logic = 8)
+  Clock Path Skew:      -0.035ns (0.710 - 0.745)
+  Source Clock:         clk_10Mhz rising at 0.000ns
+  Destination Clock:    clk_10Mhz rising at 100.000ns
+  Clock Uncertainty:    1.135ns
+
+  Clock Uncertainty:          1.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       2.200ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: counter/temp_3 to counter/temp_30
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y30.DQ       Tcko                  0.525   counter/temp<3>
+                                                       counter/temp_3
+    SLICE_X8Y30.D5       net (fanout=4)        0.456   counter/temp<3>
+    SLICE_X8Y30.COUT     Topcyd                0.312   counter/temp<3>
+                                                       counter/temp<3>_rt
+                                                       counter/Mcount_temp_cy<3>
+    SLICE_X8Y31.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<3>
+    SLICE_X8Y31.COUT     Tbyp                  0.093   counter/temp<7>
+                                                       counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.CIN      net (fanout=1)        0.135   counter/Mcount_temp_cy<7>
+    SLICE_X8Y32.COUT     Tbyp                  0.093   counter/temp<11>
+                                                       counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<11>
+    SLICE_X8Y33.COUT     Tbyp                  0.093   counter/temp<15>
+                                                       counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<15>
+    SLICE_X8Y34.COUT     Tbyp                  0.093   counter/temp<19>
+                                                       counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<19>
+    SLICE_X8Y35.COUT     Tbyp                  0.093   counter/temp<23>
+                                                       counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<23>
+    SLICE_X8Y36.COUT     Tbyp                  0.093   counter/temp<27>
+                                                       counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CIN      net (fanout=1)        0.003   counter/Mcount_temp_cy<27>
+    SLICE_X8Y37.CLK      Tcinck                0.272   counter/temp<31>
+                                                       counter/Mcount_temp_xor<31>
+                                                       counter/temp_30
+    -------------------------------------------------  ---------------------------
+    Total                                      2.276ns (1.667ns logic, 0.609ns route)
+                                                       (73.2% logic, 26.8% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_clock10MHz_clkfx = PERIOD TIMEGRP "clock10MHz_clkfx" TS_clk * 0.2 HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point counter/temp_31 (SLICE_X8Y37.D6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.524ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               counter/temp_31 (FF)
+  Destination:          counter/temp_31 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.524ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_10Mhz rising at 100.000ns
+  Destination Clock:    clk_10Mhz rising at 100.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: counter/temp_31 to counter/temp_31
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y37.DQ       Tcko                  0.234   counter/temp<31>
+                                                       counter/temp_31
+    SLICE_X8Y37.D6       net (fanout=3)        0.026   counter/temp<31>
+    SLICE_X8Y37.CLK      Tah         (-Th)    -0.264   counter/temp<31>
+                                                       counter/temp<31>_rt
+                                                       counter/Mcount_temp_xor<31>
+                                                       counter/temp_31
+    -------------------------------------------------  ---------------------------
+    Total                                      0.524ns (0.498ns logic, 0.026ns route)
+                                                       (95.0% logic, 5.0% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point counter/temp_1 (SLICE_X8Y30.B5), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.538ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               counter/temp_1 (FF)
+  Destination:          counter/temp_1 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.538ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_10Mhz rising at 100.000ns
+  Destination Clock:    clk_10Mhz rising at 100.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: counter/temp_1 to counter/temp_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y30.BQ       Tcko                  0.234   counter/temp<3>
+                                                       counter/temp_1
+    SLICE_X8Y30.B5       net (fanout=4)        0.067   counter/temp<1>
+    SLICE_X8Y30.CLK      Tah         (-Th)    -0.237   counter/temp<3>
+                                                       counter/temp<1>_rt
+                                                       counter/Mcount_temp_cy<3>
+                                                       counter/temp_1
+    -------------------------------------------------  ---------------------------
+    Total                                      0.538ns (0.471ns logic, 0.067ns route)
+                                                       (87.5% logic, 12.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point counter/temp_5 (SLICE_X8Y31.B5), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.538ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               counter/temp_5 (FF)
+  Destination:          counter/temp_5 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.538ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_10Mhz rising at 100.000ns
+  Destination Clock:    clk_10Mhz rising at 100.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: counter/temp_5 to counter/temp_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y31.BQ       Tcko                  0.234   counter/temp<7>
+                                                       counter/temp_5
+    SLICE_X8Y31.B5       net (fanout=4)        0.067   counter/temp<5>
+    SLICE_X8Y31.CLK      Tah         (-Th)    -0.237   counter/temp<7>
+                                                       counter/temp<5>_rt
+                                                       counter/Mcount_temp_cy<7>
+                                                       counter/temp_5
+    -------------------------------------------------  ---------------------------
+    Total                                      0.538ns (0.471ns logic, 0.067ns route)
+                                                       (87.5% logic, 12.5% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_clock10MHz_clkfx = PERIOD TIMEGRP "clock10MHz_clkfx" TS_clk * 0.2 HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 97.334ns (period - min period limit)
+  Period: 100.000ns
+  Min period limit: 2.666ns (375.094MHz) (Tbcper_I)
+  Physical resource: clock10MHz/clkout1_buf/I0
+  Logical resource: clock10MHz/clkout1_buf/I0
+  Location pin: BUFGMUX_X3Y13.I0
+  Clock network: clock10MHz/clkfx
+--------------------------------------------------------------------------------
+Slack: 99.520ns (period - min period limit)
+  Period: 100.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: counter/temp<3>/CLK
+  Logical resource: counter/temp_0/CK
+  Location pin: SLICE_X8Y30.CLK
+  Clock network: clk_10Mhz
+--------------------------------------------------------------------------------
+Slack: 99.520ns (period - min period limit)
+  Period: 100.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: counter/temp<3>/CLK
+  Logical resource: counter/temp_1/CK
+  Location pin: SLICE_X8Y30.CLK
+  Clock network: clk_10Mhz
+--------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Derived Constraints for TS_clk
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_clk                         |     20.000ns|     19.067ns|      0.731ns|            0|            0|     44755833|          528|
+| TS_clock10MHz_clkfx           |    100.000ns|      3.657ns|          N/A|            0|            0|          528|            0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 All constraints were met.
 
@@ -504,7 +1852,7 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    4.402|         |         |         |
+clk            |   19.067|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
@@ -513,23 +1861,23 @@ Timing summary:
 
 Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
 
-Constraints cover 1632 paths, 0 nets, and 386 connections
+Constraints cover 44756361 paths, 0 nets, and 2067 connections
 
 Design statistics:
-   Minimum period:   4.402ns{1}   (Maximum frequency: 227.169MHz)
+   Minimum period:  19.067ns{1}   (Maximum frequency:  52.447MHz)
 
 
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Sat Jan  7 13:33:30 2017 
+Analysis completed Mon Jan  9 22:30:10 2017 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 391 MB
+Peak Memory Usage: 401 MB
 
 
 

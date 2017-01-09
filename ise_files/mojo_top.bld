@@ -14,6 +14,12 @@ Annotating constraints to design from ucf file
 "/home/letrend/workspace/darkroom/src/mojo.ucf" ...
 Resolving constraint associations...
 Checking Constraint Associations...
+INFO:ConstraintSystem:178 - TNM 'clk', used in period specification 'TS_clk',
+   was traced into DCM_SP instance clock10MHz/dcm_sp_inst. The following new TNM
+   groups and period specifications were generated at the DCM_SP output(s): 
+   CLKFX: <TIMESPEC TS_clock10MHz_clkfx = PERIOD "clock10MHz_clkfx" TS_clk * 0.2
+   HIGH 50%>
+
 Done...
 
 Checking expanded design ...
@@ -29,10 +35,10 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   0
 
-Total memory usage is 404484 kilobytes
+Total memory usage is 406816 kilobytes
 
 Writing NGD file "mojo_top.ngd" ...
-Total REAL time to NGDBUILD completion:  2 sec
-Total CPU time to NGDBUILD completion:   2 sec
+Total REAL time to NGDBUILD completion:  5 sec
+Total CPU time to NGDBUILD completion:   4 sec
 
 Writing NGDBUILD log file "mojo_top.bld"...

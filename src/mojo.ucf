@@ -30,7 +30,7 @@ NET "avr_tx" LOC = P55;
 NET "avr_rx" LOC = P59;
 NET "avr_rx_busy" LOC = P39;
 
-NET "sensor" LOC = P2 | IOSTANDARD = LVTTL | CLOCK_DEDICATED_ROUTE = FALSE;
+NET "sensor" LOC = P2 | IOSTANDARD = LVTTL;
 NET "esp_newData" LOC = P51;
 NET "esp_rx" LOC = P40;
 NET "esp_tx" LOC = P41;

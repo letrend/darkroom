@@ -5,5 +5,9 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="info" file="ConstraintSystem" num="178" delta="old" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">clk</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_clk</arg>&apos;, was traced into <arg fmt="%s" index="4">DCM_SP</arg> instance <arg fmt="%s" index="5">clock10MHz/dcm_sp_inst</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">DCM_SP</arg> output(s): 
+<arg fmt="%s" index="7">CLKFX</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_clock10MHz_clkfx = PERIOD &quot;clock10MHz_clkfx&quot; TS_clk * 0.2 HIGH 50%&gt;</arg>
+</msg>
+
 </messages>
 
