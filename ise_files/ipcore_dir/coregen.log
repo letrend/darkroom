@@ -1,231 +1,46 @@
 Welcome to Xilinx CORE Generator.
 Help system initialized.
 The IP Catalog has been reloaded.
-Opening project file /home/letrend/workspace/darkroom/ise_files/mojo_top.prj.
-Customize and GenerateINFO:sim:172 - Generating IP...
-Applying current project options...
-Finished applying current project options.
-Resolving generics for 'clock10MHz'...
-Applying external generics to 'clock10MHz'...
-Delivering associated files for 'clock10MHz'...
-WARNING:sim - Component clk_wiz_v3_6 does not have a valid model name for VHDL
-   synthesis
-Delivering EJava files for 'clock10MHz'...
-Delivered 3 files into directory
-/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz
-Delivered 1 file into directory
-/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz
-Generating ASY schematic symbol...
-Loading device for application Rf_Device from file '6vlx75t.nph' in environment
-/opt/Xilinx/14.7/ISE_DS/ISE/.
-INFO:sim:949 - Finished generation of ASY schematic symbol.
-Generating ISE project...
-XCO file found: clock10MHz.xco
-XMDF file found: clock10MHz_xmdf.tcl
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.asy -view
-all -origin_type imported
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.ucf -view
-all -origin_type created
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.vhd -view
-all -origin_type created
-INFO:HDLCompiler:1061 - Parsing VHDL file
-   "/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.vhd" into
-   library work
-INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.vho -view
-all -origin_type imported
-INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
-   Please set the new top explicitly by running the "project set top" command.
-   To re-calculate the new top automatically, set the "Auto Implementation Top"
-   property to true.
-Top level has been set to "/clock10MHz"
-Generating README file...
-Generating FLIST file...
-INFO:sim:948 - Finished FLIST file generation.
-Launching README viewer...
-Moving files to output directory...
-Finished moving files to output directory
-Wrote CGP file for project 'mojo_top'.
+Opening project file /home/letrend/workspace/darkroom/ise_files/mojo_top.cgp.
 Recustomize and Generate (Under Original Project Settings)INFO:sim:172 - Generating IP...
-WARNING:sim - A core named 'clock10MHz' already exists in the project. Output
+WARNING:sim - A core named 'clk5MHz' already exists in the project. Output
    products for this core may be overwritten.
-Resolving generics for 'clock10MHz'...
-WARNING:sim - A core named 'clock10MHz' already exists in the project. Output
+Resolving generics for 'clk5MHz'...
+WARNING:sim - A core named 'clk5MHz' already exists in the project. Output
    products for this core may be overwritten.
-Applying external generics to 'clock10MHz'...
-Delivering associated files for 'clock10MHz'...
+Applying external generics to 'clk5MHz'...
+Delivering associated files for 'clk5MHz'...
 WARNING:sim - Component clk_wiz_v3_6 does not have a valid model name for VHDL
    synthesis
-Delivering EJava files for 'clock10MHz'...
+Delivering EJava files for 'clk5MHz'...
 Delivered 3 files into directory
-/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz
+/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clk5MHz
 Delivered 1 file into directory
-/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz
-Generating ASY schematic symbol...
-INFO:sim:949 - Finished generation of ASY schematic symbol.
-Generating ISE project...
-XCO file found: clock10MHz.xco
-XMDF file found: clock10MHz_xmdf.tcl
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.asy -view
-all -origin_type imported
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.ucf -view
-all -origin_type created
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.vhd -view
-all -origin_type created
-INFO:HDLCompiler:1061 - Parsing VHDL file
-   "/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.vhd" into
-   library work
-INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.vho -view
-all -origin_type imported
-INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
-   Please set the new top explicitly by running the "project set top" command.
-   To re-calculate the new top automatically, set the "Auto Implementation Top"
-   property to true.
-Top level has been set to "/clock10MHz"
-Generating README file...
-Generating FLIST file...
-INFO:sim:948 - Finished FLIST file generation.
-Launching README viewer...
-Moving files to output directory...
-Finished moving files to output directory
-Saved CGP file for project 'mojo_top'.
-Recustomize and Generate (Under Original Project Settings)INFO:sim:172 - Generating IP...
-WARNING:sim - A core named 'clock10MHz' already exists in the project. Output
-   products for this core may be overwritten.
-Resolving generics for 'clock10MHz'...
-WARNING:sim - A core named 'clock10MHz' already exists in the project. Output
-   products for this core may be overwritten.
-Applying external generics to 'clock10MHz'...
-Delivering associated files for 'clock10MHz'...
-WARNING:sim - Component clk_wiz_v3_6 does not have a valid model name for VHDL
-   synthesis
-Delivering EJava files for 'clock10MHz'...
-Delivered 3 files into directory
-/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz
-Delivered 1 file into directory
-/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz
-Generating ASY schematic symbol...
-INFO:sim:949 - Finished generation of ASY schematic symbol.
-Generating ISE project...
-XCO file found: clock10MHz.xco
-XMDF file found: clock10MHz_xmdf.tcl
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.asy -view
-all -origin_type imported
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.ucf -view
-all -origin_type created
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.vhd -view
-all -origin_type created
-INFO:HDLCompiler:1061 - Parsing VHDL file
-   "/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.vhd" into
-   library work
-INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.vho -view
-all -origin_type imported
-INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
-   Please set the new top explicitly by running the "project set top" command.
-   To re-calculate the new top automatically, set the "Auto Implementation Top"
-   property to true.
-Top level has been set to "/clock10MHz"
-Generating README file...
-Generating FLIST file...
-INFO:sim:948 - Finished FLIST file generation.
-Launching README viewer...
-Moving files to output directory...
-Finished moving files to output directory
-Saved CGP file for project 'mojo_top'.
-Recustomize and Generate (Under Original Project Settings)INFO:sim:172 - Generating IP...
-WARNING:sim - A core named 'clock10MHz' already exists in the project. Output
-   products for this core may be overwritten.
-Resolving generics for 'clock10MHz'...
-WARNING:sim - A core named 'clock10MHz' already exists in the project. Output
-   products for this core may be overwritten.
-Applying external generics to 'clock10MHz'...
-Delivering associated files for 'clock10MHz'...
-WARNING:sim - Component clk_wiz_v3_6 does not have a valid model name for VHDL
-   synthesis
-Delivering EJava files for 'clock10MHz'...
-Delivered 3 files into directory
-/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz
-Delivered 1 file into directory
-/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz
-Generating ASY schematic symbol...
-INFO:sim:949 - Finished generation of ASY schematic symbol.
-Generating ISE project...
-XCO file found: clock10MHz.xco
-XMDF file found: clock10MHz_xmdf.tcl
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.asy -view
-all -origin_type imported
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.ucf -view
-all -origin_type created
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.vhd -view
-all -origin_type created
-INFO:HDLCompiler:1061 - Parsing VHDL file
-   "/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.vhd" into
-   library work
-INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clock10MHz.vho -view
-all -origin_type imported
-INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
-   Please set the new top explicitly by running the "project set top" command.
-   To re-calculate the new top automatically, set the "Auto Implementation Top"
-   property to true.
-Top level has been set to "/clock10MHz"
-Generating README file...
-Generating FLIST file...
-INFO:sim:948 - Finished FLIST file generation.
-Launching README viewer...
-Moving files to output directory...
-Finished moving files to output directory
-Saved CGP file for project 'mojo_top'.
-Regenerate (Under Current Project Settings)INFO:sim:172 - Generating IP...
-Applying current project options...
-Finished applying current project options.
-Resolving generics for 'clock10MHz'...
-ERROR:sim - Internal GetSpdKeyValue() error -- could not get speedsfile
-ERROR:sim -    data for key MMCM_CLKIN_FREQ_MIN
-ERROR:sim - IP initializer could not set IP core parameters on IP model
-ERROR:sim - Failed to initialize IP model.
-ERROR:sim - Failed executing Tcl generator.
-Recustomize and Generate (Under Original Project Settings)INFO:sim:172 - Generating IP...
-Cancelled executing Tcl generator.
-Customize and GenerateINFO:sim:172 - Generating IP...
-Applying current project options...
-Finished applying current project options.
-Resolving generics for 'clk10MHz'...
-Applying external generics to 'clk10MHz'...
-Delivering associated files for 'clk10MHz'...
-WARNING:sim - Component clk_wiz_v3_6 does not have a valid model name for VHDL
-   synthesis
-Delivering EJava files for 'clk10MHz'...
-Delivered 3 files into directory
-/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clk10MHz
-Delivered 1 file into directory
-/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clk10MHz
+/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clk5MHz
 Generating ASY schematic symbol...
 Loading device for application Rf_Device from file '6slx9.nph' in environment
 /opt/Xilinx/14.7/ISE_DS/ISE/.
 INFO:sim:949 - Finished generation of ASY schematic symbol.
 Generating ISE project...
-XCO file found: clk10MHz.xco
-XMDF file found: clk10MHz_xmdf.tcl
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clk10MHz.asy -view all
+XCO file found: clk5MHz.xco
+XMDF file found: clk5MHz_xmdf.tcl
+Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clk5MHz.asy -view all
 -origin_type imported
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clk10MHz.ucf -view all
+Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clk5MHz.ucf -view all
 -origin_type created
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clk10MHz.vhd -view all
+Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clk5MHz.vhd -view all
 -origin_type created
 INFO:HDLCompiler:1061 - Parsing VHDL file
-   "/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clk10MHz.vhd" into
-   library work
+   "/home/letrend/workspace/darkroom/ise_files/tmp/_cg/clk5MHz.vhd" into library
+   work
 INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
-Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clk10MHz.vho -view all
+Adding /home/letrend/workspace/darkroom/ise_files/tmp/_cg/clk5MHz.vho -view all
 -origin_type imported
 INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
    Please set the new top explicitly by running the "project set top" command.
    To re-calculate the new top automatically, set the "Auto Implementation Top"
    property to true.
-Top level has been set to "/clk10MHz"
+Top level has been set to "/clk5MHz"
 Generating README file...
 Generating FLIST file...
 INFO:sim:948 - Finished FLIST file generation.

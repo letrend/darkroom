@@ -46,7 +46,7 @@ signal data_to_send		: std_logic;					-- indicates data to send in uart_data
 
 -- signals for sample test
 signal temp_timer		: std_logic_vector(31 downto 0);
-signal clk_10Mhz		: std_logic;
+signal clk5MHz		: std_logic;
 signal clk_FB			: std_logic;
 signal tx_uart_block		: std_logic;
 signal tx_uart_busy		: std_logic;
@@ -104,16 +104,16 @@ avr_interface : entity work.avr_interface
 		rx_data		=> rx_data			-- received data (only when new_tx_data = '1')
 	);
 
-clock10MHz: entity work.clk10MHz
+clock5MHz: entity work.clk5MHz
 port map(
 		clk 	=> clk,
 		rst	=> rst,
-		clk_out 	=> clk_10Mhz
+		clk_out 	=> clk5MHz
 	);
 
 counter: entity work.counter
 	port map(
-		clock 	=> clk_10Mhz,
+		clock 	=> clk5MHz,
 		output 	=> temp_timer
 	);
 
@@ -125,7 +125,7 @@ sweep_counter: entity work.counter
 	
 lighthouse: entity work.lighthouse
 	port map(
-		clk 			=> clk_10Mhz,
+		clk 			=> clk5MHz,
 		sensor	 	=> sensor,
 		timer			=> temp_timer,
 		sweep_detected => sweep_detected,
@@ -144,10 +144,10 @@ uart: entity work.RS232
       TX_Busy 	=> tx_uart_busy
 	);
 	
-darkroom: process(clk_10Mhz, rst)
+darkroom: process(clk5MHz, rst)
 constant ss: character := 's'; 
 begin
-	if rising_edge(clk_10Mhz) then
+	if rising_edge(clk5MHz) then
 		tx_uart_newData <= '0';
 		if(tx_uart_busy = '0') and (uart_counter < 4) then -- if uart not busy and not all data was sent
 			case uart_counter is

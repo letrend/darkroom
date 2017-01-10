@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.06 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: mojo_top.prj
@@ -132,9 +132,9 @@ Parsing architecture <RTL> of entity <avr_interface>.
 Parsing VHDL file "/home/letrend/workspace/darkroom/ise_files/uart.vhd" into library work
 Parsing entity <RS232>.
 Parsing architecture <Behavioral> of entity <rs232>.
-Parsing VHDL file "/home/letrend/workspace/darkroom/ise_files/clk10MHz.vhd" into library work
-Parsing entity <clk10MHz>.
-Parsing architecture <xilinx> of entity <clk10mhz>.
+Parsing VHDL file "/home/letrend/workspace/darkroom/ise_files/clk5MHz.vhd" into library work
+Parsing entity <clk5MHz>.
+Parsing architecture <xilinx> of entity <clk5mhz>.
 Parsing VHDL file "/home/letrend/workspace/darkroom/src/mojo_top.vhd" into library work
 Parsing entity <mojo_top>.
 Parsing architecture <RTL> of entity <mojo_top>.
@@ -157,7 +157,7 @@ INFO:HDLCompiler:679 - "/home/letrend/workspace/darkroom/src/serial_rx.vhd" Line
 Elaborating entity <serial_tx> (architecture <RTL>) with generics from library <work>.
 INFO:HDLCompiler:679 - "/home/letrend/workspace/darkroom/src/serial_tx.vhd" Line 96. Case statement is complete. others clause is never selected
 
-Elaborating entity <clk10MHz> (architecture <xilinx>) from library <work>.
+Elaborating entity <clk5MHz> (architecture <xilinx>) from library <work>.
 
 Elaborating entity <counter> (architecture <Behavioral>) with generics from library <work>.
 
@@ -296,11 +296,11 @@ Synthesizing Unit <serial_tx>.
 	inferred   1 D-type flip-flop(s).
 Unit <serial_tx> synthesized.
 
-Synthesizing Unit <clk10MHz>.
-    Related source file is "/home/letrend/workspace/darkroom/ise_files/clk10MHz.vhd".
+Synthesizing Unit <clk5MHz>.
+    Related source file is "/home/letrend/workspace/darkroom/ise_files/clk5MHz.vhd".
     Summary:
 	no macro.
-Unit <clk10MHz> synthesized.
+Unit <clk5MHz> synthesized.
 
 Synthesizing Unit <counter>.
     Related source file is "/home/letrend/workspace/darkroom/src/counter.vhd".
@@ -318,26 +318,6 @@ Synthesizing Unit <lighthouse>.
 WARNING:Xst:653 - Signal <temp_sensor_value<11>> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Found 1-bit register for signal <temp_sweep_detected>.
     Found 32-bit register for signal <t_0>.
-    Found 32-bit register for signal <t_sweep_duration>.
-    Found 1-bit register for signal <temp_sensor_value<31>>.
-    Found 1-bit register for signal <temp_sensor_value<30>>.
-    Found 1-bit register for signal <temp_sensor_value<29>>.
-    Found 1-bit register for signal <temp_sensor_value<28>>.
-    Found 1-bit register for signal <temp_sensor_value<27>>.
-    Found 1-bit register for signal <temp_sensor_value<26>>.
-    Found 1-bit register for signal <temp_sensor_value<25>>.
-    Found 1-bit register for signal <temp_sensor_value<24>>.
-    Found 1-bit register for signal <temp_sensor_value<23>>.
-    Found 1-bit register for signal <temp_sensor_value<22>>.
-    Found 1-bit register for signal <temp_sensor_value<21>>.
-    Found 1-bit register for signal <temp_sensor_value<20>>.
-    Found 1-bit register for signal <temp_sensor_value<19>>.
-    Found 1-bit register for signal <temp_sensor_value<18>>.
-    Found 1-bit register for signal <temp_sensor_value<17>>.
-    Found 1-bit register for signal <temp_sensor_value<16>>.
-    Found 1-bit register for signal <temp_sensor_value<15>>.
-    Found 1-bit register for signal <temp_sensor_value<14>>.
-    Found 1-bit register for signal <temp_sensor_value<13>>.
     Found 1-bit register for signal <temp_sensor_value<12>>.
     Found 1-bit register for signal <temp_sensor_value<10>>.
     Found 1-bit register for signal <temp_sensor_value<9>>.
@@ -350,39 +330,39 @@ WARNING:Xst:653 - Signal <temp_sensor_value<11>> is used but never assigned. Thi
     Found 1-bit register for signal <temp_sensor_value<2>>.
     Found 1-bit register for signal <temp_sensor_value<1>>.
     Found 1-bit register for signal <temp_sensor_value<0>>.
+    Found 32-bit register for signal <sensor_value>.
     Found 32-bit register for signal <t_sweep_start>.
     Found 32-bit register for signal <start_valid_sync>.
-    Found 32-bit register for signal <sensor_value>.
     Found 1-bit register for signal <sweep_detected>.
     Found 1-bit register for signal <sensor_previous>.
-    Found 33-bit subtractor for signal <n0304> created at line 43.
-    Found 33-bit subtractor for signal <n0307> created at line 56.
-    Found 32-bit adder for signal <GND_28_o_GND_28_o_add_11_OUT> created at line 210.
-    Found 32-bit adder for signal <GND_28_o_GND_28_o_add_14_OUT> created at line 210.
-    Found 32-bit adder for signal <GND_28_o_GND_28_o_add_17_OUT> created at line 210.
-    Found 32-bit adder for signal <GND_28_o_GND_28_o_add_20_OUT> created at line 210.
-    Found 32-bit subtractor for signal <t_0[31]_t_sweep_start[31]_sub_3_OUT<31:0>> created at line 45.
-    Found 32-bit subtractor for signal <GND_28_o_GND_28_o_sub_6_OUT<31:0>> created at line 51.
-    Found 32-bit subtractor for signal <GND_28_o_GND_28_o_sub_11_OUT<31:0>> created at line 61.
-    Found 32-bit subtractor for signal <GND_28_o_GND_28_o_sub_14_OUT<31:0>> created at line 64.
-    Found 32-bit subtractor for signal <GND_28_o_GND_28_o_sub_17_OUT<31:0>> created at line 67.
-    Found 32-bit subtractor for signal <GND_28_o_GND_28_o_sub_20_OUT<31:0>> created at line 70.
+    Found 33-bit subtractor for signal <n0226> created at line 43.
+    Found 33-bit subtractor for signal <n0227> created at line 45.
+    Found 33-bit subtractor for signal <n0229> created at line 62.
+    Found 32-bit adder for signal <GND_28_o_GND_28_o_add_13_OUT> created at line 210.
+    Found 32-bit adder for signal <GND_28_o_GND_28_o_add_16_OUT> created at line 210.
+    Found 32-bit adder for signal <GND_28_o_GND_28_o_add_19_OUT> created at line 210.
+    Found 32-bit adder for signal <GND_28_o_GND_28_o_add_22_OUT> created at line 210.
+    Found 32-bit subtractor for signal <GND_28_o_GND_28_o_sub_8_OUT<31:0>> created at line 57.
+    Found 32-bit subtractor for signal <GND_28_o_GND_28_o_sub_13_OUT<31:0>> created at line 67.
+    Found 32-bit subtractor for signal <GND_28_o_GND_28_o_sub_16_OUT<31:0>> created at line 70.
+    Found 32-bit subtractor for signal <GND_28_o_GND_28_o_sub_19_OUT<31:0>> created at line 73.
+    Found 32-bit subtractor for signal <GND_28_o_GND_28_o_sub_22_OUT<31:0>> created at line 76.
     Found 32-bit comparator greater for signal <GND_28_o_GND_28_o_LessThan_2_o> created at line 44
-    Found 32-bit comparator greater for signal <GND_28_o_GND_28_o_LessThan_4_o> created at line 48
-    Found 32-bit comparator greater for signal <GND_28_o_GND_28_o_LessThan_5_o> created at line 48
-    Found 32-bit comparator greater for signal <GND_28_o_GND_28_o_LessThan_8_o> created at line 53
-    Found 32-bit comparator greater for signal <PWR_24_o_GND_28_o_LessThan_10_o> created at line 56
-    Found 32-bit comparator greater for signal <GND_28_o_GND_28_o_LessThan_13_o> created at line 61
-    Found 32-bit comparator greater for signal <GND_28_o_GND_28_o_LessThan_16_o> created at line 64
-    Found 32-bit comparator greater for signal <GND_28_o_GND_28_o_LessThan_19_o> created at line 67
-    Found 32-bit comparator lessequal for signal <GND_28_o_GND_28_o_LessThan_22_o> created at line 70
-    Found 32-bit comparator greater for signal <GND_28_o_t_sweep_duration[31]_LessThan_28_o> created at line 76
-    Found 32-bit comparator greater for signal <t_sweep_duration[31]_GND_28_o_LessThan_29_o> created at line 76
+    Found 32-bit comparator greater for signal <GND_28_o_t_0[31]_LessThan_4_o> created at line 46
+    Found 32-bit comparator greater for signal <t_0[31]_GND_28_o_LessThan_5_o> created at line 46
+    Found 32-bit comparator greater for signal <GND_28_o_GND_28_o_LessThan_6_o> created at line 54
+    Found 32-bit comparator greater for signal <GND_28_o_GND_28_o_LessThan_7_o> created at line 54
+    Found 32-bit comparator greater for signal <GND_28_o_GND_28_o_LessThan_10_o> created at line 59
+    Found 32-bit comparator greater for signal <PWR_24_o_GND_28_o_LessThan_12_o> created at line 62
+    Found 32-bit comparator greater for signal <GND_28_o_GND_28_o_LessThan_15_o> created at line 67
+    Found 32-bit comparator greater for signal <GND_28_o_GND_28_o_LessThan_18_o> created at line 70
+    Found 32-bit comparator greater for signal <GND_28_o_GND_28_o_LessThan_21_o> created at line 73
+    Found 32-bit comparator lessequal for signal <GND_28_o_GND_28_o_LessThan_24_o> created at line 76
     Summary:
 	inferred  12 Adder/Subtractor(s).
-	inferred 194 D-type flip-flop(s).
+	inferred 143 D-type flip-flop(s).
 	inferred  11 Comparator(s).
-	inferred   2 Multiplexer(s).
+	inferred   1 Multiplexer(s).
 Unit <lighthouse> synthesized.
 
 Synthesizing Unit <RS232>.
@@ -419,17 +399,17 @@ Macro Statistics
 # Adders/Subtractors                                   : 23
  3-bit adder                                           : 3
  32-bit adder                                          : 6
- 32-bit subtractor                                     : 6
- 33-bit subtractor                                     : 2
+ 32-bit subtractor                                     : 5
+ 33-bit subtractor                                     : 3
  4-bit adder                                           : 2
  7-bit adder                                           : 1
  8-bit adder                                           : 2
  9-bit adder                                           : 1
-# Registers                                            : 76
- 1-bit register                                        : 49
+# Registers                                            : 56
+ 1-bit register                                        : 30
  10-bit register                                       : 2
  3-bit register                                        : 3
- 32-bit register                                       : 8
+ 32-bit register                                       : 7
  4-bit register                                        : 4
  7-bit register                                        : 1
  8-bit register                                        : 8
@@ -440,11 +420,10 @@ Macro Statistics
  32-bit comparator lessequal                           : 1
  4-bit comparator greater                              : 2
  8-bit comparator greater                              : 2
-# Multiplexers                                         : 21
+# Multiplexers                                         : 20
  1-bit 2-to-1 multiplexer                              : 7
  10-bit 2-to-1 multiplexer                             : 2
  3-bit 2-to-1 multiplexer                              : 2
- 32-bit 2-to-1 multiplexer                             : 1
  7-bit 2-to-1 multiplexer                              : 4
  8-bit 2-to-1 multiplexer                              : 3
  8-bit 5-to-1 multiplexer                              : 1
@@ -463,38 +442,38 @@ Macro Statistics
 
 WARNING:Xst:1290 - Hierarchical block <serial_rx> is unconnected in block <avr_interface>.
    It will be removed from the design.
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_11> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_11> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_12> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_12> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_13> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_13> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_14> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_14> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_15> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_15> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_20> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_20> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_16> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_16> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_21> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_21> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_17> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_17> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_22> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_22> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_18> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_18> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_23> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_23> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_19> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_19> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_24> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_24> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_25> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_25> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_30> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_30> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_26> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_26> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_31> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_31> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_27> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_27> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_28> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_28> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_29> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_29> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_0> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_0> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_1> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_1> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_2> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_2> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_3> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_3> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_4> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_4> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_5> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_5> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_6> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_6> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_7> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_7> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_8> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_8> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_9> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_9> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_10> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_10> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_10> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_10> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_11> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_11> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_12> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_12> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_13> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_13> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_14> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_14> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_15> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_15> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_20> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_20> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_16> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_16> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_21> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_21> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_17> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_17> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_22> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_22> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_18> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_18> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_23> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_23> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_19> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_19> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_24> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_24> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_25> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_25> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_30> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_30> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_26> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_26> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_31> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_31> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_27> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_27> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_28> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_28> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_29> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_29> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_0> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_0> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_1> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_1> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_2> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_2> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_3> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_3> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_4> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_4> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_5> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_5> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_6> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_6> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_7> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_7> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_8> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_8> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_9> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_9> 
 WARNING:Xst:1710 - FF/Latch <temp_11> (without init value) has a constant value of 0 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <temp_8> (without init value) has a constant value of 0 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <temp_7> (without init value) has a constant value of 0 in block <mojo_top>. This FF/Latch will be trimmed during the optimization process.
@@ -511,9 +490,9 @@ WARNING:Xst:1710 - FF/Latch <temp_sensor_value_8> (without init value) has a con
 WARNING:Xst:1710 - FF/Latch <temp_sensor_value_4> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <temp_sensor_value_6> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <temp_sensor_value_5> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <temp_sensor_value_1> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <temp_sensor_value_3> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <temp_sensor_value_2> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <temp_sensor_value_1> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <temp_sensor_value_0> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_0> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_1> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
@@ -566,18 +545,17 @@ Macro Statistics
  4-bit up counter                                      : 2
  8-bit up counter                                      : 2
  9-bit up counter                                      : 1
-# Registers                                            : 324
- Flip-Flops                                            : 324
+# Registers                                            : 273
+ Flip-Flops                                            : 273
 # Comparators                                          : 16
  3-bit comparator greater                              : 1
  32-bit comparator greater                             : 10
  32-bit comparator lessequal                           : 1
  4-bit comparator greater                              : 2
  8-bit comparator greater                              : 2
-# Multiplexers                                         : 15
- 1-bit 2-to-1 multiplexer                              : 6
+# Multiplexers                                         : 13
+ 1-bit 2-to-1 multiplexer                              : 5
  10-bit 2-to-1 multiplexer                             : 2
- 32-bit 2-to-1 multiplexer                             : 1
  7-bit 2-to-1 multiplexer                              : 4
  8-bit 2-to-1 multiplexer                              : 1
  8-bit 5-to-1 multiplexer                              : 1
@@ -592,9 +570,9 @@ Macro Statistics
 =========================================================================
 WARNING:Xst:1710 - FF/Latch <sensor_value_11> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <temp_sensor_value_0> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <temp_sensor_value_1> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <temp_sensor_value_2> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <temp_sensor_value_3> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <temp_sensor_value_1> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <temp_sensor_value_5> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <temp_sensor_value_6> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <temp_sensor_value_4> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
@@ -609,38 +587,38 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_5> (wi
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_6> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_7> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_8> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_11> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_11> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_12> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_12> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_13> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_13> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_14> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_14> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_15> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_15> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_20> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_20> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_16> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_16> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_21> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_21> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_17> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_17> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_22> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_22> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_18> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_18> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_23> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_23> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_19> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_19> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_24> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_24> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_25> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_25> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_30> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_30> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_26> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_26> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_31> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_31> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_27> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_27> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_28> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_28> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_29> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_29> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_0> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_0> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_1> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_1> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_2> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_2> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_3> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_3> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_4> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_4> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_5> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_5> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_6> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_6> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_7> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_7> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_8> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_8> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_9> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_9> 
-INFO:Xst:2261 - The FF/Latch <start_valid_sync_10> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_10> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_10> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_10> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_11> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_11> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_12> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_12> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_13> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_13> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_14> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_14> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_15> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_15> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_20> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_20> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_16> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_16> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_21> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_21> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_17> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_17> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_22> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_22> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_18> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_18> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_23> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_23> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_19> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_19> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_24> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_24> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_25> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_25> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_30> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_30> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_26> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_26> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_31> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_31> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_27> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_27> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_28> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_28> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_29> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_29> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_0> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_0> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_1> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_1> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_2> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_2> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_3> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_3> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_4> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_4> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_5> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_5> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_6> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_6> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_7> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_7> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_8> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_8> 
+INFO:Xst:2261 - The FF/Latch <t_sweep_start_9> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <start_valid_sync_9> 
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <avr_interface/serial_rx/FSM_0> on signal <state_q[1:2]> with gray encoding.
 -----------------------
@@ -747,29 +725,10 @@ WARNING:Xst:2677 - Node <uart/rxd_sr_3> of sequential type is unconnected in blo
 WARNING:Xst:2677 - Node <uart/rxd_sr_2> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <uart/rxd_sr_1> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <uart/rxd_sr_0> of sequential type is unconnected in block <mojo_top>.
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_0> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_13> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_1> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_14> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_2> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_15> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_3> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_16> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_4> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_17> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_5> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_18> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_6> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_19> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_7> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_20> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_8> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_21> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_9> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_22> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_10> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_23> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_11> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_24> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_12> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_25> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_13> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_26> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_14> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_27> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_15> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_28> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_16> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_29> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_17> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_30> 
-INFO:Xst:2261 - The FF/Latch <lighthouse/t_sweep_duration_18> in Unit <mojo_top> is equivalent to the following FF/Latch, which will be removed : <lighthouse/temp_sensor_value_31> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block mojo_top, actual ratio is 14.
+Found area constraint ratio of 100 (+ 5) on block mojo_top, actual ratio is 13.
 
 Final Macro Processing ...
 
@@ -777,8 +736,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 255
- Flip-Flops                                            : 255
+# Registers                                            : 223
+ Flip-Flops                                            : 223
 
 =========================================================================
 
@@ -801,24 +760,24 @@ Top Level Output File Name         : mojo_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1533
+# BELS                             : 1513
 #      GND                         : 1
 #      INV                         : 110
 #      LUT1                        : 67
 #      LUT2                        : 238
-#      LUT3                        : 78
-#      LUT4                        : 38
-#      LUT5                        : 101
-#      LUT6                        : 44
+#      LUT3                        : 49
+#      LUT4                        : 37
+#      LUT5                        : 100
+#      LUT6                        : 47
 #      MUXCY                       : 456
 #      MUXF7                       : 3
 #      VCC                         : 1
-#      XORCY                       : 396
-# FlipFlops/Latches                : 255
+#      XORCY                       : 404
+# FlipFlops/Latches                : 223
 #      FD                          : 62
 #      FDC                         : 1
 #      FDCE                        : 12
-#      FDE                         : 153
+#      FDE                         : 121
 #      FDPE                        : 1
 #      FDR                         : 5
 #      FDRE                        : 13
@@ -840,16 +799,16 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             247  out of  11440     2%  
- Number of Slice LUTs:                  676  out of   5720    11%  
-    Number used as Logic:               676  out of   5720    11%  
+ Number of Slice Registers:             215  out of  11440     1%  
+ Number of Slice LUTs:                  648  out of   5720    11%  
+    Number used as Logic:               648  out of   5720    11%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    782
-   Number with an unused Flip Flop:     535  out of    782    68%  
-   Number with an unused LUT:           106  out of    782    13%  
-   Number of fully used LUT-FF pairs:   141  out of    782    18%  
-   Number of unique control sets:        23
+ Number of LUT Flip Flop pairs used:    735
+   Number with an unused Flip Flop:     520  out of    735    70%  
+   Number with an unused LUT:            87  out of    735    11%  
+   Number of fully used LUT-FF pairs:   128  out of    735    17%  
+   Number of unique control sets:        22
 
 IO Utilization: 
  Number of IOs:                          26
@@ -880,7 +839,7 @@ Clock Information:
 -----------------------------------+---------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)     | Load  |
 -----------------------------------+---------------------------+-------+
-clk                                | DCM_SP:CLKFX              | 199   |
+clk                                | DCM_SP:CLKFX              | 167   |
 lighthouse/sweep_detected          | NONE(sweep_counter/temp_0)| 8     |
 clk                                | IBUFG+BUFG                | 48    |
 -----------------------------------+---------------------------+-------+
@@ -906,7 +865,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 4.246ns (frequency: 235.516MHz)
-  Total number of paths / destination ports: 9856697 / 452
+  Total number of paths / destination ports: 9387195 / 388
 -------------------------------------------------------------------------
 Delay:               4.246ns (Levels of Logic = 2)
   Source:            uart/txcnt_7 (FF)
@@ -958,7 +917,7 @@ Delay:               2.140ns (Levels of Logic = 9)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 182 / 136
+  Total number of paths / destination ports: 171 / 125
 -------------------------------------------------------------------------
 Offset:              5.308ns (Levels of Logic = 3)
   Source:            cclk (PAD)
@@ -1026,7 +985,7 @@ Clock to Setup on destination clock clk
                          | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock             |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------+---------+---------+---------+---------+
-clk                      |   11.496|         |         |         |
+clk                      |   12.212|         |         |         |
 lighthouse/sweep_detected|    1.324|         |         |         |
 -------------------------+---------+---------+---------+---------+
 
@@ -1042,14 +1001,14 @@ lighthouse/sweep_detected|    2.140|         |         |         |
 
 
 Total REAL time to Xst completion: 13.00 secs
-Total CPU time to Xst completion: 13.52 secs
+Total CPU time to Xst completion: 13.26 secs
  
 --> 
 
 
-Total memory usage is 410224 kilobytes
+Total memory usage is 409900 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  143 (   0 filtered)
-Number of infos    :   92 (   0 filtered)
+Number of infos    :   73 (   0 filtered)
 
