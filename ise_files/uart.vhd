@@ -4,7 +4,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity RS232 is
     Generic ( Quarz_Taktfrequenz : integer   := 50000000;  -- Hertz 
-              Baudrate           : integer   :=  115200      -- Bits/Sec
+              Baudrate           : integer   :=  250000      -- Bits/Sec
              ); 
     Port ( RXD      : in   STD_LOGIC;
            RX_Data  : out  STD_LOGIC_VECTOR (7 downto 0);

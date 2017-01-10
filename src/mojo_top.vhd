@@ -60,6 +60,8 @@ signal sweep_detected 	: std_logic;
 signal sweep_value		: std_logic_vector(31 downto 0);
 signal uart_counter		: integer range 0 to 5;
 signal sweep_count		: std_logic_vector(31 downto 0);
+signal temp: std_logic_vector(31 downto 0);
+
 
 begin
 
@@ -141,7 +143,7 @@ uart: entity work.RS232
       TX_Start => tx_uart_newData,
       TX_Busy 	=> tx_uart_busy
 	);
-
+	
 darkroom: process(clk, rst)
 constant ss: character := 's'; 
 begin
@@ -149,17 +151,18 @@ begin
 		tx_uart_newData <= '0';
 		if(tx_uart_busy = '0') and (uart_counter < 4) then -- if uart not busy and not all data was sent
 			case uart_counter is
-			  when 0      =>  tx_uart_data <= sweep_value(7 downto 0);--std_logic_vector(to_unsigned(65,8));--;
-			  when 1      =>  tx_uart_data <= sweep_value(15 downto 8);--std_logic_vector(to_unsigned(66,8));--sweep_value(15 downto 8);
-			  when 2		  =>  tx_uart_data <= sweep_value(23 downto 16);--std_logic_vector(to_unsigned(67,8));--sweep_value(23 downto 16);
-			  when 3		  =>  tx_uart_data <= sweep_value(31 downto 24);--std_logic_vector(to_unsigned(68,8));--sweep_value(31 downto 24);
+			  when 0      =>  tx_uart_data <= temp(7 downto 0);--std_logic_vector(to_unsigned(65,8));--;
+			  when 1      =>  tx_uart_data <= temp(15 downto 8);--std_logic_vector(to_unsigned(66,8));--sweep_value(15 downto 8);
+			  when 2		  =>  tx_uart_data <= temp(23 downto 16);--std_logic_vector(to_unsigned(67,8));--sweep_value(23 downto 16);
+			  when 3		  =>  tx_uart_data <= temp(31 downto 24);--std_logic_vector(to_unsigned(68,8));--sweep_value(31 downto 24);
 			  when others 	  => 	tx_uart_data <= "11111111";
 			end case;
 			tx_uart_newData <= '1';
 			uart_counter <= uart_counter + 1;	
-		elsif (uart_counter >= 4) and (sweep_detected = '1') then  -- if all data was sent and there is new data available
+		elsif (tx_uart_busy = '0') and (uart_counter >= 4) and (sweep_detected = '1') then  -- if all data was sent and there is new data available
 			uart_counter <= 0; 
 			esp_newData <= '0';
+			temp <= sweep_value;
 		elsif (uart_counter >= 4) then
 			esp_newData <= '1'; -- active low
 		end if;
