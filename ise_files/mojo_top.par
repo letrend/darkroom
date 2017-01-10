@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-x220::  Tue Jan 10 18:04:55 2017
+x220::  Tue Jan 10 20:25:08 2017
 
 par -filter /home/letrend/workspace/darkroom/ise_files/iseconfig/filter.filter
 -w -intstyle ise -ol high -mt off mojo_top_map.ncd mojo_top.ncd mojo_top.pcf 
@@ -22,30 +22,30 @@ Device speed data version:  "PRODUCTION 1.23 2013-10-13".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                   253 out of  11,440    2%
-    Number used as Flip Flops:                 224
+  Number of Slice Registers:                   276 out of  11,440    2%
+    Number used as Flip Flops:                 247
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:               29
-  Number of Slice LUTs:                        551 out of   5,720    9%
-    Number used as logic:                      540 out of   5,720    9%
-      Number using O6 output only:             120
+  Number of Slice LUTs:                        580 out of   5,720   10%
+    Number used as logic:                      574 out of   5,720   10%
+      Number using O6 output only:             166
       Number using O5 output only:              62
-      Number using O5 and O6:                  358
+      Number using O5 and O6:                  346
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   1,440    0%
-    Number used exclusively as route-thrus:     11
-      Number with same-slice register load:      5
+    Number used exclusively as route-thrus:      6
+      Number with same-slice register load:      0
       Number with same-slice carry load:         6
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   176 out of   1,430   12%
+  Number of occupied Slices:                   203 out of   1,430   14%
   Number of MUXCYs used:                       492 out of   2,860   17%
-  Number of LUT Flip Flop pairs used:          618
-    Number with an unused Flip Flop:           378 out of     618   61%
-    Number with an unused LUT:                  67 out of     618   10%
-    Number of fully used LUT-FF pairs:         173 out of     618   27%
+  Number of LUT Flip Flop pairs used:          696
+    Number with an unused Flip Flop:           425 out of     696   61%
+    Number with an unused LUT:                 116 out of     696   16%
+    Number of fully used LUT-FF pairs:         155 out of     696   22%
     Number of slice register sites lost
       to control set restrictions:               0 out of  11,440    0%
 
@@ -97,8 +97,8 @@ Specific Feature Utilization:
 Overall effort level (-ol):   High 
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 3 secs 
-Finished initial Timing Analysis.  REAL time: 3 secs 
+Starting initial Timing Analysis.  REAL time: 4 secs 
+Finished initial Timing Analysis.  REAL time: 4 secs 
 
 WARNING:Par:288 - The signal avr_rx_busy_IBUF has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal avr_tx_IBUF has no load.  PAR will not attempt to route this signal.
@@ -106,52 +106,32 @@ WARNING:Par:288 - The signal esp_rx_IBUF has no load.  PAR will not attempt to r
 Starting Router
 
 
-Phase  1  : 2262 unrouted;      REAL time: 4 secs 
+Phase  1  : 2446 unrouted;      REAL time: 4 secs 
 
-Phase  2  : 1726 unrouted;      REAL time: 4 secs 
+Phase  2  : 1923 unrouted;      REAL time: 5 secs 
 
-Phase  3  : 514 unrouted;      REAL time: 5 secs 
+Phase  3  : 512 unrouted;      REAL time: 6 secs 
 
-Phase  4  : 514 unrouted; (Setup:0, Hold:113793, Component Switching Limit:0)     REAL time: 5 secs 
+Phase  4  : 512 unrouted; (Setup:0, Hold:34585, Component Switching Limit:0)     REAL time: 6 secs 
 
 Updating file: mojo_top.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Setup:0, Hold:109763, Component Switching Limit:0)     REAL time: 6 secs 
+Phase  5  : 0 unrouted; (Setup:0, Hold:32141, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase  6  : 0 unrouted; (Setup:0, Hold:109763, Component Switching Limit:0)     REAL time: 6 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:32141, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:109763, Component Switching Limit:0)     REAL time: 6 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:32141, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:109763, Component Switching Limit:0)     REAL time: 6 secs 
-WARNING:Route:466 - Unusually high hold time violation detected among 27 connections. The top 20 such instances are printed below. The
-   router will continue and try to fix it
-	counter/temp<3>:DQ -> lighthouse/t_0<3>:DX -2552
-	counter/temp<3>:AQ -> lighthouse/t_0<3>:AX -2549
-	counter/temp<3>:BQ -> lighthouse/t_0<3>:BX -2546
-	counter/temp<3>:CQ -> lighthouse/t_0<3>:CX -2542
-	counter/temp<19>:AQ -> lighthouse/t_0<19>:AX -2480
-	counter/temp<19>:BQ -> lighthouse/t_0<19>:BX -2471
-	counter/temp<15>:AQ -> lighthouse/t_0<15>:AX -2447
-	counter/temp<23>:AQ -> lighthouse/t_0<23>:AX -2446
-	counter/temp<7>:AQ -> lighthouse/t_0<7>:AX -2446
-	counter/temp<15>:CQ -> lighthouse/t_0<15>:CX -2434
-	counter/temp<23>:CQ -> lighthouse/t_0<23>:CX -2433
-	counter/temp<7>:CQ -> lighthouse/t_0<7>:CX -2433
-	counter/temp<19>:CQ -> lighthouse/t_0<19>:CX -2384
-	counter/temp<19>:DQ -> lighthouse/t_0<19>:DX -2383
-	counter/temp<23>:BQ -> lighthouse/t_0<23>:BX -2355
-	counter/temp<7>:BQ -> lighthouse/t_0<7>:BX -2355
-	counter/temp<27>:AQ -> lighthouse/t_0<27>:AX -2329
-	counter/temp<31>:AQ -> lighthouse/t_0<31>:AX -2328
-	counter/temp<23>:DQ -> lighthouse/t_0<23>:DX -2304
-	counter/temp<31>:DQ -> lighthouse/t_0<31>:DX -2295
+Phase  8  : 0 unrouted; (Setup:0, Hold:32141, Component Switching Limit:0)     REAL time: 7 secs 
+WARNING:Route:522 - Unusually high hold time violation detected among 1 connections.The router will continue and try to fix it 
+	tx_uart_newData:AQ -> uart/txstart:DX -2089
 
 
-Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 28 secs 
+Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 8 secs 
 
-Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 28 secs 
-Total REAL time to Router completion: 1 mins 28 secs 
-Total CPU time to Router completion: 1 mins 28 secs 
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 8 secs 
+Total REAL time to Router completion: 8 secs 
+Total CPU time to Router completion: 8 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -169,12 +149,12 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|      clk_IBUFG_BUFG | BUFGMUX_X2Y11| No   |   65 |  0.671     |  2.062      |
+|      clk_IBUFG_BUFG | BUFGMUX_X2Y11| No   |   21 |  0.103     |  1.494      |
 +---------------------+--------------+------+------+------------+-------------+
-|           clk_10Mhz | BUFGMUX_X3Y13| No   |    8 |  0.008     |  1.398      |
+|           clk_10Mhz | BUFGMUX_X3Y13| No   |   64 |  0.671     |  2.062      |
 +---------------------+--------------+------+------+------------+-------------+
 |lighthouse/sweep_det |              |      |      |            |             |
-|               ected |         Local|      |    3 |  0.187     |  1.703      |
+|               ected |         Local|      |    3 |  0.248     |  1.516      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -194,11 +174,11 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH | SETUP       |     0.008ns|    19.992ns|       0|           0
-   50%                                      | HOLD        |     0.004ns|            |       0|           0
+  TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH | SETUP       |     8.297ns|    11.703ns|       0|           0
+   50%                                      | HOLD        |     0.131ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  TS_clock10MHz_clkfx = PERIOD TIMEGRP "clo | SETUP       |    96.408ns|     3.592ns|       0|           0
-  ck10MHz_clkfx" TS_clk * 0.2 HIGH 50%      | HOLD        |     0.535ns|            |       0|           0
+  TS_clock10MHz_clkfx = PERIOD TIMEGRP "clo | SETUP       |    10.957ns|    45.215ns|       0|           0
+  ck10MHz_clkfx" TS_clk * 0.2 HIGH 50%      | HOLD        |     0.416ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -212,8 +192,8 @@ Derived Constraints for TS_clk
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_clk                         |     20.000ns|     19.992ns|      0.718ns|            0|            0|      9765857|          528|
-| TS_clock10MHz_clkfx           |    100.000ns|      3.592ns|          N/A|            0|            0|          528|            0|
+|TS_clk                         |     20.000ns|     11.703ns|      9.043ns|            0|            0|         1027|      9855670|
+| TS_clock10MHz_clkfx           |    100.000ns|     45.215ns|          N/A|            0|            0|      9855670|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 All constraints were met.
@@ -225,10 +205,10 @@ All signals are completely routed.
 
 WARNING:Par:283 - There are 3 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Total REAL time to PAR completion: 1 mins 29 secs 
-Total CPU time to PAR completion: 1 mins 29 secs 
+Total REAL time to PAR completion: 9 secs 
+Total CPU time to PAR completion: 9 secs 
 
-Peak Memory Usage:  652 MB
+Peak Memory Usage:  661 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.

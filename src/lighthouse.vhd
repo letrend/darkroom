@@ -23,6 +23,8 @@ architecture Behavioral of lighthouse is
 	signal lighthouse: std_logic;
 	signal start_valid_sync 	: std_logic_vector(31 downto 0);
 	signal sensor_previous		: std_logic;
+	signal temp_sensor_value	: std_logic_vector(31 downto 0);
+	signal temp_sweep_detected : std_logic;
 	constant zeros : std_logic_vector(t_0'range) := (others => '0');
 
 	
@@ -34,45 +36,66 @@ begin process(clk)
    begin
 		if rising_edge(clk) then
 			sensor_previous <= sensor;
-			sweep_detected <= '0';
+			temp_sweep_detected <= '0';
 			if (sensor_previous = '0') and (sensor = '1') then -- rising edge
 				t_0 <= timer;
 			elsif (sensor_previous = '1') and (sensor = '0') then -- falling edge
 				duration := std_logic_vector(unsigned(timer)-unsigned(t_0));
 				if(duration < 300) then -- this is a sweep
 					t_sweep_duration := (t_0-t_sweep_start);
-					sensor_value(31 downto 13) <= t_sweep_duration(18 downto 0);--;t_sweep_duration(18 downto 0);--
-					sweep_detected <= '1';
+					temp_sensor_value(31 downto 13) <= t_sweep_duration(18 downto 0);--;t_sweep_duration(18 downto 0);--
+					temp_sweep_detected <= '1';
 				elsif (duration > (625 - 20)) and (duration < (938 + 20)) then -- this is a sync pulse, NOT skipping
 					t_sweep_start <= t_0;
 					
 					sync_gap_duration := std_logic_vector(unsigned(t_0) - unsigned(start_valid_sync));
 					start_valid_sync <= t_0;
 					if((sync_gap_duration - 83330 ) > 3000 ) then
-						sensor_value(9) <= '1';
+						temp_sensor_value(9) <= '1';
+						-- sensor_value(9) <= '1';
 					elsif ((sync_gap_duration - 83330 ) < -3000 ) then
-						sensor_value(9) <= '0';
+						temp_sensor_value(9) <= '0';
+						--sensor_value(9) <= '0';
 					end if;
 					
 					if(abs(duration - 630) < 50) then
-						sensor_value(10) <= '0'; -- rotor
+						temp_sensor_value(10) <= '0';
+						--sensor_value(10) <= '0'; -- rotor
 					elsif(abs(duration - 730) < 50) then
-						sensor_value(10) <= '1'; -- rotor
+						temp_sensor_value(10) <= '1';
+						--sensor_value(10) <= '1'; -- rotor
 					elsif(abs(duration - 830) < 50) then
-						sensor_value(10) <= '0'; -- rotor
+						temp_sensor_value(10) <= '0';
+						--sensor_value(10) <= '0'; -- rotor
 					elsif(abs(duration - 940) < 50) then
-						sensor_value(10) <= '1'; -- rotor
+						temp_sensor_value(10) <= '1';
+						--sensor_value(10) <= '1'; -- rotor
 					end if;
 				end if;
 				
 				if(t_sweep_duration < 81920) and (t_sweep_duration > 0 ) then 
-					sensor_value(12) <= '1'; -- valid sweep
+					temp_sensor_value(12) <= '1';
+					--sensor_value(12) <= '1'; -- valid sweep
 				else
-					sensor_value(12) <= '0'; -- not valid
+					temp_sensor_value(12) <= '0';
+					--sensor_value(12) <= '0'; -- not valid
 				end if;
 				
-				sensor_value(8 downto 0) <= sensorID;
+				temp_sensor_value(8 downto 0) <= sensorID;
+				--sensor_value(8 downto 0) <= sensorID;
 			end if;
 		end if;
    end process;
+	
+	process(clk)
+		begin 
+			if rising_edge(clk) then
+				if(temp_sweep_detected = '1') then
+					sensor_value <= temp_sensor_value;
+					sweep_detected <= '1';
+				else
+					sweep_detected <= '0';
+				end if;
+			end if;
+	end process;
 end Behavioral;

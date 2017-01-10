@@ -125,7 +125,7 @@ sweep_counter: entity work.counter
 	
 lighthouse: entity work.lighthouse
 	port map(
-		clk 			=> clk,
+		clk 			=> clk_10Mhz,
 		sensor	 	=> sensor,
 		timer			=> temp_timer,
 		sweep_detected => sweep_detected,
@@ -144,10 +144,10 @@ uart: entity work.RS232
       TX_Busy 	=> tx_uart_busy
 	);
 	
-darkroom: process(clk, rst)
+darkroom: process(clk_10Mhz, rst)
 constant ss: character := 's'; 
 begin
-	if rising_edge(clk) then
+	if rising_edge(clk_10Mhz) then
 		tx_uart_newData <= '0';
 		if(tx_uart_busy = '0') and (uart_counter < 4) then -- if uart not busy and not all data was sent
 			case uart_counter is
