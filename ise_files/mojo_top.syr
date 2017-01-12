@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> 
 Reading design: mojo_top.prj
@@ -170,9 +170,11 @@ WARNING:HDLCompiler:634 - "/home/letrend/workspace/darkroom/src/lighthouse.vhd" 
 Elaborating entity <RS232> (architecture <Behavioral>) with generics from library <work>.
 
 Elaborating entity <STD_FIFO> (architecture <Behavioral>) with generics from library <work>.
-WARNING:HDLCompiler:634 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" Line 33: Net <channel[3]> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" Line 37: Net <tx_data[7]> does not have a driver.
-WARNING:HDLCompiler:634 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" Line 39: Net <new_tx_data> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" Line 38: Net <channel[3]> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" Line 42: Net <tx_data[7]> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" Line 44: Net <new_tx_data> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" Line 59: Net <tx_uart_newData> does not have a driver.
+WARNING:HDLCompiler:634 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" Line 60: Net <tx_uart_data[7]> does not have a driver.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -180,32 +182,35 @@ WARNING:HDLCompiler:634 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" Li
 
 Synthesizing Unit <mojo_top>.
     Related source file is "/home/letrend/workspace/darkroom/src/mojo_top.vhd".
-INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 96: Output port <sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 96: Output port <sample_channel> of the instance <avr_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 96: Output port <rx_data> of the instance <avr_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 96: Output port <new_sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 96: Output port <tx_busy> of the instance <avr_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 96: Output port <new_rx_data> of the instance <avr_interface> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 146: Output port <RX_Data> of the instance <uart> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 146: Output port <RX_Busy> of the instance <uart> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 158: Output port <Empty> of the instance <fifo> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 103: Output port <sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 103: Output port <sample_channel> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 103: Output port <rx_data> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 103: Output port <new_sample> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 103: Output port <tx_busy> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 103: Output port <new_rx_data> of the instance <avr_interface> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 153: Output port <RX_Data> of the instance <uart> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 153: Output port <RX_Busy> of the instance <uart> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 153: Output port <TX_Busy> of the instance <uart> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 165: Output port <Full> of the instance <fifo> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 177: Output port <dout> of the instance <spi_slave> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/letrend/workspace/darkroom/src/mojo_top.vhd" line 177: Output port <miso_en> of the instance <spi_slave> is unconnected or connected to loadless signal.
 WARNING:Xst:653 - Signal <channel> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <tx_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <tx_uart_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <new_tx_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-    Found 1-bit register for signal <fifo_ReadEn>.
-    Found 8-bit register for signal <tx_uart_data>.
+WARNING:Xst:653 - Signal <tx_uart_newData> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 8-bit register for signal <temp>.
     Found 3-bit register for signal <uart_counter>.
-    Found 1-bit register for signal <esp_newData>.
+    Found 1-bit register for signal <trdy_out>.
     Found 1-bit register for signal <fifo_WriteEn>.
-    Found 32-bit register for signal <temp>.
     Found 8-bit register for signal <led>.
-    Found 1-bit register for signal <tx_uart_newData>.
-    Found 3-bit adder for signal <uart_counter[2]_GND_6_o_add_2_OUT> created at line 185.
-    Found 8-bit 5-to-1 multiplexer for signal <uart_counter[2]_PWR_6_o_wide_mux_1_OUT> created at line 177.
-    Found 3-bit comparator greater for signal <uart_counter[2]_PWR_6_o_LessThan_1_o> created at line 176
+    Found 1-bit register for signal <fifo_ReadEn>.
+    Found 3-bit adder for signal <uart_counter[2]_GND_6_o_add_2_OUT> created at line 204.
+    Found 8-bit 5-to-1 multiplexer for signal <uart_counter[2]_PWR_6_o_wide_mux_1_OUT> created at line 197.
+    Found 3-bit comparator greater for signal <uart_counter[2]_PWR_6_o_LessThan_1_o> created at line 196
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  55 D-type flip-flop(s).
+	inferred  22 D-type flip-flop(s).
 	inferred   1 Comparator(s).
 	inferred   1 Multiplexer(s).
 Unit <mojo_top> synthesized.
@@ -260,7 +265,7 @@ Synthesizing Unit <spi_slave>.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  25 D-type flip-flop(s).
-	inferred   4 Multiplexer(s).
+	inferred   5 Multiplexer(s).
 Unit <spi_slave> synthesized.
 
 Synthesizing Unit <serial_rx>.
@@ -403,20 +408,19 @@ Synthesizing Unit <RS232>.
     Found 7-bit register for signal <rxcnt>.
     Found 4-bit register for signal <rxbitcnt>.
     Found 8-bit register for signal <rxsr>.
-    Found 1-bit register for signal <txstart>.
     Found 7-bit adder for signal <txcnt[6]_GND_25_o_add_1_OUT> created at line 42.
     Found 4-bit adder for signal <txbitcnt[3]_GND_25_o_add_3_OUT> created at line 46.
     Found 7-bit adder for signal <rxcnt[6]_GND_25_o_add_19_OUT> created at line 61.
     Found 4-bit adder for signal <rxbitcnt[3]_GND_25_o_add_20_OUT> created at line 64.
     Found 7-bit comparator greater for signal <txcnt[6]_PWR_26_o_LessThan_1_o> created at line 41
-    Found 4-bit comparator greater for signal <txbitcnt[3]_PWR_26_o_LessThan_3_o> created at line 53
+    Found 4-bit comparator greater for signal <TX_Busy> created at line 53
     Found 7-bit comparator greater for signal <rxcnt[6]_PWR_26_o_LessThan_19_o> created at line 60
     Found 4-bit comparator greater for signal <RX_Busy> created at line 75
     Summary:
 	inferred   4 Adder/Subtractor(s).
-	inferred  45 D-type flip-flop(s).
+	inferred  44 D-type flip-flop(s).
 	inferred   4 Comparator(s).
-	inferred   3 Multiplexer(s).
+	inferred   1 Multiplexer(s).
 Unit <RS232> synthesized.
 
 Synthesizing Unit <STD_FIFO>.
@@ -450,22 +454,22 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  16x32-bit dual-port RAM                               : 1
-# Adders/Subtractors                                   : 25
- 3-bit adder                                           : 3
+# Adders/Subtractors                                   : 26
+ 3-bit adder                                           : 4
  32-bit adder                                          : 6
  32-bit subtractor                                     : 5
  33-bit subtractor                                     : 3
  4-bit adder                                           : 4
  7-bit adder                                           : 3
  9-bit adder                                           : 1
-# Registers                                            : 84
- 1-bit register                                        : 55
+# Registers                                            : 90
+ 1-bit register                                        : 59
  10-bit register                                       : 2
- 3-bit register                                        : 3
- 32-bit register                                       : 8
+ 3-bit register                                        : 4
+ 32-bit register                                       : 7
  4-bit register                                        : 6
  7-bit register                                        : 3
- 8-bit register                                        : 6
+ 8-bit register                                        : 8
  9-bit register                                        : 1
 # Comparators                                          : 19
  3-bit comparator greater                              : 1
@@ -475,13 +479,13 @@ Macro Statistics
  4-bit comparator greater                              : 2
  4-bit comparator not equal                            : 2
  7-bit comparator greater                              : 2
-# Multiplexers                                         : 34
- 1-bit 2-to-1 multiplexer                              : 15
- 10-bit 2-to-1 multiplexer                             : 2
- 3-bit 2-to-1 multiplexer                              : 2
+# Multiplexers                                         : 38
+ 1-bit 2-to-1 multiplexer                              : 17
+ 10-bit 2-to-1 multiplexer                             : 1
+ 3-bit 2-to-1 multiplexer                              : 3
  4-bit 2-to-1 multiplexer                              : 6
- 7-bit 2-to-1 multiplexer                              : 6
- 8-bit 2-to-1 multiplexer                              : 1
+ 7-bit 2-to-1 multiplexer                              : 5
+ 8-bit 2-to-1 multiplexer                              : 4
  8-bit 5-to-1 multiplexer                              : 1
  9-bit 2-to-1 multiplexer                              : 1
 # Tristates                                            : 6
@@ -530,25 +534,35 @@ INFO:Xst:2261 - The FF/Latch <start_valid_sync_31> in Unit <lighthouse> is equiv
 INFO:Xst:2261 - The FF/Latch <start_valid_sync_27> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_27> 
 INFO:Xst:2261 - The FF/Latch <start_valid_sync_28> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_28> 
 INFO:Xst:2261 - The FF/Latch <start_valid_sync_29> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_29> 
+WARNING:Xst:1293 - FF/Latch <txsr_9> has a constant value of 1 in block <uart>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <sensor_value_11> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <temp_sensor_value_0> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <temp_sensor_value_1> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <temp_sensor_value_3> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <temp_sensor_value_8> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <temp_sensor_value_5> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <temp_sensor_value_7> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <temp_sensor_value_4> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <temp_sensor_value_2> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <temp_sensor_value_6> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <temp_sensor_value_7> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <temp_sensor_value_5> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <temp_sensor_value_8> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_8> has a constant value of 1 in block <uart>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_0> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_1> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_2> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_3> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_4> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_5> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_6> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_7> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_8> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_7> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_6> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_5> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_4> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_3> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_2> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_1> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_7> has a constant value of 1 in block <uart>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_6> has a constant value of 1 in block <uart>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_5> has a constant value of 1 in block <uart>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_4> has a constant value of 1 in block <uart>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_3> has a constant value of 1 in block <uart>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_2> has a constant value of 1 in block <uart>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_1> has a constant value of 1 in block <uart>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_0> has a constant value of 1 in block <uart>. This FF/Latch will be trimmed during the optimization process.
 
 Synthesizing (advanced) Unit <RS232>.
 The following registers are absorbed into counter <txbitcnt>: 1 register on signal <txbitcnt>.
@@ -607,14 +621,14 @@ Macro Statistics
  32-bit subtractor                                     : 8
  4-bit adder                                           : 2
  7-bit adder                                           : 1
-# Counters                                             : 10
- 3-bit up counter                                      : 3
+# Counters                                             : 11
+ 3-bit up counter                                      : 4
  32-bit up counter                                     : 2
  4-bit up counter                                      : 2
  7-bit up counter                                      : 2
  9-bit up counter                                      : 1
-# Registers                                            : 338
- Flip-Flops                                            : 338
+# Registers                                            : 326
+ Flip-Flops                                            : 326
 # Comparators                                          : 19
  3-bit comparator greater                              : 1
  32-bit comparator greater                             : 10
@@ -623,12 +637,12 @@ Macro Statistics
  4-bit comparator greater                              : 2
  4-bit comparator not equal                            : 2
  7-bit comparator greater                              : 2
-# Multiplexers                                         : 27
- 1-bit 2-to-1 multiplexer                              : 13
- 10-bit 2-to-1 multiplexer                             : 2
+# Multiplexers                                         : 45
+ 1-bit 2-to-1 multiplexer                              : 31
+ 10-bit 2-to-1 multiplexer                             : 1
  4-bit 2-to-1 multiplexer                              : 6
  7-bit 2-to-1 multiplexer                              : 4
- 8-bit 2-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 2
  8-bit 5-to-1 multiplexer                              : 1
 # FSMs                                                 : 1
 # Xors                                                 : 124
@@ -658,6 +672,16 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_5> (wi
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_6> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_7> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <sensor_value_8> (without init value) has a constant value of 0 in block <lighthouse>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <txsr_9> has a constant value of 1 in block <RS232>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_8> has a constant value of 1 in block <RS232>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_7> has a constant value of 1 in block <RS232>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_6> has a constant value of 1 in block <RS232>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_5> has a constant value of 1 in block <RS232>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_4> has a constant value of 1 in block <RS232>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_3> has a constant value of 1 in block <RS232>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_2> has a constant value of 1 in block <RS232>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_1> has a constant value of 1 in block <RS232>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <txsr_0> has a constant value of 1 in block <RS232>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <start_valid_sync_10> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_10> 
 INFO:Xst:2261 - The FF/Latch <start_valid_sync_11> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_11> 
 INFO:Xst:2261 - The FF/Latch <start_valid_sync_0> in Unit <lighthouse> is equivalent to the following FF/Latch, which will be removed : <t_sweep_start_0> 
@@ -700,7 +724,6 @@ Optimizing FSM <avr_interface/serial_rx/FSM_0> on signal <state_q[1:2]> with gra
  wait_full | 11
  wait_high | 10
 -----------------------
-WARNING:Xst:1293 - FF/Latch <txsr_9> has a constant value of 1 in block <RS232>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <sweep_counter/temp_8> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <sweep_counter/temp_9> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <sweep_counter/temp_10> of sequential type is unconnected in block <mojo_top>.
@@ -765,10 +788,29 @@ WARNING:Xst:2677 - Node <avr_interface/spi_slave/dout_q_2> of sequential type is
 WARNING:Xst:2677 - Node <avr_interface/spi_slave/dout_q_1> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <avr_interface/spi_slave/dout_q_0> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <avr_interface/spi_slave/done_q> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <spi_slave/dout_q_7> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <spi_slave/dout_q_6> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <spi_slave/dout_q_5> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <spi_slave/dout_q_4> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <spi_slave/dout_q_3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <spi_slave/dout_q_2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <spi_slave/dout_q_1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <spi_slave/dout_q_0> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <uart/txcnt_6> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <uart/txcnt_5> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <uart/txcnt_4> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <uart/txcnt_3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <uart/txcnt_2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <uart/txcnt_1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <uart/txcnt_0> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <uart/rxbitcnt_3> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <uart/rxbitcnt_2> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <uart/rxbitcnt_1> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <uart/rxbitcnt_0> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <uart/txbitcnt_3> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <uart/txbitcnt_2> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <uart/txbitcnt_1> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <uart/txbitcnt_0> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <uart/rxcnt_6> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <uart/rxcnt_5> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <uart/rxcnt_4> of sequential type is unconnected in block <mojo_top>.
@@ -788,11 +830,11 @@ WARNING:Xst:2677 - Node <uart/rxd_sr_3> of sequential type is unconnected in blo
 WARNING:Xst:2677 - Node <uart/rxd_sr_2> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <uart/rxd_sr_1> of sequential type is unconnected in block <mojo_top>.
 WARNING:Xst:2677 - Node <uart/rxd_sr_0> of sequential type is unconnected in block <mojo_top>.
-WARNING:Xst:2677 - Node <fifo/Empty> of sequential type is unconnected in block <mojo_top>.
+WARNING:Xst:2677 - Node <fifo/Full> of sequential type is unconnected in block <mojo_top>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block mojo_top, actual ratio is 15.
+Found area constraint ratio of 100 (+ 5) on block mojo_top, actual ratio is 14.
 
 Final Macro Processing ...
 
@@ -800,8 +842,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 296
- Flip-Flops                                            : 296
+# Registers                                            : 259
+ Flip-Flops                                            : 259
 
 =========================================================================
 
@@ -824,36 +866,37 @@ Top Level Output File Name         : mojo_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1487
+# BELS                             : 1474
 #      GND                         : 1
-#      INV                         : 112
+#      INV                         : 111
 #      LUT1                        : 67
-#      LUT2                        : 242
-#      LUT3                        : 55
-#      LUT4                        : 32
+#      LUT2                        : 238
+#      LUT3                        : 57
+#      LUT4                        : 17
 #      LUT5                        : 107
-#      LUT6                        : 33
+#      LUT6                        : 37
 #      MUXCY                       : 449
+#      MUXF7                       : 1
 #      VCC                         : 1
 #      XORCY                       : 388
-# FlipFlops/Latches                : 296
-#      FD                          : 53
-#      FDC                         : 1
-#      FDCE                        : 12
-#      FDE                         : 191
-#      FDPE                        : 1
-#      FDR                         : 18
-#      FDRE                        : 12
-#      FDSE                        : 8
+# FlipFlops/Latches                : 259
+#      FD                          : 50
+#      FDC                         : 2
+#      FDCE                        : 15
+#      FDE                         : 170
+#      FDPE                        : 2
+#      FDR                         : 16
+#      FDRE                        : 3
+#      FDS                         : 1
 # RAMS                             : 7
 #      RAM16X1D                    : 2
 #      RAM32M                      : 5
 # Clock Buffers                    : 3
 #      BUFG                        : 3
-# IO Buffers                       : 23
-#      IBUF                        : 6
+# IO Buffers                       : 27
+#      IBUF                        : 9
 #      IBUFG                       : 1
-#      OBUF                        : 10
+#      OBUF                        : 11
 #      OBUFT                       : 6
 # Others                           : 1
 #      PLL_ADV                     : 1
@@ -865,22 +908,22 @@ Selected Device : 6slx9tqg144-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             288  out of  11440     2%  
- Number of Slice LUTs:                  672  out of   5720    11%  
-    Number used as Logic:               648  out of   5720    11%  
+ Number of Slice Registers:             251  out of  11440     2%  
+ Number of Slice LUTs:                  658  out of   5720    11%  
+    Number used as Logic:               634  out of   5720    11%  
     Number used as Memory:               24  out of   1440     1%  
        Number used as RAM:               24
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    847
-   Number with an unused Flip Flop:     559  out of    847    65%  
-   Number with an unused LUT:           175  out of    847    20%  
-   Number of fully used LUT-FF pairs:   113  out of    847    13%  
-   Number of unique control sets:        29
+ Number of LUT Flip Flop pairs used:    803
+   Number with an unused Flip Flop:     552  out of    803    68%  
+   Number with an unused LUT:           145  out of    803    18%  
+   Number of fully used LUT-FF pairs:   106  out of    803    13%  
+   Number of unique control sets:        28
 
 IO Utilization: 
- Number of IOs:                          26
- Number of bonded IOBs:                  23  out of    102    22%  
+ Number of IOs:                          31
+ Number of bonded IOBs:                  27  out of    102    26%  
     IOB Flip Flops/Latches:               8
 
 Specific Feature Utilization:
@@ -908,7 +951,7 @@ Clock Information:
 -----------------------------------+---------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)     | Load  |
 -----------------------------------+---------------------------+-------+
-clock10MHz/pll_base_inst/CLKOUT1   | BUFG                      | 175   |
+clock10MHz/pll_base_inst/CLKOUT1   | BUFG                      | 138   |
 clock10MHz/pll_base_inst/CLKOUT0   | BUFG                      | 120   |
 lighthouse/sweep_detected          | NONE(sweep_counter/temp_0)| 8     |
 -----------------------------------+---------------------------+-------+
@@ -923,8 +966,8 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 11.116ns (Maximum Frequency: 89.960MHz)
-   Minimum input arrival time before clock: 5.823ns
-   Maximum output required time after clock: 5.610ns
+   Minimum input arrival time before clock: 5.963ns
+   Maximum output required time after clock: 5.576ns
    Maximum combinational path delay: 5.901ns
 
 Timing Details:
@@ -933,32 +976,32 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clock10MHz/pll_base_inst/CLKOUT1'
-  Clock period: 9.512ns (frequency: 105.130MHz)
-  Total number of paths / destination ports: 2330 / 346
+  Clock period: 9.598ns (frequency: 104.188MHz)
+  Total number of paths / destination ports: 1839 / 249
 -------------------------------------------------------------------------
-Delay:               9.512ns (Levels of Logic = 8)
-  Source:            fifo/fifo_proc.Head_2 (FF)
-  Destination:       fifo/Full (FF)
+Delay:               9.598ns (Levels of Logic = 8)
+  Source:            fifo/fifo_proc.Head_0 (FF)
+  Destination:       fifo/Empty (FF)
   Source Clock:      clock10MHz/pll_base_inst/CLKOUT1 rising
   Destination Clock: clock10MHz/pll_base_inst/CLKOUT1 rising
 
-  Data Path: fifo/fifo_proc.Head_2 to fifo/Full
+  Data Path: fifo/fifo_proc.Head_0 to fifo/Empty
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             16   0.525   1.458  fifo/fifo_proc.Head_2 (fifo/fifo_proc.Head_2)
-     LUT4:I0->O            1   0.254   0.682  fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o_SW0 (N34)
-     LUT6:I5->O            6   0.254   0.876  fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o (fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o)
-     LUT3:I2->O            2   0.254   0.834  fifo/Mmux_fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT11 (fifo/fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT<0>)
-     LUT5:I3->O            1   0.250   0.682  fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o_SW0 (N32)
-     LUT6:I5->O            5   0.254   0.841  fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o (fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o)
-     LUT5:I4->O            2   0.254   0.834  fifo/Mmux_fifo_proc.Head[3]_fifo_proc.Head[3]_mux_15_OUT21 (fifo/fifo_proc.Head[3]_fifo_proc.Head[3]_mux_15_OUT<1>)
-     LUT6:I4->O            1   0.250   0.682  fifo/fifo_proc.Tail[3]_fifo_proc.Head[3]_equal_17_o4_SW0 (N28)
-     LUT6:I5->O            1   0.254   0.000  fifo/Full_glue_set (fifo/Full_glue_set)
-     FDR:D                     0.074          fifo/Full
+     FDR:C->Q             19   0.525   1.489  fifo/fifo_proc.Head_0 (fifo/fifo_proc.Head_0)
+     LUT4:I1->O            1   0.235   0.682  fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o_SW0 (N33)
+     LUT6:I5->O            7   0.254   0.910  fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o (fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o)
+     LUT6:I5->O            3   0.254   0.874  fifo/Mmux_fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT41 (fifo/fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT<3>)
+     LUT6:I4->O            5   0.250   0.841  fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o (fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o)
+     LUT4:I3->O            2   0.254   0.834  fifo/Mmux_fifo_proc.Head[3]_fifo_proc.Head[3]_mux_15_OUT11 (fifo/fifo_proc.Head[3]_fifo_proc.Head[3]_mux_15_OUT<0>)
+     LUT6:I4->O            1   0.250   0.682  fifo/_n0079_SW0 (N31)
+     LUT3:I2->O            1   0.254   0.682  fifo/Empty_glue_rst_SW0 (N37)
+     LUT6:I5->O            1   0.254   0.000  fifo/Empty_glue_rst (fifo/Empty_glue_rst)
+     FDS:D                     0.074          fifo/Empty
     ----------------------------------------
-    Total                      9.512ns (2.623ns logic, 6.889ns route)
-                                       (27.6% logic, 72.4% route)
+    Total                      9.598ns (2.604ns logic, 6.994ns route)
+                                       (27.1% logic, 72.9% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clock10MHz/pll_base_inst/CLKOUT0'
@@ -1084,9 +1127,9 @@ Delay:               2.140ns (Levels of Logic = 9)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clock10MHz/pll_base_inst/CLKOUT1'
-  Total number of paths / destination ports: 128 / 83
+  Total number of paths / destination ports: 167 / 122
 -------------------------------------------------------------------------
-Offset:              5.823ns (Levels of Logic = 3)
+Offset:              5.963ns (Levels of Logic = 3)
   Source:            rst_n (PAD)
   Destination:       fifo/DataOut_31 (FF)
   Destination Clock: clock10MHz/pll_base_inst/CLKOUT1 rising
@@ -1096,12 +1139,12 @@ Offset:              5.823ns (Levels of Logic = 3)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             1   1.328   0.681  rst_n_IBUF (rst_n_IBUF)
-     INV:I->O             24   0.255   1.488  rst1_INV_0 (rst)
+     INV:I->O             32   0.255   1.628  rst1_INV_0 (rst)
      LUT3:I1->O           32   0.250   1.519  fifo/_n0094_inv1 (fifo/_n0094_inv)
      FDE:CE                    0.302          fifo/DataOut_0
     ----------------------------------------
-    Total                      5.823ns (2.135ns logic, 3.688ns route)
-                                       (36.7% logic, 63.3% route)
+    Total                      5.963ns (2.135ns logic, 3.828ns route)
+                                       (35.8% logic, 64.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clock10MHz/pll_base_inst/CLKOUT0'
@@ -1117,7 +1160,7 @@ Offset:              5.064ns (Levels of Logic = 3)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             9   1.328   1.406  sensor_IBUF (sensor_IBUF)
-     LUT6:I1->O            1   0.254   0.682  lighthouse/_n03941_SW0 (N40)
+     LUT6:I1->O            1   0.254   0.682  lighthouse/_n03941_SW0 (N39)
      LUT6:I5->O            1   0.254   0.681  lighthouse/_n03941 (lighthouse/_n0394)
      FDR:R                     0.459          lighthouse/temp_sensor_value_9
     ----------------------------------------
@@ -1128,7 +1171,7 @@ Offset:              5.064ns (Levels of Logic = 3)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clock10MHz/pll_base_inst/CLKOUT1'
   Total number of paths / destination ports: 17 / 16
 -------------------------------------------------------------------------
-Offset:              5.610ns (Levels of Logic = 2)
+Offset:              5.576ns (Levels of Logic = 2)
   Source:            avr_interface/cclk_detector/ready_q (FF)
   Destination:       spi_channel<3> (PAD)
   Source Clock:      clock10MHz/pll_base_inst/CLKOUT1 rising
@@ -1137,12 +1180,12 @@ Offset:              5.610ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              8   0.525   0.943  avr_interface/cclk_detector/ready_q (avr_interface/cclk_detector/ready_q)
+     FDC:C->Q              7   0.525   0.909  avr_interface/cclk_detector/ready_q (avr_interface/cclk_detector/ready_q)
      INV:I->O              9   0.255   0.975  avr_interface/n_rdy1_INV_0 (avr_interface/n_rdy)
      OBUFT:T->O                2.912          spi_channel_3_OBUFT (spi_channel<3>)
     ----------------------------------------
-    Total                      5.610ns (3.692ns logic, 1.918ns route)
-                                       (65.8% logic, 34.2% route)
+    Total                      5.576ns (3.692ns logic, 1.884ns route)
+                                       (66.2% logic, 33.8% route)
 
 =========================================================================
 Timing constraint: Default path analysis
@@ -1182,7 +1225,7 @@ Clock to Setup on destination clock clock10MHz/pll_base_inst/CLKOUT1
 Source Clock                    |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 --------------------------------+---------+---------+---------+---------+
 clock10MHz/pll_base_inst/CLKOUT0|    2.184|         |         |         |
-clock10MHz/pll_base_inst/CLKOUT1|    9.512|         |         |         |
+clock10MHz/pll_base_inst/CLKOUT1|    9.598|         |         |         |
 lighthouse/sweep_detected       |    1.324|         |         |         |
 --------------------------------+---------+---------+---------+---------+
 
@@ -1197,15 +1240,15 @@ lighthouse/sweep_detected|    2.140|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 15.00 secs
-Total CPU time to Xst completion: 15.52 secs
+Total REAL time to Xst completion: 25.00 secs
+Total CPU time to Xst completion: 22.45 secs
  
 --> 
 
 
-Total memory usage is 410408 kilobytes
+Total memory usage is 410376 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  123 (   0 filtered)
-Number of infos    :   76 (   0 filtered)
+Number of warnings :  165 (   0 filtered)
+Number of infos    :   79 (   0 filtered)
 

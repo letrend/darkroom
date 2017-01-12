@@ -31,5 +31,8 @@ NET "avr_rx" LOC = P59;
 NET "avr_rx_busy" LOC = P39;
 
 NET "sensor" LOC = P2 | IOSTANDARD = LVCMOS33;
-NET "esp_rx" LOC = P40;
-NET "esp_tx" LOC = P41;
+NET "miso" LOC = P30;
+NET "sck" LOC = P33;
+NET "ss_n" LOC = P41;
+NET "mosi" LOC = P35;
+NET "trdy_out" LOC = P51;

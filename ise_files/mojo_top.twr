@@ -69,84 +69,19 @@ Timing constraint: TS_clock10MHz_clkout1 = PERIOD TIMEGRP "clock10MHz_clkout1"
 TS_clk HIGH 50%;
 For more information, see Period Analysis in the Timing Closure User Guide (UG612).
 
- 4899 paths analyzed, 868 endpoints analyzed, 0 failing endpoints
+ 4186 paths analyzed, 756 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is  12.827ns.
+ Minimum period is   6.975ns.
 --------------------------------------------------------------------------------
 
-Paths for end point lighthouse/sensor_value_14 (SLICE_X17Y24.A4), 1 path
+Paths for end point fifo/Empty (SLICE_X15Y14.A5), 201 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     7.173ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               lighthouse/temp_sensor_value_14 (FF)
-  Destination:          lighthouse/sensor_value_14 (FF)
+Slack (setup path):     13.025ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo/fifo_proc.Head_2 (FF)
+  Destination:          fifo/Empty (FF)
   Requirement:          20.000ns
-  Data Path Delay:      11.913ns (Levels of Logic = 1)
-  Clock Path Skew:      -0.645ns (1.311 - 1.956)
-  Source Clock:         clk10MHz rising at 0.000ns
-  Destination Clock:    clk50MHz rising at 20.000ns
-  Clock Uncertainty:    0.269ns
-
-  Clock Uncertainty:          0.269ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.289ns
-    Phase Error (PE):           0.120ns
-
-  Maximum Data Path at Slow Process Corner: lighthouse/temp_sensor_value_14 to lighthouse/sensor_value_14
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X18Y24.BQ      Tcko                  0.476   lighthouse/temp_sensor_value_16
-                                                       lighthouse/temp_sensor_value_14
-    SLICE_X17Y24.A4      net (fanout=1)       11.173   lighthouse/temp_sensor_value_14
-    SLICE_X17Y24.CLK     Tas                   0.264   lighthouse/sensor_value<13>
-                                                       lighthouse/temp_sensor_value_14_rt
-                                                       lighthouse/sensor_value_14
-    -------------------------------------------------  ---------------------------
-    Total                                     11.913ns (0.740ns logic, 11.173ns route)
-                                                       (6.2% logic, 93.8% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point lighthouse/sensor_value_26 (SLICE_X17Y27.AX), 1 path
---------------------------------------------------------------------------------
-Slack (setup path):     7.987ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               lighthouse/temp_sensor_value_26 (FF)
-  Destination:          lighthouse/sensor_value_26 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      11.098ns (Levels of Logic = 0)
-  Clock Path Skew:      -0.646ns (1.318 - 1.964)
-  Source Clock:         clk10MHz rising at 0.000ns
-  Destination Clock:    clk50MHz rising at 20.000ns
-  Clock Uncertainty:    0.269ns
-
-  Clock Uncertainty:          0.269ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.289ns
-    Phase Error (PE):           0.120ns
-
-  Maximum Data Path at Slow Process Corner: lighthouse/temp_sensor_value_26 to lighthouse/sensor_value_26
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X18Y27.BQ      Tcko                  0.476   lighthouse/temp_sensor_value_28
-                                                       lighthouse/temp_sensor_value_26
-    SLICE_X17Y27.AX      net (fanout=1)       10.508   lighthouse/temp_sensor_value_26
-    SLICE_X17Y27.CLK     Tdick                 0.114   lighthouse/sensor_value<29>
-                                                       lighthouse/sensor_value_26
-    -------------------------------------------------  ---------------------------
-    Total                                     11.098ns (0.590ns logic, 10.508ns route)
-                                                       (5.3% logic, 94.7% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point fifo/Full (SLICE_X12Y18.D4), 66 paths
---------------------------------------------------------------------------------
-Slack (setup path):     12.782ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               fifo/fifo_proc.Head_0 (FF)
-  Destination:          fifo/Full (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      7.094ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.010ns (0.195 - 0.205)
+  Data Path Delay:      6.850ns (Levels of Logic = 8)
+  Clock Path Skew:      -0.011ns (0.196 - 0.207)
   Source Clock:         clk50MHz rising at 0.000ns
   Destination Clock:    clk50MHz rising at 20.000ns
   Clock Uncertainty:    0.114ns
@@ -156,45 +91,48 @@ Slack (setup path):     12.782ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.216ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: fifo/fifo_proc.Head_0 to fifo/Full
+  Maximum Data Path at Slow Process Corner: fifo/fifo_proc.Head_2 to fifo/Empty
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X12Y19.AQ      Tcko                  0.525   fifo/fifo_proc.Head<3>
-                                                       fifo/fifo_proc.Head_0
-    SLICE_X13Y18.D1      net (fanout=13)       0.788   fifo/fifo_proc.Head<0>
-    SLICE_X13Y18.D       Tilo                  0.259   fifo/fifo_proc.Looped
+    SLICE_X14Y14.DQ      Tcko                  0.476   fifo/fifo_proc.Head<2>
+                                                       fifo/fifo_proc.Head_2
+    SLICE_X13Y14.B1      net (fanout=12)       0.765   fifo/fifo_proc.Head<2>
+    SLICE_X13Y14.B       Tilo                  0.259   N33
                                                        fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o_SW0
-    SLICE_X13Y18.C6      net (fanout=1)        0.143   N34
-    SLICE_X13Y18.C       Tilo                  0.259   fifo/fifo_proc.Looped
+    SLICE_X12Y14.B5      net (fanout=1)        0.211   N33
+    SLICE_X12Y14.B       Tilo                  0.254   fifo/fifo_proc.Tail<3>
                                                        fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
-    SLICE_X15Y18.C1      net (fanout=4)        0.744   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
-    SLICE_X15Y18.CMUX    Tilo                  0.337   fifo/fifo_proc.Tail<3>
-                                                       fifo/Mmux_fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT21
-    SLICE_X15Y18.B5      net (fanout=2)        0.439   fifo/fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT<1>
-    SLICE_X15Y18.B       Tilo                  0.259   fifo/fifo_proc.Tail<3>
-                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o_SW0
-    SLICE_X12Y19.A6      net (fanout=1)        0.378   N32
-    SLICE_X12Y19.A       Tilo                  0.254   fifo/fifo_proc.Head<3>
+    SLICE_X12Y14.D1      net (fanout=5)        0.617   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
+    SLICE_X12Y14.D       Tilo                  0.254   fifo/fifo_proc.Tail<3>
+                                                       fifo/Mmux_fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT41
+    SLICE_X14Y14.B2      net (fanout=2)        0.754   fifo/fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT<3>
+    SLICE_X14Y14.B       Tilo                  0.235   fifo/fifo_proc.Head<2>
                                                        fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
-    SLICE_X12Y19.D1      net (fanout=4)        0.908   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
-    SLICE_X12Y19.D       Tilo                  0.254   fifo/fifo_proc.Head<3>
-                                                       fifo/Mmux_fifo_proc.Head[3]_fifo_proc.Head[3]_mux_15_OUT41
-    SLICE_X12Y18.D4      net (fanout=1)        1.208   fifo/fifo_proc.Head[3]_fifo_proc.Head[3]_mux_15_OUT<3>
-    SLICE_X12Y18.CLK     Tas                   0.339   fifo/Full
-                                                       fifo/Full_glue_set
-                                                       fifo/Full
+    SLICE_X14Y14.C4      net (fanout=4)        0.384   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
+    SLICE_X14Y14.CMUX    Tilo                  0.298   fifo/fifo_proc.Head<2>
+                                                       fifo/Mmux_fifo_proc.Head[3]_fifo_proc.Head[3]_mux_15_OUT11
+    SLICE_X14Y14.A2      net (fanout=2)        0.725   fifo/fifo_proc.Head[3]_fifo_proc.Head[3]_mux_15_OUT<0>
+    SLICE_X14Y14.A       Tilo                  0.235   fifo/fifo_proc.Head<2>
+                                                       fifo/_n0079_SW0
+    SLICE_X15Y14.B1      net (fanout=1)        0.521   N31
+    SLICE_X15Y14.B       Tilo                  0.259   fifo/fifo_proc.Head<3>
+                                                       fifo/Empty_glue_rst_SW0
+    SLICE_X15Y14.A5      net (fanout=1)        0.230   N37
+    SLICE_X15Y14.CLK     Tas                   0.373   fifo/fifo_proc.Head<3>
+                                                       fifo/Empty_glue_rst
+                                                       fifo/Empty
     -------------------------------------------------  ---------------------------
-    Total                                      7.094ns (2.486ns logic, 4.608ns route)
-                                                       (35.0% logic, 65.0% route)
+    Total                                      6.850ns (2.643ns logic, 4.207ns route)
+                                                       (38.6% logic, 61.4% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     12.870ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               fifo/fifo_proc.Tail_0 (FF)
-  Destination:          fifo/Full (FF)
+Slack (setup path):     13.188ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo/fifo_proc.Head_1 (FF)
+  Destination:          fifo/Empty (FF)
   Requirement:          20.000ns
-  Data Path Delay:      6.999ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.017ns (0.295 - 0.312)
+  Data Path Delay:      6.687ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.011ns (0.196 - 0.207)
   Source Clock:         clk50MHz rising at 0.000ns
   Destination Clock:    clk50MHz rising at 20.000ns
   Clock Uncertainty:    0.114ns
@@ -204,45 +142,45 @@ Slack (setup path):     12.870ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.216ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: fifo/fifo_proc.Tail_0 to fifo/Full
+  Maximum Data Path at Slow Process Corner: fifo/fifo_proc.Head_1 to fifo/Empty
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X15Y18.AQ      Tcko                  0.430   fifo/fifo_proc.Tail<3>
-                                                       fifo/fifo_proc.Tail_0
-    SLICE_X13Y18.D2      net (fanout=23)       0.788   fifo/fifo_proc.Tail<0>
-    SLICE_X13Y18.D       Tilo                  0.259   fifo/fifo_proc.Looped
-                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o_SW0
-    SLICE_X13Y18.C6      net (fanout=1)        0.143   N34
-    SLICE_X13Y18.C       Tilo                  0.259   fifo/fifo_proc.Looped
+    SLICE_X14Y14.CQ      Tcko                  0.476   fifo/fifo_proc.Head<2>
+                                                       fifo/fifo_proc.Head_1
+    SLICE_X12Y14.B2      net (fanout=14)       1.072   fifo/fifo_proc.Head<1>
+    SLICE_X12Y14.B       Tilo                  0.254   fifo/fifo_proc.Tail<3>
                                                        fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
-    SLICE_X15Y18.C1      net (fanout=4)        0.744   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
-    SLICE_X15Y18.CMUX    Tilo                  0.337   fifo/fifo_proc.Tail<3>
-                                                       fifo/Mmux_fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT21
-    SLICE_X15Y18.B5      net (fanout=2)        0.439   fifo/fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT<1>
-    SLICE_X15Y18.B       Tilo                  0.259   fifo/fifo_proc.Tail<3>
-                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o_SW0
-    SLICE_X12Y19.A6      net (fanout=1)        0.378   N32
-    SLICE_X12Y19.A       Tilo                  0.254   fifo/fifo_proc.Head<3>
+    SLICE_X12Y14.D1      net (fanout=5)        0.617   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
+    SLICE_X12Y14.D       Tilo                  0.254   fifo/fifo_proc.Tail<3>
+                                                       fifo/Mmux_fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT41
+    SLICE_X14Y14.B2      net (fanout=2)        0.754   fifo/fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT<3>
+    SLICE_X14Y14.B       Tilo                  0.235   fifo/fifo_proc.Head<2>
                                                        fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
-    SLICE_X12Y19.D1      net (fanout=4)        0.908   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
-    SLICE_X12Y19.D       Tilo                  0.254   fifo/fifo_proc.Head<3>
-                                                       fifo/Mmux_fifo_proc.Head[3]_fifo_proc.Head[3]_mux_15_OUT41
-    SLICE_X12Y18.D4      net (fanout=1)        1.208   fifo/fifo_proc.Head[3]_fifo_proc.Head[3]_mux_15_OUT<3>
-    SLICE_X12Y18.CLK     Tas                   0.339   fifo/Full
-                                                       fifo/Full_glue_set
-                                                       fifo/Full
+    SLICE_X14Y14.C4      net (fanout=4)        0.384   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
+    SLICE_X14Y14.CMUX    Tilo                  0.298   fifo/fifo_proc.Head<2>
+                                                       fifo/Mmux_fifo_proc.Head[3]_fifo_proc.Head[3]_mux_15_OUT11
+    SLICE_X14Y14.A2      net (fanout=2)        0.725   fifo/fifo_proc.Head[3]_fifo_proc.Head[3]_mux_15_OUT<0>
+    SLICE_X14Y14.A       Tilo                  0.235   fifo/fifo_proc.Head<2>
+                                                       fifo/_n0079_SW0
+    SLICE_X15Y14.B1      net (fanout=1)        0.521   N31
+    SLICE_X15Y14.B       Tilo                  0.259   fifo/fifo_proc.Head<3>
+                                                       fifo/Empty_glue_rst_SW0
+    SLICE_X15Y14.A5      net (fanout=1)        0.230   N37
+    SLICE_X15Y14.CLK     Tas                   0.373   fifo/fifo_proc.Head<3>
+                                                       fifo/Empty_glue_rst
+                                                       fifo/Empty
     -------------------------------------------------  ---------------------------
-    Total                                      6.999ns (2.391ns logic, 4.608ns route)
-                                                       (34.2% logic, 65.8% route)
+    Total                                      6.687ns (2.384ns logic, 4.303ns route)
+                                                       (35.7% logic, 64.3% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     13.122ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               fifo/fifo_proc.Tail_2 (FF)
-  Destination:          fifo/Full (FF)
+Slack (setup path):     13.281ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo/fifo_proc.Head_2 (FF)
+  Destination:          fifo/Empty (FF)
   Requirement:          20.000ns
-  Data Path Delay:      6.747ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.017ns (0.295 - 0.312)
+  Data Path Delay:      6.594ns (Levels of Logic = 8)
+  Clock Path Skew:      -0.011ns (0.196 - 0.207)
   Source Clock:         clk50MHz rising at 0.000ns
   Destination Clock:    clk50MHz rising at 20.000ns
   Clock Uncertainty:    0.114ns
@@ -252,51 +190,318 @@ Slack (setup path):     13.122ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.216ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: fifo/fifo_proc.Tail_2 to fifo/Full
+  Maximum Data Path at Slow Process Corner: fifo/fifo_proc.Head_2 to fifo/Empty
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X15Y18.CQ      Tcko                  0.430   fifo/fifo_proc.Tail<3>
-                                                       fifo/fifo_proc.Tail_2
-    SLICE_X13Y18.D4      net (fanout=21)       0.536   fifo/fifo_proc.Tail<2>
-    SLICE_X13Y18.D       Tilo                  0.259   fifo/fifo_proc.Looped
+    SLICE_X14Y14.DQ      Tcko                  0.476   fifo/fifo_proc.Head<2>
+                                                       fifo/fifo_proc.Head_2
+    SLICE_X13Y14.B1      net (fanout=12)       0.765   fifo/fifo_proc.Head<2>
+    SLICE_X13Y14.B       Tilo                  0.259   N33
                                                        fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o_SW0
-    SLICE_X13Y18.C6      net (fanout=1)        0.143   N34
-    SLICE_X13Y18.C       Tilo                  0.259   fifo/fifo_proc.Looped
+    SLICE_X12Y14.B5      net (fanout=1)        0.211   N33
+    SLICE_X12Y14.B       Tilo                  0.254   fifo/fifo_proc.Tail<3>
                                                        fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
-    SLICE_X15Y18.C1      net (fanout=4)        0.744   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
-    SLICE_X15Y18.CMUX    Tilo                  0.337   fifo/fifo_proc.Tail<3>
-                                                       fifo/Mmux_fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT21
-    SLICE_X15Y18.B5      net (fanout=2)        0.439   fifo/fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT<1>
-    SLICE_X15Y18.B       Tilo                  0.259   fifo/fifo_proc.Tail<3>
-                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o_SW0
-    SLICE_X12Y19.A6      net (fanout=1)        0.378   N32
-    SLICE_X12Y19.A       Tilo                  0.254   fifo/fifo_proc.Head<3>
+    SLICE_X12Y14.D1      net (fanout=5)        0.617   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
+    SLICE_X12Y14.D       Tilo                  0.254   fifo/fifo_proc.Tail<3>
+                                                       fifo/Mmux_fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT41
+    SLICE_X14Y14.B2      net (fanout=2)        0.754   fifo/fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT<3>
+    SLICE_X14Y14.B       Tilo                  0.235   fifo/fifo_proc.Head<2>
                                                        fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
-    SLICE_X12Y19.D1      net (fanout=4)        0.908   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
-    SLICE_X12Y19.D       Tilo                  0.254   fifo/fifo_proc.Head<3>
-                                                       fifo/Mmux_fifo_proc.Head[3]_fifo_proc.Head[3]_mux_15_OUT41
-    SLICE_X12Y18.D4      net (fanout=1)        1.208   fifo/fifo_proc.Head[3]_fifo_proc.Head[3]_mux_15_OUT<3>
-    SLICE_X12Y18.CLK     Tas                   0.339   fifo/Full
-                                                       fifo/Full_glue_set
-                                                       fifo/Full
+    SLICE_X14Y14.C4      net (fanout=4)        0.384   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
+    SLICE_X14Y14.C       Tilo                  0.235   fifo/fifo_proc.Head<2>
+                                                       fifo/Mmux_fifo_proc.Head[3]_fifo_proc.Head[3]_mux_15_OUT21
+    SLICE_X14Y14.A1      net (fanout=1)        0.532   fifo/fifo_proc.Head[3]_fifo_proc.Head[3]_mux_15_OUT<1>
+    SLICE_X14Y14.A       Tilo                  0.235   fifo/fifo_proc.Head<2>
+                                                       fifo/_n0079_SW0
+    SLICE_X15Y14.B1      net (fanout=1)        0.521   N31
+    SLICE_X15Y14.B       Tilo                  0.259   fifo/fifo_proc.Head<3>
+                                                       fifo/Empty_glue_rst_SW0
+    SLICE_X15Y14.A5      net (fanout=1)        0.230   N37
+    SLICE_X15Y14.CLK     Tas                   0.373   fifo/fifo_proc.Head<3>
+                                                       fifo/Empty_glue_rst
+                                                       fifo/Empty
     -------------------------------------------------  ---------------------------
-    Total                                      6.747ns (2.391ns logic, 4.356ns route)
-                                                       (35.4% logic, 64.6% route)
+    Total                                      6.594ns (2.580ns logic, 4.014ns route)
+                                                       (39.1% logic, 60.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point fifo/Mram_Memory5_RAMA (SLICE_X4Y20.WE), 56 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     13.477ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo/fifo_proc.Head_2 (FF)
+  Destination:          fifo/Mram_Memory5_RAMA (RAM)
+  Requirement:          20.000ns
+  Data Path Delay:      6.354ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.055ns (0.632 - 0.687)
+  Source Clock:         clk50MHz rising at 0.000ns
+  Destination Clock:    clk50MHz rising at 20.000ns
+  Clock Uncertainty:    0.114ns
+
+  Clock Uncertainty:          0.114ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.216ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo/fifo_proc.Head_2 to fifo/Mram_Memory5_RAMA
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y14.DQ      Tcko                  0.476   fifo/fifo_proc.Head<2>
+                                                       fifo/fifo_proc.Head_2
+    SLICE_X13Y14.B1      net (fanout=12)       0.765   fifo/fifo_proc.Head<2>
+    SLICE_X13Y14.B       Tilo                  0.259   N33
+                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o_SW0
+    SLICE_X12Y14.B5      net (fanout=1)        0.211   N33
+    SLICE_X12Y14.B       Tilo                  0.254   fifo/fifo_proc.Tail<3>
+                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
+    SLICE_X12Y14.D1      net (fanout=5)        0.617   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
+    SLICE_X12Y14.D       Tilo                  0.254   fifo/fifo_proc.Tail<3>
+                                                       fifo/Mmux_fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT41
+    SLICE_X14Y14.B2      net (fanout=2)        0.754   fifo/fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT<3>
+    SLICE_X14Y14.B       Tilo                  0.235   fifo/fifo_proc.Head<2>
+                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
+    SLICE_X14Y15.B5      net (fanout=4)        0.429   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
+    SLICE_X14Y15.BMUX    Tilo                  0.298   fifo/WriteEn_fifo_proc.prev_data_AND_20_o
+                                                       fifo/Mmux_BUS_006611
+    SLICE_X4Y20.WE       net (fanout=6)        1.433   fifo/BUS_0066
+    SLICE_X4Y20.CLK      Tws                   0.369   fifo/DataOut<29>
+                                                       fifo/Mram_Memory5_RAMA
+    -------------------------------------------------  ---------------------------
+    Total                                      6.354ns (2.145ns logic, 4.209ns route)
+                                                       (33.8% logic, 66.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     13.640ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo/fifo_proc.Head_1 (FF)
+  Destination:          fifo/Mram_Memory5_RAMA (RAM)
+  Requirement:          20.000ns
+  Data Path Delay:      6.191ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.055ns (0.632 - 0.687)
+  Source Clock:         clk50MHz rising at 0.000ns
+  Destination Clock:    clk50MHz rising at 20.000ns
+  Clock Uncertainty:    0.114ns
+
+  Clock Uncertainty:          0.114ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.216ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo/fifo_proc.Head_1 to fifo/Mram_Memory5_RAMA
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y14.CQ      Tcko                  0.476   fifo/fifo_proc.Head<2>
+                                                       fifo/fifo_proc.Head_1
+    SLICE_X12Y14.B2      net (fanout=14)       1.072   fifo/fifo_proc.Head<1>
+    SLICE_X12Y14.B       Tilo                  0.254   fifo/fifo_proc.Tail<3>
+                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
+    SLICE_X12Y14.D1      net (fanout=5)        0.617   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
+    SLICE_X12Y14.D       Tilo                  0.254   fifo/fifo_proc.Tail<3>
+                                                       fifo/Mmux_fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT41
+    SLICE_X14Y14.B2      net (fanout=2)        0.754   fifo/fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT<3>
+    SLICE_X14Y14.B       Tilo                  0.235   fifo/fifo_proc.Head<2>
+                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
+    SLICE_X14Y15.B5      net (fanout=4)        0.429   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
+    SLICE_X14Y15.BMUX    Tilo                  0.298   fifo/WriteEn_fifo_proc.prev_data_AND_20_o
+                                                       fifo/Mmux_BUS_006611
+    SLICE_X4Y20.WE       net (fanout=6)        1.433   fifo/BUS_0066
+    SLICE_X4Y20.CLK      Tws                   0.369   fifo/DataOut<29>
+                                                       fifo/Mram_Memory5_RAMA
+    -------------------------------------------------  ---------------------------
+    Total                                      6.191ns (1.886ns logic, 4.305ns route)
+                                                       (30.5% logic, 69.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     13.744ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo/fifo_proc.Head_2 (FF)
+  Destination:          fifo/Mram_Memory5_RAMA (RAM)
+  Requirement:          20.000ns
+  Data Path Delay:      6.087ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.055ns (0.632 - 0.687)
+  Source Clock:         clk50MHz rising at 0.000ns
+  Destination Clock:    clk50MHz rising at 20.000ns
+  Clock Uncertainty:    0.114ns
+
+  Clock Uncertainty:          0.114ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.216ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo/fifo_proc.Head_2 to fifo/Mram_Memory5_RAMA
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y14.DQ      Tcko                  0.476   fifo/fifo_proc.Head<2>
+                                                       fifo/fifo_proc.Head_2
+    SLICE_X13Y14.B1      net (fanout=12)       0.765   fifo/fifo_proc.Head<2>
+    SLICE_X13Y14.B       Tilo                  0.259   N33
+                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o_SW0
+    SLICE_X12Y14.B5      net (fanout=1)        0.211   N33
+    SLICE_X12Y14.B       Tilo                  0.254   fifo/fifo_proc.Tail<3>
+                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
+    SLICE_X12Y14.C4      net (fanout=5)        0.349   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
+    SLICE_X12Y14.C       Tilo                  0.255   fifo/fifo_proc.Tail<3>
+                                                       fifo/Mmux_fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT31
+    SLICE_X14Y14.B1      net (fanout=2)        0.754   fifo/fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT<2>
+    SLICE_X14Y14.B       Tilo                  0.235   fifo/fifo_proc.Head<2>
+                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
+    SLICE_X14Y15.B5      net (fanout=4)        0.429   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
+    SLICE_X14Y15.BMUX    Tilo                  0.298   fifo/WriteEn_fifo_proc.prev_data_AND_20_o
+                                                       fifo/Mmux_BUS_006611
+    SLICE_X4Y20.WE       net (fanout=6)        1.433   fifo/BUS_0066
+    SLICE_X4Y20.CLK      Tws                   0.369   fifo/DataOut<29>
+                                                       fifo/Mram_Memory5_RAMA
+    -------------------------------------------------  ---------------------------
+    Total                                      6.087ns (2.146ns logic, 3.941ns route)
+                                                       (35.3% logic, 64.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point fifo/Mram_Memory5_RAMA_D1 (SLICE_X4Y20.WE), 56 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     13.477ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo/fifo_proc.Head_2 (FF)
+  Destination:          fifo/Mram_Memory5_RAMA_D1 (RAM)
+  Requirement:          20.000ns
+  Data Path Delay:      6.354ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.055ns (0.632 - 0.687)
+  Source Clock:         clk50MHz rising at 0.000ns
+  Destination Clock:    clk50MHz rising at 20.000ns
+  Clock Uncertainty:    0.114ns
+
+  Clock Uncertainty:          0.114ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.216ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo/fifo_proc.Head_2 to fifo/Mram_Memory5_RAMA_D1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y14.DQ      Tcko                  0.476   fifo/fifo_proc.Head<2>
+                                                       fifo/fifo_proc.Head_2
+    SLICE_X13Y14.B1      net (fanout=12)       0.765   fifo/fifo_proc.Head<2>
+    SLICE_X13Y14.B       Tilo                  0.259   N33
+                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o_SW0
+    SLICE_X12Y14.B5      net (fanout=1)        0.211   N33
+    SLICE_X12Y14.B       Tilo                  0.254   fifo/fifo_proc.Tail<3>
+                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
+    SLICE_X12Y14.D1      net (fanout=5)        0.617   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
+    SLICE_X12Y14.D       Tilo                  0.254   fifo/fifo_proc.Tail<3>
+                                                       fifo/Mmux_fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT41
+    SLICE_X14Y14.B2      net (fanout=2)        0.754   fifo/fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT<3>
+    SLICE_X14Y14.B       Tilo                  0.235   fifo/fifo_proc.Head<2>
+                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
+    SLICE_X14Y15.B5      net (fanout=4)        0.429   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
+    SLICE_X14Y15.BMUX    Tilo                  0.298   fifo/WriteEn_fifo_proc.prev_data_AND_20_o
+                                                       fifo/Mmux_BUS_006611
+    SLICE_X4Y20.WE       net (fanout=6)        1.433   fifo/BUS_0066
+    SLICE_X4Y20.CLK      Tws                   0.369   fifo/DataOut<29>
+                                                       fifo/Mram_Memory5_RAMA_D1
+    -------------------------------------------------  ---------------------------
+    Total                                      6.354ns (2.145ns logic, 4.209ns route)
+                                                       (33.8% logic, 66.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     13.640ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo/fifo_proc.Head_1 (FF)
+  Destination:          fifo/Mram_Memory5_RAMA_D1 (RAM)
+  Requirement:          20.000ns
+  Data Path Delay:      6.191ns (Levels of Logic = 4)
+  Clock Path Skew:      -0.055ns (0.632 - 0.687)
+  Source Clock:         clk50MHz rising at 0.000ns
+  Destination Clock:    clk50MHz rising at 20.000ns
+  Clock Uncertainty:    0.114ns
+
+  Clock Uncertainty:          0.114ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.216ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo/fifo_proc.Head_1 to fifo/Mram_Memory5_RAMA_D1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y14.CQ      Tcko                  0.476   fifo/fifo_proc.Head<2>
+                                                       fifo/fifo_proc.Head_1
+    SLICE_X12Y14.B2      net (fanout=14)       1.072   fifo/fifo_proc.Head<1>
+    SLICE_X12Y14.B       Tilo                  0.254   fifo/fifo_proc.Tail<3>
+                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
+    SLICE_X12Y14.D1      net (fanout=5)        0.617   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
+    SLICE_X12Y14.D       Tilo                  0.254   fifo/fifo_proc.Tail<3>
+                                                       fifo/Mmux_fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT41
+    SLICE_X14Y14.B2      net (fanout=2)        0.754   fifo/fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT<3>
+    SLICE_X14Y14.B       Tilo                  0.235   fifo/fifo_proc.Head<2>
+                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
+    SLICE_X14Y15.B5      net (fanout=4)        0.429   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
+    SLICE_X14Y15.BMUX    Tilo                  0.298   fifo/WriteEn_fifo_proc.prev_data_AND_20_o
+                                                       fifo/Mmux_BUS_006611
+    SLICE_X4Y20.WE       net (fanout=6)        1.433   fifo/BUS_0066
+    SLICE_X4Y20.CLK      Tws                   0.369   fifo/DataOut<29>
+                                                       fifo/Mram_Memory5_RAMA_D1
+    -------------------------------------------------  ---------------------------
+    Total                                      6.191ns (1.886ns logic, 4.305ns route)
+                                                       (30.5% logic, 69.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     13.744ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fifo/fifo_proc.Head_2 (FF)
+  Destination:          fifo/Mram_Memory5_RAMA_D1 (RAM)
+  Requirement:          20.000ns
+  Data Path Delay:      6.087ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.055ns (0.632 - 0.687)
+  Source Clock:         clk50MHz rising at 0.000ns
+  Destination Clock:    clk50MHz rising at 20.000ns
+  Clock Uncertainty:    0.114ns
+
+  Clock Uncertainty:          0.114ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.216ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fifo/fifo_proc.Head_2 to fifo/Mram_Memory5_RAMA_D1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y14.DQ      Tcko                  0.476   fifo/fifo_proc.Head<2>
+                                                       fifo/fifo_proc.Head_2
+    SLICE_X13Y14.B1      net (fanout=12)       0.765   fifo/fifo_proc.Head<2>
+    SLICE_X13Y14.B       Tilo                  0.259   N33
+                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o_SW0
+    SLICE_X12Y14.B5      net (fanout=1)        0.211   N33
+    SLICE_X12Y14.B       Tilo                  0.254   fifo/fifo_proc.Tail<3>
+                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
+    SLICE_X12Y14.C4      net (fanout=5)        0.349   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_22_o
+    SLICE_X12Y14.C       Tilo                  0.255   fifo/fifo_proc.Tail<3>
+                                                       fifo/Mmux_fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT31
+    SLICE_X14Y14.B1      net (fanout=2)        0.754   fifo/fifo_proc.Tail[3]_fifo_proc.Tail[3]_mux_8_OUT<2>
+    SLICE_X14Y14.B       Tilo                  0.235   fifo/fifo_proc.Head<2>
+                                                       fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
+    SLICE_X14Y15.B5      net (fanout=4)        0.429   fifo/fifo_proc.Looped_fifo_proc.Tail[3]_OR_26_o
+    SLICE_X14Y15.BMUX    Tilo                  0.298   fifo/WriteEn_fifo_proc.prev_data_AND_20_o
+                                                       fifo/Mmux_BUS_006611
+    SLICE_X4Y20.WE       net (fanout=6)        1.433   fifo/BUS_0066
+    SLICE_X4Y20.CLK      Tws                   0.369   fifo/DataOut<29>
+                                                       fifo/Mram_Memory5_RAMA_D1
+    -------------------------------------------------  ---------------------------
+    Total                                      6.087ns (2.146ns logic, 3.941ns route)
+                                                       (35.3% logic, 64.7% route)
 
 --------------------------------------------------------------------------------
 
 Hold Paths: TS_clock10MHz_clkout1 = PERIOD TIMEGRP "clock10MHz_clkout1" TS_clk HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point lighthouse/sensor_value_23 (SLICE_X17Y25.B4), 1 path
+Paths for end point lighthouse/sweep_detected (SLICE_X9Y39.DX), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.010ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               lighthouse/temp_sensor_value_23 (FF)
-  Destination:          lighthouse/sensor_value_23 (FF)
+Slack (hold path):      0.008ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               lighthouse/temp_sweep_detected (FF)
+  Destination:          lighthouse/sweep_detected (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.595ns (Levels of Logic = 1)
-  Clock Path Skew:      0.316ns (0.925 - 0.609)
+  Data Path Delay:      0.592ns (Levels of Logic = 0)
+  Clock Path Skew:      0.315ns (0.952 - 0.637)
   Source Clock:         clk10MHz rising at 0.000ns
   Destination Clock:    clk50MHz rising at 0.000ns
   Clock Uncertainty:    0.269ns
@@ -306,30 +511,29 @@ Slack (hold path):      0.010ns (requirement - (clock path skew + uncertainty - 
     Discrete Jitter (DJ):       0.289ns
     Phase Error (PE):           0.120ns
 
-  Minimum Data Path at Fast Process Corner: lighthouse/temp_sensor_value_23 to lighthouse/sensor_value_23
+  Minimum Data Path at Fast Process Corner: lighthouse/temp_sweep_detected to lighthouse/sweep_detected
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y26.CQ      Tcko                  0.200   lighthouse/temp_sensor_value_24
-                                                       lighthouse/temp_sensor_value_23
-    SLICE_X17Y25.B4      net (fanout=1)        0.240   lighthouse/temp_sensor_value_23
-    SLICE_X17Y25.CLK     Tah         (-Th)    -0.155   lighthouse/sensor_value<21>
-                                                       lighthouse/temp_sensor_value_23_rt
-                                                       lighthouse/sensor_value_23
+    SLICE_X8Y37.AQ       Tcko                  0.234   lighthouse/temp_sweep_detected
+                                                       lighthouse/temp_sweep_detected
+    SLICE_X9Y39.DX       net (fanout=7)        0.299   lighthouse/temp_sweep_detected
+    SLICE_X9Y39.CLK      Tckdi       (-Th)    -0.059   lighthouse/sweep_detected
+                                                       lighthouse/sweep_detected
     -------------------------------------------------  ---------------------------
-    Total                                      0.595ns (0.355ns logic, 0.240ns route)
-                                                       (59.7% logic, 40.3% route)
+    Total                                      0.592ns (0.293ns logic, 0.299ns route)
+                                                       (49.5% logic, 50.5% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point lighthouse/sensor_value_16 (SLICE_X17Y24.C3), 1 path
+Paths for end point lighthouse/sensor_value_13 (SLICE_X8Y26.DX), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.053ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               lighthouse/temp_sensor_value_16 (FF)
-  Destination:          lighthouse/sensor_value_16 (FF)
+Slack (hold path):      0.042ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               lighthouse/temp_sensor_value_13 (FF)
+  Destination:          lighthouse/sensor_value_13 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.641ns (Levels of Logic = 1)
-  Clock Path Skew:      0.319ns (0.923 - 0.604)
+  Data Path Delay:      0.620ns (Levels of Logic = 0)
+  Clock Path Skew:      0.309ns (0.956 - 0.647)
   Source Clock:         clk10MHz rising at 0.000ns
   Destination Clock:    clk50MHz rising at 0.000ns
   Clock Uncertainty:    0.269ns
@@ -339,30 +543,29 @@ Slack (hold path):      0.053ns (requirement - (clock path skew + uncertainty - 
     Discrete Jitter (DJ):       0.289ns
     Phase Error (PE):           0.120ns
 
-  Minimum Data Path at Fast Process Corner: lighthouse/temp_sensor_value_16 to lighthouse/sensor_value_16
+  Minimum Data Path at Fast Process Corner: lighthouse/temp_sensor_value_13 to lighthouse/sensor_value_13
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y24.DQ      Tcko                  0.200   lighthouse/temp_sensor_value_16
-                                                       lighthouse/temp_sensor_value_16
-    SLICE_X17Y24.C3      net (fanout=1)        0.286   lighthouse/temp_sensor_value_16
-    SLICE_X17Y24.CLK     Tah         (-Th)    -0.155   lighthouse/sensor_value<13>
-                                                       lighthouse/temp_sensor_value_16_rt
-                                                       lighthouse/sensor_value_16
+    SLICE_X6Y27.AQ       Tcko                  0.200   lighthouse/temp_sensor_value_16
+                                                       lighthouse/temp_sensor_value_13
+    SLICE_X8Y26.DX       net (fanout=1)        0.379   lighthouse/temp_sensor_value_13
+    SLICE_X8Y26.CLK      Tckdi       (-Th)    -0.041   lighthouse/sensor_value<13>
+                                                       lighthouse/sensor_value_13
     -------------------------------------------------  ---------------------------
-    Total                                      0.641ns (0.355ns logic, 0.286ns route)
-                                                       (55.4% logic, 44.6% route)
+    Total                                      0.620ns (0.241ns logic, 0.379ns route)
+                                                       (38.9% logic, 61.1% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point lighthouse/sensor_value_17 (SLICE_X17Y24.D3), 1 path
+Paths for end point lighthouse/sensor_value_24 (SLICE_X7Y25.CX), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.076ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               lighthouse/temp_sensor_value_17 (FF)
-  Destination:          lighthouse/sensor_value_17 (FF)
+Slack (hold path):      0.085ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               lighthouse/temp_sensor_value_24 (FF)
+  Destination:          lighthouse/sensor_value_24 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.662ns (Levels of Logic = 1)
-  Clock Path Skew:      0.317ns (0.923 - 0.606)
+  Data Path Delay:      0.664ns (Levels of Logic = 0)
+  Clock Path Skew:      0.310ns (0.961 - 0.651)
   Source Clock:         clk10MHz rising at 0.000ns
   Destination Clock:    clk50MHz rising at 0.000ns
   Clock Uncertainty:    0.269ns
@@ -372,19 +575,18 @@ Slack (hold path):      0.076ns (requirement - (clock path skew + uncertainty - 
     Discrete Jitter (DJ):       0.289ns
     Phase Error (PE):           0.120ns
 
-  Minimum Data Path at Fast Process Corner: lighthouse/temp_sensor_value_17 to lighthouse/sensor_value_17
+  Minimum Data Path at Fast Process Corner: lighthouse/temp_sensor_value_24 to lighthouse/sensor_value_24
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y25.AQ      Tcko                  0.200   lighthouse/temp_sensor_value_20
-                                                       lighthouse/temp_sensor_value_17
-    SLICE_X17Y24.D3      net (fanout=1)        0.307   lighthouse/temp_sensor_value_17
-    SLICE_X17Y24.CLK     Tah         (-Th)    -0.155   lighthouse/sensor_value<13>
-                                                       lighthouse/temp_sensor_value_17_rt
-                                                       lighthouse/sensor_value_17
+    SLICE_X6Y29.DQ       Tcko                  0.200   lighthouse/temp_sensor_value_24
+                                                       lighthouse/temp_sensor_value_24
+    SLICE_X7Y25.CX       net (fanout=1)        0.405   lighthouse/temp_sensor_value_24
+    SLICE_X7Y25.CLK      Tckdi       (-Th)    -0.059   lighthouse/sensor_value<25>
+                                                       lighthouse/sensor_value_24
     -------------------------------------------------  ---------------------------
-    Total                                      0.662ns (0.355ns logic, 0.307ns route)
-                                                       (53.6% logic, 46.4% route)
+    Total                                      0.664ns (0.259ns logic, 0.405ns route)
+                                                       (39.0% logic, 61.0% route)
 
 --------------------------------------------------------------------------------
 
@@ -422,17 +624,17 @@ For more information, see Period Analysis in the Timing Closure User Guide (UG61
 
  9638023 paths analyzed, 412 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is  12.624ns.
+ Minimum period is  13.103ns.
 --------------------------------------------------------------------------------
 
 Paths for end point lighthouse/temp_sensor_value_10 (SLICE_X11Y37.A5), 3719282 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     87.376ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               counter/temp_0 (FF)
+Slack (setup path):     86.897ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               lighthouse/t_0_0 (FF)
   Destination:          lighthouse/temp_sensor_value_10 (FF)
   Requirement:          100.000ns
-  Data Path Delay:      12.466ns (Levels of Logic = 18)
-  Clock Path Skew:      -0.009ns (0.620 - 0.629)
+  Data Path Delay:      12.946ns (Levels of Logic = 19)
+  Clock Path Skew:      -0.008ns (0.708 - 0.716)
   Source Clock:         clk10MHz rising at 0.000ns
   Destination Clock:    clk10MHz rising at 100.000ns
   Clock Uncertainty:    0.149ns
@@ -442,65 +644,68 @@ Slack (setup path):     87.376ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.289ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: counter/temp_0 to lighthouse/temp_sensor_value_10
+  Maximum Data Path at Slow Process Corner: lighthouse/t_0_0 to lighthouse/temp_sensor_value_10
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y32.AQ      Tcko                  0.476   counter/temp<3>
-                                                       counter/temp_0
-    SLICE_X20Y32.A2      net (fanout=4)        1.105   counter/temp<0>
-    SLICE_X20Y32.COUT    Topcya                0.474   lighthouse/Msub_n0300_Madd_cy<3>
+    SLICE_X12Y30.AQ      Tcko                  0.525   lighthouse/t_0<3>
+                                                       lighthouse/t_0_0
+    SLICE_X14Y33.A4      net (fanout=6)        0.954   lighthouse/t_0<0>
+    SLICE_X14Y33.DMUX    Topad                 0.667   lighthouse/Msub_n0300_Madd_cy<3>
                                                        lighthouse/Msub_n0300_Madd_lut<0>
                                                        lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<7>
-                                                       lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<11>
-                                                       lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<15>
-                                                       lighthouse/Msub_n0300_Madd_cy<15>
-    SLICE_X20Y36.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<15>
-    SLICE_X20Y36.CMUX    Tcinc                 0.279   lighthouse/Msub_n0300_Madd_cy<19>
-                                                       lighthouse/Msub_n0300_Madd_cy<19>
-    SLICE_X18Y44.A1      net (fanout=7)        2.150   lighthouse/n0300<18>
-    SLICE_X18Y44.COUT    Topcya                0.472   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<21>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_lut<18>_INV_0
+    SLICE_X20Y44.B2      net (fanout=7)        2.115   lighthouse/n0300<3>
+    SLICE_X20Y44.COUT    Topcyb                0.483   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<5>
+                                                       lighthouse/n0300<3>_rt
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<5>
+    SLICE_X20Y45.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<5>
+    SLICE_X20Y45.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<9>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<9>
+    SLICE_X20Y46.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<9>
+    SLICE_X20Y46.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<13>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<13>
+    SLICE_X20Y47.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<13>
+    SLICE_X20Y47.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<17>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<17>
+    SLICE_X20Y48.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<17>
+    SLICE_X20Y48.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<21>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<21>
-    SLICE_X18Y45.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<21>
-    SLICE_X18Y45.COUT    Tbyp                  0.091   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<25>
+    SLICE_X20Y49.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<21>
+    SLICE_X20Y49.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<25>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<25>
-    SLICE_X18Y46.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<25>
-    SLICE_X18Y46.COUT    Tbyp                  0.091   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<29>
+    SLICE_X20Y50.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<25>
+    SLICE_X20Y50.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<29>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<29>
-    SLICE_X18Y47.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<29>
-    SLICE_X18Y47.BMUX    Tcinb                 0.277   lighthouse/GND_24_o_GND_24_o_sub_22_OUT<31>
+    SLICE_X20Y51.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<29>
+    SLICE_X20Y51.BMUX    Tcinb                 0.310   lighthouse/GND_24_o_GND_24_o_sub_22_OUT<31>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_xor<31>
-    SLICE_X16Y37.C3      net (fanout=31)       1.876   lighthouse/GND_24_o_GND_24_o_sub_22_OUT<31>
-    SLICE_X16Y37.COUT    Topcyc                0.328   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<3>
+    SLICE_X22Y39.C3      net (fanout=31)       1.880   lighthouse/GND_24_o_GND_24_o_sub_22_OUT<31>
+    SLICE_X22Y39.COUT    Topcyc                0.325   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<3>
                                                        lighthouse/Mxor_GND_24_o_GND_24_o_XOR_173_o_xo<0>1
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<3>
-    SLICE_X16Y38.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<3>
-    SLICE_X16Y38.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<7>
+    SLICE_X22Y40.CIN     net (fanout=1)        0.082   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<3>
+    SLICE_X22Y40.COUT    Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<7>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<7>
-    SLICE_X16Y39.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<7>
-    SLICE_X16Y39.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<11>
+    SLICE_X22Y41.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<7>
+    SLICE_X22Y41.COUT    Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<11>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<11>
-    SLICE_X16Y40.CIN     net (fanout=1)        0.082   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<11>
-    SLICE_X16Y40.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<15>
+    SLICE_X22Y42.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<11>
+    SLICE_X22Y42.COUT    Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<15>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<15>
-    SLICE_X16Y41.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<15>
-    SLICE_X16Y41.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<19>
+    SLICE_X22Y43.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<15>
+    SLICE_X22Y43.COUT    Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<19>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<19>
-    SLICE_X16Y42.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<19>
-    SLICE_X16Y42.BMUX    Tcinb                 0.310   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<23>
+    SLICE_X22Y44.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<19>
+    SLICE_X22Y44.COUT    Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<23>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<23>
-    SLICE_X8Y41.A1       net (fanout=1)        1.565   lighthouse/GND_24_o_GND_24_o_add_22_OUT<21>
-    SLICE_X8Y41.CMUX     Topac                 0.630   lighthouse/_n0591
-                                                       lighthouse/Mcompar__n0591_lut<4>
+    SLICE_X22Y45.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<23>
+    SLICE_X22Y45.DMUX    Tcind                 0.289   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<27>
+                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<27>
+    SLICE_X18Y36.B1      net (fanout=1)        1.805   lighthouse/GND_24_o_GND_24_o_add_22_OUT<27>
+    SLICE_X18Y36.CMUX    Topbc                 0.601   lighthouse/_n0591
+                                                       lighthouse/Mcompar__n0591_lut<5>
                                                        lighthouse/Mcompar__n0591_cy<6>
-    SLICE_X11Y37.B5      net (fanout=1)        0.714   lighthouse/_n0591
+    SLICE_X11Y37.B4      net (fanout=1)        0.999   lighthouse/_n0591
     SLICE_X11Y37.B       Tilo                  0.259   lighthouse/temp_sensor_value_10
                                                        lighthouse/_n0605_inv2
     SLICE_X11Y37.A5      net (fanout=1)        0.230   lighthouse/_n0605_inv
@@ -508,16 +713,16 @@ Slack (setup path):     87.376ns (requirement - (data path - clock path skew + u
                                                        lighthouse/temp_sensor_value_10_glue_set
                                                        lighthouse/temp_sensor_value_10
     -------------------------------------------------  ---------------------------
-    Total                                     12.466ns (4.711ns logic, 7.755ns route)
-                                                       (37.8% logic, 62.2% route)
+    Total                                     12.946ns (4.845ns logic, 8.101ns route)
+                                                       (37.4% logic, 62.6% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     87.388ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               counter/temp_0 (FF)
+Slack (setup path):     86.929ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               lighthouse/t_0_0 (FF)
   Destination:          lighthouse/temp_sensor_value_10 (FF)
   Requirement:          100.000ns
-  Data Path Delay:      12.454ns (Levels of Logic = 18)
-  Clock Path Skew:      -0.009ns (0.620 - 0.629)
+  Data Path Delay:      12.914ns (Levels of Logic = 19)
+  Clock Path Skew:      -0.008ns (0.708 - 0.716)
   Source Clock:         clk10MHz rising at 0.000ns
   Destination Clock:    clk10MHz rising at 100.000ns
   Clock Uncertainty:    0.149ns
@@ -527,65 +732,68 @@ Slack (setup path):     87.388ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.289ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: counter/temp_0 to lighthouse/temp_sensor_value_10
+  Maximum Data Path at Slow Process Corner: lighthouse/t_0_0 to lighthouse/temp_sensor_value_10
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y32.AQ      Tcko                  0.476   counter/temp<3>
-                                                       counter/temp_0
-    SLICE_X20Y32.A2      net (fanout=4)        1.105   counter/temp<0>
-    SLICE_X20Y32.COUT    Topcya                0.474   lighthouse/Msub_n0300_Madd_cy<3>
+    SLICE_X12Y30.AQ      Tcko                  0.525   lighthouse/t_0<3>
+                                                       lighthouse/t_0_0
+    SLICE_X14Y33.A4      net (fanout=6)        0.954   lighthouse/t_0<0>
+    SLICE_X14Y33.DMUX    Topad                 0.667   lighthouse/Msub_n0300_Madd_cy<3>
                                                        lighthouse/Msub_n0300_Madd_lut<0>
                                                        lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<7>
-                                                       lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<11>
-                                                       lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<15>
-                                                       lighthouse/Msub_n0300_Madd_cy<15>
-    SLICE_X20Y36.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<15>
-    SLICE_X20Y36.CMUX    Tcinc                 0.279   lighthouse/Msub_n0300_Madd_cy<19>
-                                                       lighthouse/Msub_n0300_Madd_cy<19>
-    SLICE_X18Y44.A1      net (fanout=7)        2.150   lighthouse/n0300<18>
-    SLICE_X18Y44.COUT    Topcya                0.472   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<21>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_lut<18>_INV_0
+    SLICE_X20Y44.B2      net (fanout=7)        2.115   lighthouse/n0300<3>
+    SLICE_X20Y44.COUT    Topcyb                0.483   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<5>
+                                                       lighthouse/n0300<3>_rt
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<5>
+    SLICE_X20Y45.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<5>
+    SLICE_X20Y45.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<9>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<9>
+    SLICE_X20Y46.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<9>
+    SLICE_X20Y46.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<13>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<13>
+    SLICE_X20Y47.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<13>
+    SLICE_X20Y47.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<17>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<17>
+    SLICE_X20Y48.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<17>
+    SLICE_X20Y48.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<21>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<21>
-    SLICE_X18Y45.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<21>
-    SLICE_X18Y45.COUT    Tbyp                  0.091   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<25>
+    SLICE_X20Y49.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<21>
+    SLICE_X20Y49.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<25>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<25>
-    SLICE_X18Y46.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<25>
-    SLICE_X18Y46.COUT    Tbyp                  0.091   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<29>
+    SLICE_X20Y50.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<25>
+    SLICE_X20Y50.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<29>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<29>
-    SLICE_X18Y47.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<29>
-    SLICE_X18Y47.BMUX    Tcinb                 0.277   lighthouse/GND_24_o_GND_24_o_sub_22_OUT<31>
+    SLICE_X20Y51.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<29>
+    SLICE_X20Y51.BMUX    Tcinb                 0.310   lighthouse/GND_24_o_GND_24_o_sub_22_OUT<31>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_xor<31>
-    SLICE_X16Y37.B5      net (fanout=31)       1.709   lighthouse/GND_24_o_GND_24_o_sub_22_OUT<31>
-    SLICE_X16Y37.COUT    Topcyb                0.483   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<3>
+    SLICE_X22Y39.B5      net (fanout=31)       1.725   lighthouse/GND_24_o_GND_24_o_sub_22_OUT<31>
+    SLICE_X22Y39.COUT    Topcyb                0.448   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<3>
                                                        lighthouse/Mxor_GND_24_o_GND_24_o_XOR_174_o_xo<0>1
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<3>
-    SLICE_X16Y38.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<3>
-    SLICE_X16Y38.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<7>
+    SLICE_X22Y40.CIN     net (fanout=1)        0.082   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<3>
+    SLICE_X22Y40.COUT    Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<7>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<7>
-    SLICE_X16Y39.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<7>
-    SLICE_X16Y39.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<11>
+    SLICE_X22Y41.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<7>
+    SLICE_X22Y41.COUT    Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<11>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<11>
-    SLICE_X16Y40.CIN     net (fanout=1)        0.082   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<11>
-    SLICE_X16Y40.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<15>
+    SLICE_X22Y42.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<11>
+    SLICE_X22Y42.COUT    Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<15>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<15>
-    SLICE_X16Y41.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<15>
-    SLICE_X16Y41.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<19>
+    SLICE_X22Y43.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<15>
+    SLICE_X22Y43.COUT    Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<19>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<19>
-    SLICE_X16Y42.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<19>
-    SLICE_X16Y42.BMUX    Tcinb                 0.310   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<23>
+    SLICE_X22Y44.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<19>
+    SLICE_X22Y44.COUT    Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<23>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<23>
-    SLICE_X8Y41.A1       net (fanout=1)        1.565   lighthouse/GND_24_o_GND_24_o_add_22_OUT<21>
-    SLICE_X8Y41.CMUX     Topac                 0.630   lighthouse/_n0591
-                                                       lighthouse/Mcompar__n0591_lut<4>
+    SLICE_X22Y45.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<23>
+    SLICE_X22Y45.DMUX    Tcind                 0.289   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<27>
+                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<27>
+    SLICE_X18Y36.B1      net (fanout=1)        1.805   lighthouse/GND_24_o_GND_24_o_add_22_OUT<27>
+    SLICE_X18Y36.CMUX    Topbc                 0.601   lighthouse/_n0591
+                                                       lighthouse/Mcompar__n0591_lut<5>
                                                        lighthouse/Mcompar__n0591_cy<6>
-    SLICE_X11Y37.B5      net (fanout=1)        0.714   lighthouse/_n0591
+    SLICE_X11Y37.B4      net (fanout=1)        0.999   lighthouse/_n0591
     SLICE_X11Y37.B       Tilo                  0.259   lighthouse/temp_sensor_value_10
                                                        lighthouse/_n0605_inv2
     SLICE_X11Y37.A5      net (fanout=1)        0.230   lighthouse/_n0605_inv
@@ -593,16 +801,16 @@ Slack (setup path):     87.388ns (requirement - (data path - clock path skew + u
                                                        lighthouse/temp_sensor_value_10_glue_set
                                                        lighthouse/temp_sensor_value_10
     -------------------------------------------------  ---------------------------
-    Total                                     12.454ns (4.866ns logic, 7.588ns route)
-                                                       (39.1% logic, 60.9% route)
+    Total                                     12.914ns (4.968ns logic, 7.946ns route)
+                                                       (38.5% logic, 61.5% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     87.389ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               counter/temp_0 (FF)
+Slack (setup path):     86.932ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               lighthouse/t_0_0 (FF)
   Destination:          lighthouse/temp_sensor_value_10 (FF)
   Requirement:          100.000ns
-  Data Path Delay:      12.453ns (Levels of Logic = 18)
-  Clock Path Skew:      -0.009ns (0.620 - 0.629)
+  Data Path Delay:      12.911ns (Levels of Logic = 19)
+  Clock Path Skew:      -0.008ns (0.708 - 0.716)
   Source Clock:         clk10MHz rising at 0.000ns
   Destination Clock:    clk10MHz rising at 100.000ns
   Clock Uncertainty:    0.149ns
@@ -612,65 +820,68 @@ Slack (setup path):     87.389ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.289ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: counter/temp_0 to lighthouse/temp_sensor_value_10
+  Maximum Data Path at Slow Process Corner: lighthouse/t_0_0 to lighthouse/temp_sensor_value_10
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y32.AQ      Tcko                  0.476   counter/temp<3>
-                                                       counter/temp_0
-    SLICE_X20Y32.A2      net (fanout=4)        1.105   counter/temp<0>
-    SLICE_X20Y32.COUT    Topcya                0.474   lighthouse/Msub_n0300_Madd_cy<3>
+    SLICE_X12Y30.AQ      Tcko                  0.525   lighthouse/t_0<3>
+                                                       lighthouse/t_0_0
+    SLICE_X14Y33.A4      net (fanout=6)        0.954   lighthouse/t_0<0>
+    SLICE_X14Y33.DMUX    Topad                 0.667   lighthouse/Msub_n0300_Madd_cy<3>
                                                        lighthouse/Msub_n0300_Madd_lut<0>
                                                        lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<7>
-                                                       lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<11>
-                                                       lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<15>
-                                                       lighthouse/Msub_n0300_Madd_cy<15>
-    SLICE_X20Y36.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<15>
-    SLICE_X20Y36.CMUX    Tcinc                 0.279   lighthouse/Msub_n0300_Madd_cy<19>
-                                                       lighthouse/Msub_n0300_Madd_cy<19>
-    SLICE_X18Y44.A1      net (fanout=7)        2.150   lighthouse/n0300<18>
-    SLICE_X18Y44.COUT    Topcya                0.472   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<21>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_lut<18>_INV_0
+    SLICE_X20Y44.B2      net (fanout=7)        2.115   lighthouse/n0300<3>
+    SLICE_X20Y44.COUT    Topcyb                0.483   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<5>
+                                                       lighthouse/n0300<3>_rt
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<5>
+    SLICE_X20Y45.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<5>
+    SLICE_X20Y45.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<9>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<9>
+    SLICE_X20Y46.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<9>
+    SLICE_X20Y46.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<13>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<13>
+    SLICE_X20Y47.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<13>
+    SLICE_X20Y47.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<17>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<17>
+    SLICE_X20Y48.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<17>
+    SLICE_X20Y48.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<21>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<21>
-    SLICE_X18Y45.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<21>
-    SLICE_X18Y45.COUT    Tbyp                  0.091   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<25>
+    SLICE_X20Y49.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<21>
+    SLICE_X20Y49.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<25>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<25>
-    SLICE_X18Y46.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<25>
-    SLICE_X18Y46.COUT    Tbyp                  0.091   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<29>
+    SLICE_X20Y50.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<25>
+    SLICE_X20Y50.COUT    Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<29>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<29>
-    SLICE_X18Y47.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<29>
-    SLICE_X18Y47.BMUX    Tcinb                 0.277   lighthouse/GND_24_o_GND_24_o_sub_22_OUT<31>
+    SLICE_X20Y51.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_cy<29>
+    SLICE_X20Y51.BMUX    Tcinb                 0.310   lighthouse/GND_24_o_GND_24_o_sub_22_OUT<31>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_22_OUT<31:0>_xor<31>
-    SLICE_X16Y37.C3      net (fanout=31)       1.876   lighthouse/GND_24_o_GND_24_o_sub_22_OUT<31>
-    SLICE_X16Y37.COUT    Topcyc                0.328   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<3>
+    SLICE_X22Y39.C3      net (fanout=31)       1.880   lighthouse/GND_24_o_GND_24_o_sub_22_OUT<31>
+    SLICE_X22Y39.COUT    Topcyc                0.325   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<3>
                                                        lighthouse/Mxor_GND_24_o_GND_24_o_XOR_173_o_xo<0>1
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<3>
-    SLICE_X16Y38.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<3>
-    SLICE_X16Y38.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<7>
+    SLICE_X22Y40.CIN     net (fanout=1)        0.082   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<3>
+    SLICE_X22Y40.COUT    Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<7>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<7>
-    SLICE_X16Y39.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<7>
-    SLICE_X16Y39.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<11>
+    SLICE_X22Y41.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<7>
+    SLICE_X22Y41.COUT    Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<11>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<11>
-    SLICE_X16Y40.CIN     net (fanout=1)        0.082   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<11>
-    SLICE_X16Y40.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<15>
+    SLICE_X22Y42.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<11>
+    SLICE_X22Y42.COUT    Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<15>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<15>
-    SLICE_X16Y41.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<15>
-    SLICE_X16Y41.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<19>
+    SLICE_X22Y43.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<15>
+    SLICE_X22Y43.COUT    Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<19>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<19>
-    SLICE_X16Y42.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<19>
-    SLICE_X16Y42.BMUX    Tcinb                 0.310   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<23>
+    SLICE_X22Y44.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<19>
+    SLICE_X22Y44.COUT    Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<23>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<23>
-    SLICE_X8Y41.A1       net (fanout=1)        1.565   lighthouse/GND_24_o_GND_24_o_add_22_OUT<21>
-    SLICE_X8Y41.CMUX     Topac                 0.617   lighthouse/_n0591
-                                                       lighthouse/Mcompar__n0591_lutdi4
+    SLICE_X22Y45.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<23>
+    SLICE_X22Y45.DMUX    Tcind                 0.289   lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<27>
+                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_22_OUT_cy<27>
+    SLICE_X18Y36.B1      net (fanout=1)        1.805   lighthouse/GND_24_o_GND_24_o_add_22_OUT<27>
+    SLICE_X18Y36.CMUX    Topbc                 0.566   lighthouse/_n0591
+                                                       lighthouse/Mcompar__n0591_lutdi5
                                                        lighthouse/Mcompar__n0591_cy<6>
-    SLICE_X11Y37.B5      net (fanout=1)        0.714   lighthouse/_n0591
+    SLICE_X11Y37.B4      net (fanout=1)        0.999   lighthouse/_n0591
     SLICE_X11Y37.B       Tilo                  0.259   lighthouse/temp_sensor_value_10
                                                        lighthouse/_n0605_inv2
     SLICE_X11Y37.A5      net (fanout=1)        0.230   lighthouse/_n0605_inv
@@ -678,19 +889,19 @@ Slack (setup path):     87.389ns (requirement - (data path - clock path skew + u
                                                        lighthouse/temp_sensor_value_10_glue_set
                                                        lighthouse/temp_sensor_value_10
     -------------------------------------------------  ---------------------------
-    Total                                     12.453ns (4.698ns logic, 7.755ns route)
-                                                       (37.7% logic, 62.3% route)
+    Total                                     12.911ns (4.810ns logic, 8.101ns route)
+                                                       (37.3% logic, 62.7% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point lighthouse/temp_sensor_value_10 (SLICE_X11Y37.A2), 1860735 paths
+Paths for end point lighthouse/temp_sensor_value_10 (SLICE_X11Y37.A1), 1860735 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     87.912ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               counter/temp_0 (FF)
+Slack (setup path):     88.368ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               lighthouse/t_0_0 (FF)
   Destination:          lighthouse/temp_sensor_value_10 (FF)
   Requirement:          100.000ns
-  Data Path Delay:      11.930ns (Levels of Logic = 20)
-  Clock Path Skew:      -0.009ns (0.620 - 0.629)
+  Data Path Delay:      11.475ns (Levels of Logic = 19)
+  Clock Path Skew:      -0.008ns (0.708 - 0.716)
   Source Clock:         clk10MHz rising at 0.000ns
   Destination Clock:    clk10MHz rising at 100.000ns
   Clock Uncertainty:    0.149ns
@@ -700,88 +911,85 @@ Slack (setup path):     87.912ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.289ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: counter/temp_0 to lighthouse/temp_sensor_value_10
+  Maximum Data Path at Slow Process Corner: lighthouse/t_0_0 to lighthouse/temp_sensor_value_10
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y32.AQ      Tcko                  0.476   counter/temp<3>
-                                                       counter/temp_0
-    SLICE_X20Y32.A2      net (fanout=4)        1.105   counter/temp<0>
-    SLICE_X20Y32.COUT    Topcya                0.474   lighthouse/Msub_n0300_Madd_cy<3>
+    SLICE_X12Y30.AQ      Tcko                  0.525   lighthouse/t_0<3>
+                                                       lighthouse/t_0_0
+    SLICE_X14Y33.A4      net (fanout=6)        0.954   lighthouse/t_0<0>
+    SLICE_X14Y33.COUT    Topcya                0.472   lighthouse/Msub_n0300_Madd_cy<3>
                                                        lighthouse/Msub_n0300_Madd_lut<0>
                                                        lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<7>
+    SLICE_X14Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<3>
+    SLICE_X14Y34.COUT    Tbyp                  0.091   lighthouse/Msub_n0300_Madd_cy<7>
                                                        lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<11>
+    SLICE_X14Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<7>
+    SLICE_X14Y35.COUT    Tbyp                  0.091   lighthouse/Msub_n0300_Madd_cy<11>
                                                        lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<15>
+    SLICE_X14Y36.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<11>
+    SLICE_X14Y36.COUT    Tbyp                  0.091   lighthouse/Msub_n0300_Madd_cy<15>
                                                        lighthouse/Msub_n0300_Madd_cy<15>
-    SLICE_X20Y36.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<15>
-    SLICE_X20Y36.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<19>
+    SLICE_X14Y37.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<15>
+    SLICE_X14Y37.COUT    Tbyp                  0.091   lighthouse/Msub_n0300_Madd_cy<19>
                                                        lighthouse/Msub_n0300_Madd_cy<19>
-    SLICE_X20Y37.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<19>
-    SLICE_X20Y37.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<23>
+    SLICE_X14Y38.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<19>
+    SLICE_X14Y38.COUT    Tbyp                  0.091   lighthouse/Msub_n0300_Madd_cy<23>
                                                        lighthouse/Msub_n0300_Madd_cy<23>
-    SLICE_X20Y38.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<23>
-    SLICE_X20Y38.AMUX    Tcina                 0.220   lighthouse/Msub_n0300_Madd_cy<27>
+    SLICE_X14Y39.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<23>
+    SLICE_X14Y39.COUT    Tbyp                  0.091   lighthouse/Msub_n0300_Madd_cy<27>
                                                        lighthouse/Msub_n0300_Madd_cy<27>
-    SLICE_X8Y37.D2       net (fanout=7)        2.115   lighthouse/n0300<24>
-    SLICE_X8Y37.COUT     Topcyd                0.312   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<24>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_lut<24>_INV_0
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<24>
-    SLICE_X8Y38.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<24>
-    SLICE_X8Y38.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<28>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<28>
-    SLICE_X8Y39.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<28>
-    SLICE_X8Y39.CMUX     Tcinc                 0.279   lighthouse/GND_24_o_GND_24_o_sub_16_OUT<31>
+    SLICE_X14Y40.CIN     net (fanout=1)        0.082   lighthouse/Msub_n0300_Madd_cy<27>
+    SLICE_X14Y40.CMUX    Tcinc                 0.289   lighthouse/n0300<31>
+                                                       lighthouse/Msub_n0300_Madd_xor<31>
+    SLICE_X22Y38.B2      net (fanout=8)        1.425   lighthouse/n0300<30>
+    SLICE_X22Y38.CMUX    Topbc                 0.613   lighthouse/GND_24_o_GND_24_o_sub_16_OUT<31>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_lut<30>_INV_0
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_xor<31>
-    SLICE_X6Y33.B2       net (fanout=31)       1.349   lighthouse/GND_24_o_GND_24_o_sub_16_OUT<31>
-    SLICE_X6Y33.COUT     Topcyb                0.448   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<3>
+    SLICE_X20Y35.B2      net (fanout=31)       1.071   lighthouse/GND_24_o_GND_24_o_sub_16_OUT<31>
+    SLICE_X20Y35.COUT    Topcyb                0.483   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<3>
                                                        lighthouse/Mxor_GND_24_o_GND_24_o_XOR_112_o_xo<0>1
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<3>
-    SLICE_X6Y34.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<3>
-    SLICE_X6Y34.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<7>
+    SLICE_X20Y36.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<3>
+    SLICE_X20Y36.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<7>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<7>
-    SLICE_X6Y35.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<7>
-    SLICE_X6Y35.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<11>
+    SLICE_X20Y37.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<7>
+    SLICE_X20Y37.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<11>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<11>
-    SLICE_X6Y36.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<11>
-    SLICE_X6Y36.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<15>
+    SLICE_X20Y38.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<11>
+    SLICE_X20Y38.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<15>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<15>
-    SLICE_X6Y37.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<15>
-    SLICE_X6Y37.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<19>
+    SLICE_X20Y39.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<15>
+    SLICE_X20Y39.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<19>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<19>
-    SLICE_X6Y38.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<19>
-    SLICE_X6Y38.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<23>
+    SLICE_X20Y40.CIN     net (fanout=1)        0.082   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<19>
+    SLICE_X20Y40.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<23>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<23>
-    SLICE_X6Y39.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<23>
-    SLICE_X6Y39.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<27>
+    SLICE_X20Y41.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<23>
+    SLICE_X20Y41.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<27>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<27>
-    SLICE_X6Y40.CIN      net (fanout=1)        0.082   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<27>
-    SLICE_X6Y40.CMUX     Tcinc                 0.289   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<30>
+    SLICE_X20Y42.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<27>
+    SLICE_X20Y42.BMUX    Tcinb                 0.310   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<30>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<30>
-    SLICE_X4Y37.B2       net (fanout=1)        1.274   lighthouse/GND_24_o_GND_24_o_add_16_OUT<30>
-    SLICE_X4Y37.CMUX     Topbc                 0.640   lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_cy<6>
+    SLICE_X20Y34.B1      net (fanout=1)        1.221   lighthouse/GND_24_o_GND_24_o_add_16_OUT<29>
+    SLICE_X20Y34.CMUX    Topbc                 0.640   lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_cy<6>
                                                        lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_lut<5>
                                                        lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_cy<6>
-    SLICE_X11Y37.A2      net (fanout=1)        1.348   lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_cy<6>
+    SLICE_X11Y37.A1      net (fanout=1)        1.795   lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_cy<6>
     SLICE_X11Y37.CLK     Tas                   0.373   lighthouse/temp_sensor_value_10
                                                        lighthouse/temp_sensor_value_10_glue_set
                                                        lighthouse/temp_sensor_value_10
     -------------------------------------------------  ---------------------------
-    Total                                     11.930ns (4.615ns logic, 7.315ns route)
-                                                       (38.7% logic, 61.3% route)
+    Total                                     11.475ns (4.809ns logic, 6.666ns route)
+                                                       (41.9% logic, 58.1% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     87.924ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               counter/temp_0 (FF)
+Slack (setup path):     88.370ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               lighthouse/t_0_0 (FF)
   Destination:          lighthouse/temp_sensor_value_10 (FF)
   Requirement:          100.000ns
-  Data Path Delay:      11.918ns (Levels of Logic = 20)
-  Clock Path Skew:      -0.009ns (0.620 - 0.629)
+  Data Path Delay:      11.473ns (Levels of Logic = 19)
+  Clock Path Skew:      -0.008ns (0.708 - 0.716)
   Source Clock:         clk10MHz rising at 0.000ns
   Destination Clock:    clk10MHz rising at 100.000ns
   Clock Uncertainty:    0.149ns
@@ -791,182 +999,176 @@ Slack (setup path):     87.924ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.289ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: counter/temp_0 to lighthouse/temp_sensor_value_10
+  Maximum Data Path at Slow Process Corner: lighthouse/t_0_0 to lighthouse/temp_sensor_value_10
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y32.AQ      Tcko                  0.476   counter/temp<3>
-                                                       counter/temp_0
-    SLICE_X20Y32.A2      net (fanout=4)        1.105   counter/temp<0>
-    SLICE_X20Y32.COUT    Topcya                0.474   lighthouse/Msub_n0300_Madd_cy<3>
+    SLICE_X12Y30.AQ      Tcko                  0.525   lighthouse/t_0<3>
+                                                       lighthouse/t_0_0
+    SLICE_X14Y33.A4      net (fanout=6)        0.954   lighthouse/t_0<0>
+    SLICE_X14Y33.COUT    Topcya                0.472   lighthouse/Msub_n0300_Madd_cy<3>
                                                        lighthouse/Msub_n0300_Madd_lut<0>
                                                        lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<7>
+    SLICE_X14Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<3>
+    SLICE_X14Y34.COUT    Tbyp                  0.091   lighthouse/Msub_n0300_Madd_cy<7>
                                                        lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<11>
+    SLICE_X14Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<7>
+    SLICE_X14Y35.COUT    Tbyp                  0.091   lighthouse/Msub_n0300_Madd_cy<11>
                                                        lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<15>
+    SLICE_X14Y36.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<11>
+    SLICE_X14Y36.BMUX    Tcinb                 0.277   lighthouse/Msub_n0300_Madd_cy<15>
                                                        lighthouse/Msub_n0300_Madd_cy<15>
-    SLICE_X20Y36.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<15>
-    SLICE_X20Y36.AMUX    Tcina                 0.220   lighthouse/Msub_n0300_Madd_cy<19>
+    SLICE_X22Y34.A2      net (fanout=7)        1.457   lighthouse/n0300<13>
+    SLICE_X22Y34.COUT    Topcya                0.472   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<16>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_lut<13>_INV_0
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<16>
+    SLICE_X22Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<16>
+    SLICE_X22Y35.COUT    Tbyp                  0.091   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<20>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<20>
+    SLICE_X22Y36.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<20>
+    SLICE_X22Y36.COUT    Tbyp                  0.091   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<24>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<24>
+    SLICE_X22Y37.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<24>
+    SLICE_X22Y37.COUT    Tbyp                  0.091   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<28>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<28>
+    SLICE_X22Y38.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<28>
+    SLICE_X22Y38.CMUX    Tcinc                 0.289   lighthouse/GND_24_o_GND_24_o_sub_16_OUT<31>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_xor<31>
+    SLICE_X20Y35.B2      net (fanout=31)       1.071   lighthouse/GND_24_o_GND_24_o_sub_16_OUT<31>
+    SLICE_X20Y35.COUT    Topcyb                0.483   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<3>
+                                                       lighthouse/Mxor_GND_24_o_GND_24_o_XOR_112_o_xo<0>1
+                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<3>
+    SLICE_X20Y36.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<3>
+    SLICE_X20Y36.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<7>
+                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<7>
+    SLICE_X20Y37.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<7>
+    SLICE_X20Y37.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<11>
+                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<11>
+    SLICE_X20Y38.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<11>
+    SLICE_X20Y38.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<15>
+                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<15>
+    SLICE_X20Y39.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<15>
+    SLICE_X20Y39.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<19>
+                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<19>
+    SLICE_X20Y40.CIN     net (fanout=1)        0.082   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<19>
+    SLICE_X20Y40.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<23>
+                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<23>
+    SLICE_X20Y41.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<23>
+    SLICE_X20Y41.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<27>
+                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<27>
+    SLICE_X20Y42.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<27>
+    SLICE_X20Y42.BMUX    Tcinb                 0.310   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<30>
+                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<30>
+    SLICE_X20Y34.B1      net (fanout=1)        1.221   lighthouse/GND_24_o_GND_24_o_add_16_OUT<29>
+    SLICE_X20Y34.CMUX    Topbc                 0.640   lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_cy<6>
+                                                       lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_lut<5>
+                                                       lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_cy<6>
+    SLICE_X11Y37.A1      net (fanout=1)        1.795   lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_cy<6>
+    SLICE_X11Y37.CLK     Tas                   0.373   lighthouse/temp_sensor_value_10
+                                                       lighthouse/temp_sensor_value_10_glue_set
+                                                       lighthouse/temp_sensor_value_10
+    -------------------------------------------------  ---------------------------
+    Total                                     11.473ns (4.854ns logic, 6.619ns route)
+                                                       (42.3% logic, 57.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     88.392ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               lighthouse/t_0_0 (FF)
+  Destination:          lighthouse/temp_sensor_value_10 (FF)
+  Requirement:          100.000ns
+  Data Path Delay:      11.451ns (Levels of Logic = 19)
+  Clock Path Skew:      -0.008ns (0.708 - 0.716)
+  Source Clock:         clk10MHz rising at 0.000ns
+  Destination Clock:    clk10MHz rising at 100.000ns
+  Clock Uncertainty:    0.149ns
+
+  Clock Uncertainty:          0.149ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.289ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: lighthouse/t_0_0 to lighthouse/temp_sensor_value_10
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X12Y30.AQ      Tcko                  0.525   lighthouse/t_0<3>
+                                                       lighthouse/t_0_0
+    SLICE_X14Y33.A4      net (fanout=6)        0.954   lighthouse/t_0<0>
+    SLICE_X14Y33.COUT    Topcya                0.472   lighthouse/Msub_n0300_Madd_cy<3>
+                                                       lighthouse/Msub_n0300_Madd_lut<0>
+                                                       lighthouse/Msub_n0300_Madd_cy<3>
+    SLICE_X14Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<3>
+    SLICE_X14Y34.COUT    Tbyp                  0.091   lighthouse/Msub_n0300_Madd_cy<7>
+                                                       lighthouse/Msub_n0300_Madd_cy<7>
+    SLICE_X14Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<7>
+    SLICE_X14Y35.COUT    Tbyp                  0.091   lighthouse/Msub_n0300_Madd_cy<11>
+                                                       lighthouse/Msub_n0300_Madd_cy<11>
+    SLICE_X14Y36.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<11>
+    SLICE_X14Y36.COUT    Tbyp                  0.091   lighthouse/Msub_n0300_Madd_cy<15>
+                                                       lighthouse/Msub_n0300_Madd_cy<15>
+    SLICE_X14Y37.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<15>
+    SLICE_X14Y37.COUT    Tbyp                  0.091   lighthouse/Msub_n0300_Madd_cy<19>
                                                        lighthouse/Msub_n0300_Madd_cy<19>
-    SLICE_X8Y35.D2       net (fanout=7)        2.103   lighthouse/n0300<16>
-    SLICE_X8Y35.COUT     Topcyd                0.312   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<16>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_lut<16>_INV_0
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<16>
-    SLICE_X8Y36.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<16>
-    SLICE_X8Y36.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<20>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<20>
-    SLICE_X8Y37.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<20>
-    SLICE_X8Y37.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<24>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<24>
-    SLICE_X8Y38.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<24>
-    SLICE_X8Y38.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<28>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<28>
-    SLICE_X8Y39.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<28>
-    SLICE_X8Y39.CMUX     Tcinc                 0.279   lighthouse/GND_24_o_GND_24_o_sub_16_OUT<31>
+    SLICE_X14Y38.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<19>
+    SLICE_X14Y38.COUT    Tbyp                  0.091   lighthouse/Msub_n0300_Madd_cy<23>
+                                                       lighthouse/Msub_n0300_Madd_cy<23>
+    SLICE_X14Y39.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<23>
+    SLICE_X14Y39.COUT    Tbyp                  0.091   lighthouse/Msub_n0300_Madd_cy<27>
+                                                       lighthouse/Msub_n0300_Madd_cy<27>
+    SLICE_X14Y40.CIN     net (fanout=1)        0.082   lighthouse/Msub_n0300_Madd_cy<27>
+    SLICE_X14Y40.CMUX    Tcinc                 0.289   lighthouse/n0300<31>
+                                                       lighthouse/Msub_n0300_Madd_xor<31>
+    SLICE_X22Y38.B2      net (fanout=8)        1.425   lighthouse/n0300<30>
+    SLICE_X22Y38.CMUX    Topbc                 0.613   lighthouse/GND_24_o_GND_24_o_sub_16_OUT<31>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_lut<30>_INV_0
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_xor<31>
-    SLICE_X6Y33.B2       net (fanout=31)       1.349   lighthouse/GND_24_o_GND_24_o_sub_16_OUT<31>
-    SLICE_X6Y33.COUT     Topcyb                0.448   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<3>
+    SLICE_X20Y35.B2      net (fanout=31)       1.071   lighthouse/GND_24_o_GND_24_o_sub_16_OUT<31>
+    SLICE_X20Y35.COUT    Topcyb                0.483   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<3>
                                                        lighthouse/Mxor_GND_24_o_GND_24_o_XOR_112_o_xo<0>1
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<3>
-    SLICE_X6Y34.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<3>
-    SLICE_X6Y34.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<7>
+    SLICE_X20Y36.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<3>
+    SLICE_X20Y36.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<7>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<7>
-    SLICE_X6Y35.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<7>
-    SLICE_X6Y35.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<11>
+    SLICE_X20Y37.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<7>
+    SLICE_X20Y37.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<11>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<11>
-    SLICE_X6Y36.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<11>
-    SLICE_X6Y36.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<15>
+    SLICE_X20Y38.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<11>
+    SLICE_X20Y38.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<15>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<15>
-    SLICE_X6Y37.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<15>
-    SLICE_X6Y37.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<19>
+    SLICE_X20Y39.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<15>
+    SLICE_X20Y39.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<19>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<19>
-    SLICE_X6Y38.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<19>
-    SLICE_X6Y38.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<23>
+    SLICE_X20Y40.CIN     net (fanout=1)        0.082   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<19>
+    SLICE_X20Y40.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<23>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<23>
-    SLICE_X6Y39.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<23>
-    SLICE_X6Y39.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<27>
+    SLICE_X20Y41.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<23>
+    SLICE_X20Y41.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<27>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<27>
-    SLICE_X6Y40.CIN      net (fanout=1)        0.082   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<27>
-    SLICE_X6Y40.CMUX     Tcinc                 0.289   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<30>
+    SLICE_X20Y42.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<27>
+    SLICE_X20Y42.BMUX    Tcinb                 0.310   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<30>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<30>
-    SLICE_X4Y37.B2       net (fanout=1)        1.274   lighthouse/GND_24_o_GND_24_o_add_16_OUT<30>
-    SLICE_X4Y37.CMUX     Topbc                 0.640   lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_cy<6>
-                                                       lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_lut<5>
+    SLICE_X20Y34.B1      net (fanout=1)        1.221   lighthouse/GND_24_o_GND_24_o_add_16_OUT<29>
+    SLICE_X20Y34.CMUX    Topbc                 0.616   lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_cy<6>
+                                                       lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_lutdi5
                                                        lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_cy<6>
-    SLICE_X11Y37.A2      net (fanout=1)        1.348   lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_cy<6>
+    SLICE_X11Y37.A1      net (fanout=1)        1.795   lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_cy<6>
     SLICE_X11Y37.CLK     Tas                   0.373   lighthouse/temp_sensor_value_10
                                                        lighthouse/temp_sensor_value_10_glue_set
                                                        lighthouse/temp_sensor_value_10
     -------------------------------------------------  ---------------------------
-    Total                                     11.918ns (4.615ns logic, 7.303ns route)
-                                                       (38.7% logic, 61.3% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     87.930ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               counter/temp_0 (FF)
-  Destination:          lighthouse/temp_sensor_value_10 (FF)
-  Requirement:          100.000ns
-  Data Path Delay:      11.912ns (Levels of Logic = 20)
-  Clock Path Skew:      -0.009ns (0.620 - 0.629)
-  Source Clock:         clk10MHz rising at 0.000ns
-  Destination Clock:    clk10MHz rising at 100.000ns
-  Clock Uncertainty:    0.149ns
-
-  Clock Uncertainty:          0.149ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.289ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: counter/temp_0 to lighthouse/temp_sensor_value_10
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X18Y32.AQ      Tcko                  0.476   counter/temp<3>
-                                                       counter/temp_0
-    SLICE_X20Y32.A2      net (fanout=4)        1.105   counter/temp<0>
-    SLICE_X20Y32.COUT    Topcya                0.474   lighthouse/Msub_n0300_Madd_cy<3>
-                                                       lighthouse/Msub_n0300_Madd_lut<0>
-                                                       lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<7>
-                                                       lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<11>
-                                                       lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.AMUX    Tcina                 0.220   lighthouse/Msub_n0300_Madd_cy<15>
-                                                       lighthouse/Msub_n0300_Madd_cy<15>
-    SLICE_X8Y34.D2       net (fanout=7)        2.097   lighthouse/n0300<12>
-    SLICE_X8Y34.COUT     Topcyd                0.312   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<12>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_lut<12>_INV_0
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<12>
-    SLICE_X8Y35.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<12>
-    SLICE_X8Y35.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<16>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<16>
-    SLICE_X8Y36.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<16>
-    SLICE_X8Y36.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<20>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<20>
-    SLICE_X8Y37.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<20>
-    SLICE_X8Y37.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<24>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<24>
-    SLICE_X8Y38.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<24>
-    SLICE_X8Y38.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<28>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<28>
-    SLICE_X8Y39.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_cy<28>
-    SLICE_X8Y39.CMUX     Tcinc                 0.279   lighthouse/GND_24_o_GND_24_o_sub_16_OUT<31>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_16_OUT<31:0>_xor<31>
-    SLICE_X6Y33.B2       net (fanout=31)       1.349   lighthouse/GND_24_o_GND_24_o_sub_16_OUT<31>
-    SLICE_X6Y33.COUT     Topcyb                0.448   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<3>
-                                                       lighthouse/Mxor_GND_24_o_GND_24_o_XOR_112_o_xo<0>1
-                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<3>
-    SLICE_X6Y34.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<3>
-    SLICE_X6Y34.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<7>
-                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<7>
-    SLICE_X6Y35.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<7>
-    SLICE_X6Y35.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<11>
-                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<11>
-    SLICE_X6Y36.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<11>
-    SLICE_X6Y36.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<15>
-                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<15>
-    SLICE_X6Y37.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<15>
-    SLICE_X6Y37.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<19>
-                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<19>
-    SLICE_X6Y38.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<19>
-    SLICE_X6Y38.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<23>
-                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<23>
-    SLICE_X6Y39.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<23>
-    SLICE_X6Y39.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<27>
-                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<27>
-    SLICE_X6Y40.CIN      net (fanout=1)        0.082   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<27>
-    SLICE_X6Y40.CMUX     Tcinc                 0.289   lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<30>
-                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_16_OUT_cy<30>
-    SLICE_X4Y37.B2       net (fanout=1)        1.274   lighthouse/GND_24_o_GND_24_o_add_16_OUT<30>
-    SLICE_X4Y37.CMUX     Topbc                 0.640   lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_cy<6>
-                                                       lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_lut<5>
-                                                       lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_cy<6>
-    SLICE_X11Y37.A2      net (fanout=1)        1.348   lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_18_o_cy<6>
-    SLICE_X11Y37.CLK     Tas                   0.373   lighthouse/temp_sensor_value_10
-                                                       lighthouse/temp_sensor_value_10_glue_set
-                                                       lighthouse/temp_sensor_value_10
-    -------------------------------------------------  ---------------------------
-    Total                                     11.912ns (4.615ns logic, 7.297ns route)
-                                                       (38.7% logic, 61.3% route)
+    Total                                     11.451ns (4.785ns logic, 6.666ns route)
+                                                       (41.8% logic, 58.2% route)
 
 --------------------------------------------------------------------------------
 
 Paths for end point lighthouse/temp_sensor_value_10 (SLICE_X11Y37.SR), 1868137 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     87.957ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               counter/temp_0 (FF)
+Slack (setup path):     89.002ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               lighthouse/t_0_0 (FF)
   Destination:          lighthouse/temp_sensor_value_10 (FF)
   Requirement:          100.000ns
-  Data Path Delay:      11.885ns (Levels of Logic = 18)
-  Clock Path Skew:      -0.009ns (0.620 - 0.629)
+  Data Path Delay:      10.841ns (Levels of Logic = 17)
+  Clock Path Skew:      -0.008ns (0.708 - 0.716)
   Source Clock:         clk10MHz rising at 0.000ns
   Destination Clock:    clk10MHz rising at 100.000ns
   Clock Uncertainty:    0.149ns
@@ -976,84 +1178,81 @@ Slack (setup path):     87.957ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.289ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: counter/temp_0 to lighthouse/temp_sensor_value_10
+  Maximum Data Path at Slow Process Corner: lighthouse/t_0_0 to lighthouse/temp_sensor_value_10
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y32.AQ      Tcko                  0.476   counter/temp<3>
-                                                       counter/temp_0
-    SLICE_X20Y32.A2      net (fanout=4)        1.105   counter/temp<0>
-    SLICE_X20Y32.COUT    Topcya                0.474   lighthouse/Msub_n0300_Madd_cy<3>
+    SLICE_X12Y30.AQ      Tcko                  0.525   lighthouse/t_0<3>
+                                                       lighthouse/t_0_0
+    SLICE_X14Y33.A4      net (fanout=6)        0.954   lighthouse/t_0<0>
+    SLICE_X14Y33.DMUX    Topad                 0.667   lighthouse/Msub_n0300_Madd_cy<3>
                                                        lighthouse/Msub_n0300_Madd_lut<0>
                                                        lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<7>
-                                                       lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<11>
-                                                       lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<15>
-                                                       lighthouse/Msub_n0300_Madd_cy<15>
-    SLICE_X20Y36.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<15>
-    SLICE_X20Y36.CMUX    Tcinc                 0.279   lighthouse/Msub_n0300_Madd_cy<19>
-                                                       lighthouse/Msub_n0300_Madd_cy<19>
-    SLICE_X14Y45.B5      net (fanout=7)        2.170   lighthouse/n0300<18>
-    SLICE_X14Y45.COUT    Topcyb                0.448   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<20>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_lut<18>_INV_0
+    SLICE_X8Y38.C4       net (fanout=7)        1.463   lighthouse/n0300<3>
+    SLICE_X8Y38.COUT     Topcyc                0.328   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<4>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_lut<3>_INV_0
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<4>
+    SLICE_X8Y39.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<4>
+    SLICE_X8Y39.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<8>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<8>
+    SLICE_X8Y40.CIN      net (fanout=1)        0.082   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<8>
+    SLICE_X8Y40.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<12>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<12>
+    SLICE_X8Y41.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<12>
+    SLICE_X8Y41.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<16>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<16>
+    SLICE_X8Y42.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<16>
+    SLICE_X8Y42.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<20>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<20>
-    SLICE_X14Y46.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<20>
-    SLICE_X14Y46.COUT    Tbyp                  0.091   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<24>
+    SLICE_X8Y43.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<20>
+    SLICE_X8Y43.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<24>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<24>
-    SLICE_X14Y47.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<24>
-    SLICE_X14Y47.COUT    Tbyp                  0.091   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<28>
+    SLICE_X8Y44.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<24>
+    SLICE_X8Y44.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<28>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<28>
-    SLICE_X14Y48.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<28>
-    SLICE_X14Y48.CMUX    Tcinc                 0.289   lighthouse/GND_24_o_GND_24_o_sub_13_OUT<31>
+    SLICE_X8Y45.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<28>
+    SLICE_X8Y45.CMUX     Tcinc                 0.279   lighthouse/GND_24_o_GND_24_o_sub_13_OUT<31>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_xor<31>
-    SLICE_X12Y41.B2      net (fanout=31)       1.552   lighthouse/GND_24_o_GND_24_o_sub_13_OUT<31>
-    SLICE_X12Y41.COUT    Topcyb                0.483   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<3>
+    SLICE_X6Y39.B2       net (fanout=31)       1.374   lighthouse/GND_24_o_GND_24_o_sub_13_OUT<31>
+    SLICE_X6Y39.COUT     Topcyb                0.448   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<3>
                                                        lighthouse/Mxor_GND_24_o_GND_24_o_XOR_81_o_xo<0>1
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<3>
-    SLICE_X12Y42.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<3>
-    SLICE_X12Y42.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<7>
+    SLICE_X6Y40.CIN      net (fanout=1)        0.082   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<3>
+    SLICE_X6Y40.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<7>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<7>
-    SLICE_X12Y43.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<7>
-    SLICE_X12Y43.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<11>
+    SLICE_X6Y41.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<7>
+    SLICE_X6Y41.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<11>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<11>
-    SLICE_X12Y44.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<11>
-    SLICE_X12Y44.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<15>
+    SLICE_X6Y42.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<11>
+    SLICE_X6Y42.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<15>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<15>
-    SLICE_X12Y45.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<15>
-    SLICE_X12Y45.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<19>
+    SLICE_X6Y43.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<15>
+    SLICE_X6Y43.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<19>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<19>
-    SLICE_X12Y46.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<19>
-    SLICE_X12Y46.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<23>
+    SLICE_X6Y44.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<19>
+    SLICE_X6Y44.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<23>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<23>
-    SLICE_X12Y47.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<23>
-    SLICE_X12Y47.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<27>
+    SLICE_X6Y45.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<23>
+    SLICE_X6Y45.CMUX     Tcinc                 0.289   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<27>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<27>
-    SLICE_X12Y48.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<27>
-    SLICE_X12Y48.BMUX    Tcinb                 0.310   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<30>
-                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<30>
-    SLICE_X10Y45.B1      net (fanout=1)        1.197   lighthouse/GND_24_o_GND_24_o_add_13_OUT<29>
-    SLICE_X10Y45.DMUX    Topbd                 0.624   lighthouse/_n0384
+    SLICE_X4Y42.B2       net (fanout=1)        1.274   lighthouse/GND_24_o_GND_24_o_add_13_OUT<26>
+    SLICE_X4Y42.DMUX     Topbd                 0.695   lighthouse/_n0384
                                                        lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_15_o_lut<5>
                                                        lighthouse/_n038411_cy
-    SLICE_X11Y37.SR      net (fanout=1)        1.007   lighthouse/_n0384
+    SLICE_X11Y37.SR      net (fanout=1)        0.925   lighthouse/_n0384
     SLICE_X11Y37.CLK     Tsrck                 0.410   lighthouse/temp_sensor_value_10
                                                        lighthouse/temp_sensor_value_10
     -------------------------------------------------  ---------------------------
-    Total                                     11.885ns (4.812ns logic, 7.073ns route)
-                                                       (40.5% logic, 59.5% route)
+    Total                                     10.841ns (4.654ns logic, 6.187ns route)
+                                                       (42.9% logic, 57.1% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     87.988ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               counter/temp_0 (FF)
+Slack (setup path):     89.018ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               lighthouse/t_0_0 (FF)
   Destination:          lighthouse/temp_sensor_value_10 (FF)
   Requirement:          100.000ns
-  Data Path Delay:      11.854ns (Levels of Logic = 18)
-  Clock Path Skew:      -0.009ns (0.620 - 0.629)
+  Data Path Delay:      10.825ns (Levels of Logic = 17)
+  Clock Path Skew:      -0.008ns (0.708 - 0.716)
   Source Clock:         clk10MHz rising at 0.000ns
   Destination Clock:    clk10MHz rising at 100.000ns
   Clock Uncertainty:    0.149ns
@@ -1063,84 +1262,81 @@ Slack (setup path):     87.988ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.289ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: counter/temp_0 to lighthouse/temp_sensor_value_10
+  Maximum Data Path at Slow Process Corner: lighthouse/t_0_0 to lighthouse/temp_sensor_value_10
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y32.AQ      Tcko                  0.476   counter/temp<3>
-                                                       counter/temp_0
-    SLICE_X20Y32.A2      net (fanout=4)        1.105   counter/temp<0>
-    SLICE_X20Y32.COUT    Topcya                0.474   lighthouse/Msub_n0300_Madd_cy<3>
+    SLICE_X12Y30.AQ      Tcko                  0.525   lighthouse/t_0<3>
+                                                       lighthouse/t_0_0
+    SLICE_X14Y33.A4      net (fanout=6)        0.954   lighthouse/t_0<0>
+    SLICE_X14Y33.COUT    Topcya                0.472   lighthouse/Msub_n0300_Madd_cy<3>
                                                        lighthouse/Msub_n0300_Madd_lut<0>
                                                        lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<7>
+    SLICE_X14Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<3>
+    SLICE_X14Y34.BMUX    Tcinb                 0.277   lighthouse/Msub_n0300_Madd_cy<7>
                                                        lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<11>
-                                                       lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<15>
-                                                       lighthouse/Msub_n0300_Madd_cy<15>
-    SLICE_X20Y36.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<15>
-    SLICE_X20Y36.CMUX    Tcinc                 0.279   lighthouse/Msub_n0300_Madd_cy<19>
-                                                       lighthouse/Msub_n0300_Madd_cy<19>
-    SLICE_X14Y45.B5      net (fanout=7)        2.170   lighthouse/n0300<18>
-    SLICE_X14Y45.COUT    Topcyb                0.448   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<20>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_lut<18>_INV_0
+    SLICE_X8Y39.A3       net (fanout=7)        1.312   lighthouse/n0300<5>
+    SLICE_X8Y39.COUT     Topcya                0.474   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<8>
+                                                       lighthouse/n0300<5>_rt.1
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<8>
+    SLICE_X8Y40.CIN      net (fanout=1)        0.082   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<8>
+    SLICE_X8Y40.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<12>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<12>
+    SLICE_X8Y41.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<12>
+    SLICE_X8Y41.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<16>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<16>
+    SLICE_X8Y42.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<16>
+    SLICE_X8Y42.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<20>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<20>
-    SLICE_X14Y46.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<20>
-    SLICE_X14Y46.COUT    Tbyp                  0.091   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<24>
+    SLICE_X8Y43.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<20>
+    SLICE_X8Y43.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<24>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<24>
-    SLICE_X14Y47.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<24>
-    SLICE_X14Y47.COUT    Tbyp                  0.091   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<28>
+    SLICE_X8Y44.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<24>
+    SLICE_X8Y44.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<28>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<28>
-    SLICE_X14Y48.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<28>
-    SLICE_X14Y48.CMUX    Tcinc                 0.289   lighthouse/GND_24_o_GND_24_o_sub_13_OUT<31>
+    SLICE_X8Y45.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<28>
+    SLICE_X8Y45.CMUX     Tcinc                 0.279   lighthouse/GND_24_o_GND_24_o_sub_13_OUT<31>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_xor<31>
-    SLICE_X12Y41.B2      net (fanout=31)       1.552   lighthouse/GND_24_o_GND_24_o_sub_13_OUT<31>
-    SLICE_X12Y41.COUT    Topcyb                0.483   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<3>
+    SLICE_X6Y39.B2       net (fanout=31)       1.374   lighthouse/GND_24_o_GND_24_o_sub_13_OUT<31>
+    SLICE_X6Y39.COUT     Topcyb                0.448   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<3>
                                                        lighthouse/Mxor_GND_24_o_GND_24_o_XOR_81_o_xo<0>1
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<3>
-    SLICE_X12Y42.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<3>
-    SLICE_X12Y42.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<7>
+    SLICE_X6Y40.CIN      net (fanout=1)        0.082   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<3>
+    SLICE_X6Y40.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<7>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<7>
-    SLICE_X12Y43.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<7>
-    SLICE_X12Y43.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<11>
+    SLICE_X6Y41.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<7>
+    SLICE_X6Y41.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<11>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<11>
-    SLICE_X12Y44.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<11>
-    SLICE_X12Y44.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<15>
+    SLICE_X6Y42.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<11>
+    SLICE_X6Y42.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<15>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<15>
-    SLICE_X12Y45.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<15>
-    SLICE_X12Y45.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<19>
+    SLICE_X6Y43.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<15>
+    SLICE_X6Y43.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<19>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<19>
-    SLICE_X12Y46.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<19>
-    SLICE_X12Y46.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<23>
+    SLICE_X6Y44.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<19>
+    SLICE_X6Y44.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<23>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<23>
-    SLICE_X12Y47.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<23>
-    SLICE_X12Y47.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<27>
+    SLICE_X6Y45.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<23>
+    SLICE_X6Y45.CMUX     Tcinc                 0.289   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<27>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<27>
-    SLICE_X12Y48.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<27>
-    SLICE_X12Y48.CMUX    Tcinc                 0.279   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<30>
-                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<30>
-    SLICE_X10Y45.B2      net (fanout=1)        1.197   lighthouse/GND_24_o_GND_24_o_add_13_OUT<30>
-    SLICE_X10Y45.DMUX    Topbd                 0.624   lighthouse/_n0384
+    SLICE_X4Y42.B2       net (fanout=1)        1.274   lighthouse/GND_24_o_GND_24_o_add_13_OUT<26>
+    SLICE_X4Y42.DMUX     Topbd                 0.695   lighthouse/_n0384
                                                        lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_15_o_lut<5>
                                                        lighthouse/_n038411_cy
-    SLICE_X11Y37.SR      net (fanout=1)        1.007   lighthouse/_n0384
+    SLICE_X11Y37.SR      net (fanout=1)        0.925   lighthouse/_n0384
     SLICE_X11Y37.CLK     Tsrck                 0.410   lighthouse/temp_sensor_value_10
                                                        lighthouse/temp_sensor_value_10
     -------------------------------------------------  ---------------------------
-    Total                                     11.854ns (4.781ns logic, 7.073ns route)
-                                                       (40.3% logic, 59.7% route)
+    Total                                     10.825ns (4.789ns logic, 6.036ns route)
+                                                       (44.2% logic, 55.8% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     87.994ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               counter/temp_0 (FF)
+Slack (setup path):     89.031ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               lighthouse/t_0_0 (FF)
   Destination:          lighthouse/temp_sensor_value_10 (FF)
   Requirement:          100.000ns
-  Data Path Delay:      11.848ns (Levels of Logic = 18)
-  Clock Path Skew:      -0.009ns (0.620 - 0.629)
+  Data Path Delay:      10.812ns (Levels of Logic = 17)
+  Clock Path Skew:      -0.008ns (0.708 - 0.716)
   Source Clock:         clk10MHz rising at 0.000ns
   Destination Clock:    clk10MHz rising at 100.000ns
   Clock Uncertainty:    0.149ns
@@ -1150,76 +1346,73 @@ Slack (setup path):     87.994ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.289ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: counter/temp_0 to lighthouse/temp_sensor_value_10
+  Maximum Data Path at Slow Process Corner: lighthouse/t_0_0 to lighthouse/temp_sensor_value_10
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y32.AQ      Tcko                  0.476   counter/temp<3>
-                                                       counter/temp_0
-    SLICE_X20Y32.A2      net (fanout=4)        1.105   counter/temp<0>
-    SLICE_X20Y32.COUT    Topcya                0.474   lighthouse/Msub_n0300_Madd_cy<3>
+    SLICE_X12Y30.AQ      Tcko                  0.525   lighthouse/t_0<3>
+                                                       lighthouse/t_0_0
+    SLICE_X14Y33.A4      net (fanout=6)        0.954   lighthouse/t_0<0>
+    SLICE_X14Y33.BMUX    Topab                 0.519   lighthouse/Msub_n0300_Madd_cy<3>
                                                        lighthouse/Msub_n0300_Madd_lut<0>
                                                        lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<3>
-    SLICE_X20Y33.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<7>
-                                                       lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<7>
-    SLICE_X20Y34.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<11>
-                                                       lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<11>
-    SLICE_X20Y35.COUT    Tbyp                  0.093   lighthouse/Msub_n0300_Madd_cy<15>
-                                                       lighthouse/Msub_n0300_Madd_cy<15>
-    SLICE_X20Y36.CIN     net (fanout=1)        0.003   lighthouse/Msub_n0300_Madd_cy<15>
-    SLICE_X20Y36.CMUX    Tcinc                 0.279   lighthouse/Msub_n0300_Madd_cy<19>
-                                                       lighthouse/Msub_n0300_Madd_cy<19>
-    SLICE_X14Y45.B5      net (fanout=7)        2.170   lighthouse/n0300<18>
-    SLICE_X14Y45.COUT    Topcyb                0.448   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<20>
-                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_lut<18>_INV_0
+    SLICE_X8Y38.A4       net (fanout=6)        1.436   lighthouse/n0300<1>
+    SLICE_X8Y38.COUT     Topcya                0.474   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<4>
+                                                       lighthouse/n0300<1>_rt.1
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<4>
+    SLICE_X8Y39.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<4>
+    SLICE_X8Y39.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<8>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<8>
+    SLICE_X8Y40.CIN      net (fanout=1)        0.082   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<8>
+    SLICE_X8Y40.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<12>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<12>
+    SLICE_X8Y41.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<12>
+    SLICE_X8Y41.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<16>
+                                                       lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<16>
+    SLICE_X8Y42.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<16>
+    SLICE_X8Y42.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<20>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<20>
-    SLICE_X14Y46.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<20>
-    SLICE_X14Y46.COUT    Tbyp                  0.091   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<24>
+    SLICE_X8Y43.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<20>
+    SLICE_X8Y43.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<24>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<24>
-    SLICE_X14Y47.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<24>
-    SLICE_X14Y47.COUT    Tbyp                  0.091   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<28>
+    SLICE_X8Y44.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<24>
+    SLICE_X8Y44.COUT     Tbyp                  0.093   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<28>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<28>
-    SLICE_X14Y48.CIN     net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<28>
-    SLICE_X14Y48.CMUX    Tcinc                 0.289   lighthouse/GND_24_o_GND_24_o_sub_13_OUT<31>
+    SLICE_X8Y45.CIN      net (fanout=1)        0.003   lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_cy<28>
+    SLICE_X8Y45.CMUX     Tcinc                 0.279   lighthouse/GND_24_o_GND_24_o_sub_13_OUT<31>
                                                        lighthouse/Msub_GND_24_o_GND_24_o_sub_13_OUT<31:0>_xor<31>
-    SLICE_X12Y41.B2      net (fanout=31)       1.552   lighthouse/GND_24_o_GND_24_o_sub_13_OUT<31>
-    SLICE_X12Y41.COUT    Topcyb                0.483   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<3>
+    SLICE_X6Y39.B2       net (fanout=31)       1.374   lighthouse/GND_24_o_GND_24_o_sub_13_OUT<31>
+    SLICE_X6Y39.COUT     Topcyb                0.448   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<3>
                                                        lighthouse/Mxor_GND_24_o_GND_24_o_XOR_81_o_xo<0>1
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<3>
-    SLICE_X12Y42.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<3>
-    SLICE_X12Y42.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<7>
+    SLICE_X6Y40.CIN      net (fanout=1)        0.082   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<3>
+    SLICE_X6Y40.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<7>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<7>
-    SLICE_X12Y43.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<7>
-    SLICE_X12Y43.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<11>
+    SLICE_X6Y41.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<7>
+    SLICE_X6Y41.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<11>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<11>
-    SLICE_X12Y44.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<11>
-    SLICE_X12Y44.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<15>
+    SLICE_X6Y42.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<11>
+    SLICE_X6Y42.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<15>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<15>
-    SLICE_X12Y45.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<15>
-    SLICE_X12Y45.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<19>
+    SLICE_X6Y43.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<15>
+    SLICE_X6Y43.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<19>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<19>
-    SLICE_X12Y46.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<19>
-    SLICE_X12Y46.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<23>
+    SLICE_X6Y44.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<19>
+    SLICE_X6Y44.COUT     Tbyp                  0.091   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<23>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<23>
-    SLICE_X12Y47.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<23>
-    SLICE_X12Y47.COUT    Tbyp                  0.093   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<27>
+    SLICE_X6Y45.CIN      net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<23>
+    SLICE_X6Y45.CMUX     Tcinc                 0.289   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<27>
                                                        lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<27>
-    SLICE_X12Y48.CIN     net (fanout=1)        0.003   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<27>
-    SLICE_X12Y48.BMUX    Tcinb                 0.310   lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<30>
-                                                       lighthouse/Madd_GND_24_o_GND_24_o_add_13_OUT_cy<30>
-    SLICE_X10Y45.B1      net (fanout=1)        1.197   lighthouse/GND_24_o_GND_24_o_add_13_OUT<29>
-    SLICE_X10Y45.DMUX    Topbd                 0.587   lighthouse/_n0384
-                                                       lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_15_o_lutdi5
+    SLICE_X4Y42.B2       net (fanout=1)        1.274   lighthouse/GND_24_o_GND_24_o_add_13_OUT<26>
+    SLICE_X4Y42.DMUX     Topbd                 0.695   lighthouse/_n0384
+                                                       lighthouse/Mcompar_GND_24_o_GND_24_o_LessThan_15_o_lut<5>
                                                        lighthouse/_n038411_cy
-    SLICE_X11Y37.SR      net (fanout=1)        1.007   lighthouse/_n0384
+    SLICE_X11Y37.SR      net (fanout=1)        0.925   lighthouse/_n0384
     SLICE_X11Y37.CLK     Tsrck                 0.410   lighthouse/temp_sensor_value_10
                                                        lighthouse/temp_sensor_value_10
     -------------------------------------------------  ---------------------------
-    Total                                     11.848ns (4.775ns logic, 7.073ns route)
-                                                       (40.3% logic, 59.7% route)
+    Total                                     10.812ns (4.652ns logic, 6.160ns route)
+                                                       (43.0% logic, 57.0% route)
 
 --------------------------------------------------------------------------------
 
@@ -1227,68 +1420,69 @@ Hold Paths: TS_clock10MHz_clkout0 = PERIOD TIMEGRP "clock10MHz_clkout0" TS_clk *
         50%;
 --------------------------------------------------------------------------------
 
-Paths for end point lighthouse/t_0_4 (SLICE_X19Y33.AX), 1 path
+Paths for end point lighthouse/temp_sensor_value_10 (SLICE_X11Y37.A6), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.403ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               counter/temp_4 (FF)
-  Destination:          lighthouse/t_0_4 (FF)
+Slack (hold path):      0.440ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               lighthouse/temp_sensor_value_10 (FF)
+  Destination:          lighthouse/temp_sensor_value_10 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.405ns (Levels of Logic = 0)
-  Clock Path Skew:      0.002ns (0.046 - 0.044)
+  Data Path Delay:      0.440ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
   Source Clock:         clk10MHz rising at 100.000ns
   Destination Clock:    clk10MHz rising at 100.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: counter/temp_4 to lighthouse/t_0_4
+  Minimum Data Path at Fast Process Corner: lighthouse/temp_sensor_value_10 to lighthouse/temp_sensor_value_10
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y33.AQ      Tcko                  0.200   counter/temp<7>
-                                                       counter/temp_4
-    SLICE_X19Y33.AX      net (fanout=4)        0.146   counter/temp<4>
-    SLICE_X19Y33.CLK     Tckdi       (-Th)    -0.059   lighthouse/t_0<7>
-                                                       lighthouse/t_0_4
+    SLICE_X11Y37.AQ      Tcko                  0.198   lighthouse/temp_sensor_value_10
+                                                       lighthouse/temp_sensor_value_10
+    SLICE_X11Y37.A6      net (fanout=2)        0.027   lighthouse/temp_sensor_value_10
+    SLICE_X11Y37.CLK     Tah         (-Th)    -0.215   lighthouse/temp_sensor_value_10
+                                                       lighthouse/temp_sensor_value_10_glue_set
+                                                       lighthouse/temp_sensor_value_10
     -------------------------------------------------  ---------------------------
-    Total                                      0.405ns (0.259ns logic, 0.146ns route)
-                                                       (64.0% logic, 36.0% route)
+    Total                                      0.440ns (0.413ns logic, 0.027ns route)
+                                                       (93.9% logic, 6.1% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point lighthouse/t_0_8 (SLICE_X19Y34.AX), 1 path
+Paths for end point lighthouse/t_0_12 (SLICE_X13Y36.AX), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.403ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               counter/temp_8 (FF)
-  Destination:          lighthouse/t_0_8 (FF)
+Slack (hold path):      0.441ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               counter/temp_12 (FF)
+  Destination:          lighthouse/t_0_12 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.405ns (Levels of Logic = 0)
-  Clock Path Skew:      0.002ns (0.045 - 0.043)
+  Data Path Delay:      0.443ns (Levels of Logic = 0)
+  Clock Path Skew:      0.002ns (0.040 - 0.038)
   Source Clock:         clk10MHz rising at 100.000ns
   Destination Clock:    clk10MHz rising at 100.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: counter/temp_8 to lighthouse/t_0_8
+  Minimum Data Path at Fast Process Corner: counter/temp_12 to lighthouse/t_0_12
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y34.AQ      Tcko                  0.200   counter/temp<11>
-                                                       counter/temp_8
-    SLICE_X19Y34.AX      net (fanout=4)        0.146   counter/temp<8>
-    SLICE_X19Y34.CLK     Tckdi       (-Th)    -0.059   lighthouse/t_0<11>
-                                                       lighthouse/t_0_8
+    SLICE_X12Y36.AQ      Tcko                  0.234   counter/temp<15>
+                                                       counter/temp_12
+    SLICE_X13Y36.AX      net (fanout=4)        0.150   counter/temp<12>
+    SLICE_X13Y36.CLK     Tckdi       (-Th)    -0.059   lighthouse/t_0<15>
+                                                       lighthouse/t_0_12
     -------------------------------------------------  ---------------------------
-    Total                                      0.405ns (0.259ns logic, 0.146ns route)
-                                                       (64.0% logic, 36.0% route)
+    Total                                      0.443ns (0.293ns logic, 0.150ns route)
+                                                       (66.1% logic, 33.9% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point lighthouse/t_0_16 (SLICE_X19Y36.AX), 1 path
+Paths for end point lighthouse/t_0_16 (SLICE_X13Y37.AX), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.403ns (requirement - (clock path skew + uncertainty - data path))
+Slack (hold path):      0.441ns (requirement - (clock path skew + uncertainty - data path))
   Source:               counter/temp_16 (FF)
   Destination:          lighthouse/t_0_16 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.405ns (Levels of Logic = 0)
-  Clock Path Skew:      0.002ns (0.041 - 0.039)
+  Data Path Delay:      0.443ns (Levels of Logic = 0)
+  Clock Path Skew:      0.002ns (0.037 - 0.035)
   Source Clock:         clk10MHz rising at 100.000ns
   Destination Clock:    clk10MHz rising at 100.000ns
   Clock Uncertainty:    0.000ns
@@ -1297,14 +1491,14 @@ Slack (hold path):      0.403ns (requirement - (clock path skew + uncertainty - 
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X18Y36.AQ      Tcko                  0.200   counter/temp<19>
+    SLICE_X12Y37.AQ      Tcko                  0.234   counter/temp<19>
                                                        counter/temp_16
-    SLICE_X19Y36.AX      net (fanout=4)        0.146   counter/temp<16>
-    SLICE_X19Y36.CLK     Tckdi       (-Th)    -0.059   lighthouse/t_0<19>
+    SLICE_X13Y37.AX      net (fanout=4)        0.150   counter/temp<16>
+    SLICE_X13Y37.CLK     Tckdi       (-Th)    -0.059   lighthouse/t_0<19>
                                                        lighthouse/t_0_16
     -------------------------------------------------  ---------------------------
-    Total                                      0.405ns (0.259ns logic, 0.146ns route)
-                                                       (64.0% logic, 36.0% route)
+    Total                                      0.443ns (0.293ns logic, 0.150ns route)
+                                                       (66.1% logic, 33.9% route)
 
 --------------------------------------------------------------------------------
 
@@ -1322,17 +1516,17 @@ Slack: 97.334ns (period - min period limit)
 Slack: 99.520ns (period - min period limit)
   Period: 100.000ns
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: lighthouse/sensor_previous/CLK
-  Logical resource: lighthouse/sensor_previous/CK
-  Location pin: SLICE_X12Y40.CLK
+  Physical resource: counter/temp<3>/CLK
+  Logical resource: counter/temp_0/CK
+  Location pin: SLICE_X12Y33.CLK
   Clock network: clk10MHz
 --------------------------------------------------------------------------------
-Slack: 99.525ns (period - min period limit)
+Slack: 99.520ns (period - min period limit)
   Period: 100.000ns
-  Min period limit: 0.475ns (2105.263MHz) (Tcp)
-  Physical resource: lighthouse/temp_sensor_value_16/CLK
-  Logical resource: lighthouse/temp_sensor_value_13/CK
-  Location pin: SLICE_X18Y24.CLK
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: counter/temp<3>/CLK
+  Logical resource: counter/temp_1/CK
+  Location pin: SLICE_X12Y33.CLK
   Clock network: clk10MHz
 --------------------------------------------------------------------------------
 
@@ -1344,9 +1538,9 @@ Derived Constraints for TS_clk
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_clk                         |     20.000ns|      5.000ns|     12.827ns|            0|            0|            0|      9642922|
-| TS_clock10MHz_clkout1         |     20.000ns|     12.827ns|          N/A|            0|            0|         4899|            0|
-| TS_clock10MHz_clkout0         |    100.000ns|     12.624ns|          N/A|            0|            0|      9638023|            0|
+|TS_clk                         |     20.000ns|      5.000ns|      6.975ns|            0|            0|            0|      9642209|
+| TS_clock10MHz_clkout1         |     20.000ns|      6.975ns|          N/A|            0|            0|         4186|            0|
+| TS_clock10MHz_clkout0         |    100.000ns|     13.103ns|          N/A|            0|            0|      9638023|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 All constraints were met.
@@ -1361,7 +1555,7 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |   12.827|         |         |         |
+clk            |   13.103|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
@@ -1370,16 +1564,16 @@ Timing summary:
 
 Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
 
-Constraints cover 9642922 paths, 0 nets, and 1929 connections
+Constraints cover 9642209 paths, 0 nets, and 1869 connections
 
 Design statistics:
-   Minimum period:  12.827ns{1}   (Maximum frequency:  77.961MHz)
+   Minimum period:  13.103ns{1}   (Maximum frequency:  76.318MHz)
 
 
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Thu Jan 12 16:41:24 2017 
+Analysis completed Thu Jan 12 20:00:54 2017 
 --------------------------------------------------------------------------------
 
 Trace Settings:

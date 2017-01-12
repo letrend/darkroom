@@ -21,7 +21,12 @@ entity mojo_top is
 		sensor		: in std_logic;		-- sensor input
 		esp_tx		: out std_logic;		-- uart outout
 		esp_rx		: in std_logic;			-- uart input
-		esp_newData : out std_logic			-- signal new data for esp interrupt
+		esp_newData : out std_logic;			-- signal new data for esp interrupt
+		miso 		: out  std_logic;			
+		sck		: in std_logic;
+		ss_n		: in std_logic;		
+		mosi		: in std_logic;		
+		trdy_out : out std_logic
 	);
 end mojo_top;
 
@@ -61,7 +66,7 @@ signal sweep_detected 	: std_logic;
 signal sweep_value		: std_logic_vector(31 downto 0);
 signal uart_counter		: integer range 0 to 5;
 signal sweep_count		: std_logic_vector(31 downto 0);
-signal temp: std_logic_vector(31 downto 0);
+signal temp: std_logic_vector(7 downto 0);
 
 signal fifo_WriteEn	: STD_LOGIC;
 signal fifo_DataIn	: STD_LOGIC_VECTOR (31 downto 0);
@@ -71,6 +76,8 @@ signal fifo_Count 	: natural range 0 to 255;
 signal fifo_Empty	: STD_LOGIC;
 signal fifo_Full	: STD_LOGIC;
 
+signal miso_en	: STD_LOGIC;
+signal done	: STD_LOGIC;
 
 begin
 
@@ -167,35 +174,72 @@ fifo: entity work.STD_FIFO
 		Full	   => fifo_Full
 	);
 	
+spi_slave: entity work.spi_slave
+	port map(
+		clk 	=> clk50MHz,
+		rst	=> rst,
+		ss		=> ss_n,
+		mosi	=> mosi,
+		miso	=> miso,
+		miso_en => miso_en,
+		done	=> done,
+		sck	=> sck, 
+		din	=> temp
+  );
+	
 darkroom: process(clk50MHz, rst)
 constant ss: character := 's'; 
 begin
 	if rising_edge(clk50MHz) then
-		tx_uart_newData <= '0';
+	
 		fifo_ReadEn <= '0';
-		if(tx_uart_busy = '0') and (uart_counter < 4) then -- if uart not busy and not all data was sent
+		if (ss_n = '0') and (uart_counter < 4) and (done = '1') then -- if uart not busy and not all data was sent
 			case uart_counter is
-			  when 0      =>  tx_uart_data <= temp(7 downto 0);--std_logic_vector(to_unsigned(65,8));--;
-			  when 1      =>  tx_uart_data <= temp(15 downto 8);--std_logic_vector(to_unsigned(66,8));--sweep_value(15 downto 8);
-			  when 2		  =>  tx_uart_data <= temp(23 downto 16);--std_logic_vector(to_unsigned(67,8));--sweep_value(23 downto 16);
-			  when 3		  =>  tx_uart_data <= temp(31 downto 24);--std_logic_vector(to_unsigned(68,8));--sweep_value(31 downto 24);
-			  when others 	  => 	tx_uart_data <= "11111111";
+			  when 0      =>  temp <= fifo_DataOut(7 downto 0);--std_logic_vector(to_unsigned(65,8));--;
+			  when 1      =>  temp <= fifo_DataOut(15 downto 8);--std_logic_vector(to_unsigned(66,8));--sweep_value(15 downto 8);
+			  when 2		  =>  temp <= fifo_DataOut(23 downto 16);--std_logic_vector(to_unsigned(67,8));--sweep_value(23 downto 16);
+			  when 3		  =>  temp <= fifo_DataOut(31 downto 24);--std_logic_vector(to_unsigned(68,8));--sweep_value(31 downto 24);
+			  when others 	  => 	temp <= "11111111";
 			end case;
-			tx_uart_newData <= '1';
 			uart_counter <= uart_counter + 1;	
-		elsif (tx_uart_busy = '0') and (uart_counter >= 4) and (fifo_Full = '1') then  -- if all data was sent and there is new data available
+		elsif (fifo_Empty = '0') and (ss_n = '1') then  -- if all data was sent and there is new data available
 			uart_counter <= 0; 
-			esp_newData <= '0';
+			trdy_out <= '1';
 			fifo_ReadEn <= '1';
 		elsif (uart_counter >= 4) then
-			esp_newData <= '1'; -- active low
+			trdy_out <= '0';
 		end if;
 		
 		fifo_WriteEn <= '0';
 		if (sweep_detected = '1') and (uart_counter >= 4) then
-			temp <= fifo_DataOut;
 			fifo_WriteEn <= sweep_detected;
 		end if;
+		
+--		tx_uart_newData <= '0';
+--		fifo_ReadEn <= '0';
+--		if(tx_uart_busy = '0') and (uart_counter < 4) then -- if uart not busy and not all data was sent
+--			case uart_counter is
+--			  when 0      =>  tx_uart_data <= temp(7 downto 0);--std_logic_vector(to_unsigned(65,8));--;
+--			  when 1      =>  tx_uart_data <= temp(15 downto 8);--std_logic_vector(to_unsigned(66,8));--sweep_value(15 downto 8);
+--			  when 2		  =>  tx_uart_data <= temp(23 downto 16);--std_logic_vector(to_unsigned(67,8));--sweep_value(23 downto 16);
+--			  when 3		  =>  tx_uart_data <= temp(31 downto 24);--std_logic_vector(to_unsigned(68,8));--sweep_value(31 downto 24);
+--			  when others 	  => 	tx_uart_data <= "11111111";
+--			end case;
+--			tx_uart_newData <= '1';
+--			uart_counter <= uart_counter + 1;	
+--		elsif (tx_uart_busy = '0') and (uart_counter >= 4) and (fifo_Full = '1') then  -- if all data was sent and there is new data available
+--			uart_counter <= 0; 
+--			esp_newData <= '0';
+--			fifo_ReadEn <= '1';
+--		elsif (uart_counter >= 4) then
+--			esp_newData <= '1'; -- active low
+--		end if;
+--		
+--		fifo_WriteEn <= '0';
+--		if (sweep_detected = '1') and (uart_counter >= 4) then
+--			temp <= fifo_DataOut;
+--			fifo_WriteEn <= sweep_detected;
+--		end if;
 		
 		led <= sweep_count(7 downto 0);
 	end if;
