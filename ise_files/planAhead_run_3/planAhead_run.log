@@ -1,0 +1,77 @@
+
+****** PlanAhead v14.7 (64-bit)
+  **** Build 321239 by xbuild on Fri Sep 27 19:24:36 MDT 2013
+    ** Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Device 21-36] Loading parts and site information from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source /home/letrend/workspace/darkroom/ise_files/pa.fromNetlist.tcl
+# create_project -name Mojo-Base-VHDL -dir "/home/letrend/workspace/darkroom/ise_files/planAhead_run_4" -part xc6slx9tqg144-2
+# set_property design_mode GateLvl [get_property srcset [current_run -impl]]
+# set_property edif_top_file "/home/letrend/workspace/darkroom/ise_files/mojo_top.ngc" [ get_property srcset [ current_run ] ]
+# add_files -norecurse { {/home/letrend/workspace/darkroom/ise_files} }
+# set_property target_constrs_file "/home/letrend/workspace/darkroom/src/mojo.ucf" [current_fileset -constrset]
+Adding file '/home/letrend/workspace/darkroom/src/mojo.ucf' to fileset 'constrs_1'
+# add_files [list {/home/letrend/workspace/darkroom/src/mojo.ucf}] -fileset [get_property constrset [current_run]]
+# link_design
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+Design is defaulting to project part: xc6slx9tqg144-2
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design mojo_top.ngc ...
+WARNING:NetListWriters:298 - No output is written to mojo_top.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:306 - Signal bus temp<31 : 9> on block mojo_top is not
+   reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   lighthouse/Msub_GND_28_o_GND_28_o_sub_22_OUT<31:0>_lut<30 : 4> on block
+   mojo_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   lighthouse/Msub_GND_28_o_GND_28_o_sub_16_OUT<31:0>_lut<30 : 2> on block
+   mojo_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   lighthouse/Msub_GND_28_o_GND_28_o_sub_13_OUT<31:0>_lut<30 : 3> on block
+   mojo_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   lighthouse/Msub_GND_28_o_GND_28_o_sub_19_OUT<31:0>_lut<30 : 6> on block
+   mojo_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus uart/Result<3 : 0> on block mojo_top is
+   not reconstructed, because there are some missing bus signals.
+  finished :Prep
+Writing EDIF netlist file mojo_top.edif ...
+ngc2edif: Total memory usage is 106496 kilobytes
+
+Parsing EDIF File [./planAhead_run_4/Mojo-Base-VHDL.data/cache/mojo_top_ngc_2e968fe.edif]
+CRITICAL WARNING: [Netlist 29-73] Incorrect value '20.0' specified for property 'CLKIN_PERIOD'. The system will either use the default value or the property value will be dropped. Verify your source files. [/home/letrend/workspace/darkroom/ise_files/mojo_top.ngc:1306]
+Finished Parsing EDIF File [./planAhead_run_4/Mojo-Base-VHDL.data/cache/mojo_top_ngc_2e968fe.edif]
+WARNING: [Netlist 29-43] Netlist 'mojo_top' is not ideal for floorplanning, since the cellview 'mojo_top' defined in file 'mojo_top.ngc' contains large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+Loading clock regions from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockRegion.xml
+Loading clock buffers from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockBuffers.xml
+Loading package pin functions from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/spartan6lx/xc6slx9/tqg144/Package.xml
+Loading io standards from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/./parts/xilinx/spartan6/drc.xml
+Parsing UCF File [/home/letrend/workspace/darkroom/src/mojo.ucf]
+CRITICAL WARNING: [Constraints 18-11] Could not find net or pin 'esp_newData' [/home/letrend/workspace/darkroom/src/mojo.ucf:34]
+Finished Parsing UCF File [/home/letrend/workspace/darkroom/src/mojo.ucf]
+INFO: [Designutils 20-20] Invalid constraints found, use command 'write_ucf -constraints invalid <file>' to save all the invalid constraints to a file
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Phase 0 | Netlist Checksum: 49f3e58d
+link_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:12 . Memory (MB): peak = 2870.867 ; gain = 208.988
+exit
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Thu Jan 12 14:13:04 2017...
+INFO: [Common 17-83] Releasing license: PlanAhead

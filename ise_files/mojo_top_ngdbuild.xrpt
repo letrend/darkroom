@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="NgdBuild" timeStamp="Tue Jan 10 21:25:25 2017">
+  <application stringID="NgdBuild" timeStamp="Thu Jan 12 16:40:46 2017">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -49,7 +49,7 @@
         <column stringID="speed"/>
         <row stringID="row" value="0">
           <item stringID="arch" value="Intel(R) Core(TM) i7-2640M CPU @ 2.80GHz"/>
-          <item stringID="speed" value="1385.890 MHz"/>
+          <item stringID="speed" value="3046.859 MHz"/>
         </row>
       </table>
     </section>
@@ -67,70 +67,70 @@
         <item dataType="int" stringID="NGDBUILD_FILTERED_WARNINGS" value="0"/>
         <item dataType="int" stringID="NGDBUILD_NUM_WARNINGS" value="0"/>
         <item dataType="int" stringID="NGDBUILD_FILTERED_INFOS" value="0"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_INFOS" value="1"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_INFOS" value="2"/>
       </section>
       <section stringID="NGDBUILD_PRE_UNISIM_SUMMARY">
         <item dataType="int" stringID="NGDBUILD_NUM_BUFG" value="3"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_DCM_SP" value="1"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_FD" value="62"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_FD" value="53"/>
         <item dataType="int" stringID="NGDBUILD_NUM_FDC" value="1"/>
         <item dataType="int" stringID="NGDBUILD_NUM_FDCE" value="12"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_FDE" value="121"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_FDE" value="191"/>
         <item dataType="int" stringID="NGDBUILD_NUM_FDPE" value="1"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_FDR" value="5"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_FDRE" value="13"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_FDR" value="18"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_FDRE" value="12"/>
         <item dataType="int" stringID="NGDBUILD_NUM_FDSE" value="8"/>
         <item dataType="int" stringID="NGDBUILD_NUM_GND" value="1"/>
         <item dataType="int" stringID="NGDBUILD_NUM_IBUF" value="6"/>
         <item dataType="int" stringID="NGDBUILD_NUM_IBUFG" value="1"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_INV" value="110"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_INV" value="112"/>
         <item dataType="int" stringID="NGDBUILD_NUM_LUT1" value="67"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT2" value="238"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT3" value="49"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT4" value="37"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT5" value="100"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT6" value="47"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_MUXCY" value="456"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_MUXF7" value="3"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT2" value="242"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT3" value="55"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT4" value="32"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT5" value="107"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT6" value="33"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_MUXCY" value="449"/>
         <item dataType="int" stringID="NGDBUILD_NUM_OBUF" value="10"/>
         <item dataType="int" stringID="NGDBUILD_NUM_OBUFT" value="6"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_RAM16X1D" value="2"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_RAM32M" value="5"/>
         <item dataType="int" stringID="NGDBUILD_NUM_VCC" value="1"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_XORCY" value="404"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_XORCY" value="388"/>
       </section>
       <section stringID="NGDBUILD_POST_UNISIM_SUMMARY">
         <item dataType="int" stringID="NGDBUILD_NUM_BUFG" value="3"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_DCM_SP" value="1"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_FD" value="62"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_FD" value="53"/>
         <item dataType="int" stringID="NGDBUILD_NUM_FDC" value="1"/>
         <item dataType="int" stringID="NGDBUILD_NUM_FDCE" value="12"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_FDE" value="121"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_FDE" value="191"/>
         <item dataType="int" stringID="NGDBUILD_NUM_FDPE" value="1"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_FDR" value="5"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_FDRE" value="13"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_FDR" value="18"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_FDRE" value="12"/>
         <item dataType="int" stringID="NGDBUILD_NUM_FDSE" value="8"/>
         <item dataType="int" stringID="NGDBUILD_NUM_GND" value="1"/>
         <item dataType="int" stringID="NGDBUILD_NUM_IBUF" value="9"/>
         <item dataType="int" stringID="NGDBUILD_NUM_IBUFG" value="1"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_INV" value="110"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_INV" value="112"/>
         <item dataType="int" stringID="NGDBUILD_NUM_LUT1" value="67"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT2" value="238"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT3" value="49"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT4" value="37"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT5" value="100"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_LUT6" value="47"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_MUXCY" value="456"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_MUXF7" value="3"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT2" value="242"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT3" value="55"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT4" value="32"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT5" value="107"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_LUT6" value="33"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_MUXCY" value="449"/>
         <item dataType="int" stringID="NGDBUILD_NUM_OBUF" value="10"/>
         <item dataType="int" stringID="NGDBUILD_NUM_OBUFT" value="6"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_PLL_ADV" value="1"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_RAM32M" value="5"/>
         <item dataType="int" stringID="NGDBUILD_NUM_TS_TIMESPEC" value="1"/>
         <item dataType="int" stringID="NGDBUILD_NUM_VCC" value="1"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_XORCY" value="404"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_XORCY" value="388"/>
       </section>
       <section stringID="NGDBUILD_CORE_GENERATION_SUMMARY">
         <section stringID="NGDBUILD_CORE_INSTANCES">
-          <scope stringID="NGDBUILD_CORE_INSTANCE" value="clk5MHz">
-            <item stringID="NGDBUILD_CORE_INFO" type="clk_wiz_v3_6" value="clk5MHz"/>
-            <item clkin1_period="20.0" clkin2_period="20.0" clock_mgr_type="AUTO" component_name="clk5MHz" feedback_source="FDBK_AUTO" feedback_type="SINGLE" manual_override="false" num_out_clk="1" primtype_sel="DCM_SP" stringID="NGDBUILD_CORE_PARAMETERS" use_clk_valid="false" use_dyn_phase_shift="false" use_dyn_reconfig="false" use_freeze="false" use_inclk_stopped="false" use_inclk_switchover="false" use_locked="false" use_max_i_jitter="false" use_min_o_jitter="false" use_phase_alignment="true" use_power_down="false" use_reset="true" use_status="false" value="clk5MHz"/>
+          <scope stringID="NGDBUILD_CORE_INSTANCE" value="clk10MHz">
+            <item stringID="NGDBUILD_CORE_INFO" type="clk_wiz_v3_6" value="clk10MHz"/>
+            <item clkin1_period="20.0" clkin2_period="20.0" clock_mgr_type="AUTO" component_name="clk10MHz" feedback_source="FDBK_AUTO" feedback_type="SINGLE" manual_override="false" num_out_clk="2" primtype_sel="PLL_BASE" stringID="NGDBUILD_CORE_PARAMETERS" use_clk_valid="false" use_dyn_phase_shift="false" use_dyn_reconfig="false" use_freeze="false" use_inclk_stopped="false" use_inclk_switchover="false" use_locked="false" use_max_i_jitter="false" use_min_o_jitter="true" use_phase_alignment="true" use_power_down="false" use_reset="true" use_status="false" value="clk10MHz"/>
           </scope>
         </section>
       </section>

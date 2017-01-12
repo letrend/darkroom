@@ -1,7 +1,7 @@
 Release 14.7 - par P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Tue Jan 10 21:25:51 2017
+Thu Jan 12 16:41:17 2017
 
 
 # NOTE: This file is designed to be imported into a spreadsheet program
@@ -69,7 +69,7 @@ P47||IOBS|IO_L48N_RDWR_B_VREF_2|UNUSED||2|||||||||
 P48|spi_ss|IOB|IO_L48P_D7_2|INPUT|LVCMOS25*|2||||NONE||LOCATED|NO|NONE|
 P49|||GND||||||||||||
 P50||IOBS|IO_L31N_GCLK30_D15_2|UNUSED||2|||||||||
-P51|esp_newData|IOB|IO_L31P_GCLK31_D14_2|OUTPUT|LVCMOS25*|2|12|SLOW||||LOCATED|NO|NONE|
+P51||IOBM|IO_L31P_GCLK31_D14_2|UNUSED||2|||||||||
 P52|||VCCINT||||||||1.2||||
 P53|||VCCAUX||||||||2.5||||
 P54|||GND||||||||||||
@@ -84,7 +84,7 @@ P62|spi_channel<2>|IOB|IO_L12P_D1_MISO2_2|TRISTATE|LVCMOS25*|2|12|SLOW||||LOCATE
 P63|||VCCO_2|||2|||||2.50||||
 P64||IOBS|IO_L3N_MOSI_CSI_B_MISO0_2|UNUSED||2|||||||||
 P65|spi_channel<3>|IOB|IO_L3P_D0_DIN_MISO_MISO1_2|TRISTATE|LVCMOS25*|2|12|SLOW||||LOCATED|NO|NONE|
-P66||IOBS|IO_L2N_CMPMOSI_2|UNUSED||2|||||||||
+P66|esp_newData|IOB|IO_L2N_CMPMOSI_2|OUTPUT|LVCMOS25*|2|12|SLOW||||UNLOCATED|NO|NONE|
 P67||IOBM|IO_L2P_CMPCLK_2|UNUSED||2|||||||||
 P68|||GND||||||||||||
 P69||IOBS|IO_L1N_M0_CMPMISO_2|UNUSED||2|||||||||

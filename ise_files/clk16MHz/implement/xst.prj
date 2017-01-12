@@ -1,0 +1,2 @@
+vhdl work ../../clk16MHz.vhd
+vhdl work ../example_design/clk16MHz_exdes.vhd

@@ -1,11 +1,19 @@
 Release 14.7 Drc P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Tue Jan 10 21:26:00 2017
+Thu Jan 12 16:41:28 2017
 
 drc -z mojo_top.ncd mojo_top.pcf
 
-INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
-   with the CLKFX and CLKFX180 outputs of the DCM comp clock5MHz/dcm_sp_inst,
-   consult the device Data Sheet.
-DRC detected 0 errors and 0 warnings.
+WARNING:PhysDesignRules:367 - The signal <fifo/Mram_Memory1_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <fifo/Mram_Memory2_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <fifo/Mram_Memory3_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <fifo/Mram_Memory5_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <fifo/Mram_Memory4_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+DRC detected 0 errors and 5 warnings.  Please see the previously displayed
+individual error or warning messages for more details.

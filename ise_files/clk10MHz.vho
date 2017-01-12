@@ -54,7 +54,8 @@
 -- "Output    Output      Phase     Duty      Pk-to-Pk        Phase"
 -- "Clock    Freq (MHz) (degrees) Cycle (%) Jitter (ps)  Error (ps)"
 ------------------------------------------------------------------------------
--- CLK_OUT1____10.000______0.000______50.0_____2200.000____150.000
+-- CLK_OUT1____10.000______0.000______50.0______332.856____170.053
+-- CLK_OUT2____50.000______0.000______50.0______230.842____170.053
 --
 ------------------------------------------------------------------------------
 -- "Input Clock   Freq (MHz)    Input Jitter (UI)"
@@ -69,7 +70,8 @@ port
  (-- Clock in ports
   clk           : in     std_logic;
   -- Clock out ports
-  clk_out          : out    std_logic;
+  clk10MHz_out          : out    std_logic;
+  clk50MHz_out          : out    std_logic;
   -- Status and control signals
   rst             : in     std_logic
  );
@@ -84,7 +86,8 @@ your_instance_name : clk10MHz
    (-- Clock in ports
     clk => clk,
     -- Clock out ports
-    clk_out => clk_out,
+    clk10MHz_out => clk10MHz_out,
+    clk50MHz_out => clk50MHz_out,
     -- Status and control signals
     rst  => rst);
 -- INST_TAG_END ------ End INSTANTIATION Template ------------

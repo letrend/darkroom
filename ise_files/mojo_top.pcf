@@ -1,12 +1,11 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Tue Jan 10 21:25:39 2017
+// Written by: Map P.20131013 on Thu Jan 12 16:41:02 2017
 //! **************************************************************************
 
 SCHEMATIC START;
 COMP "clk" LOCATE = SITE "P56" LEVEL 1;
 COMP "cclk" LOCATE = SITE "P70" LEVEL 1;
 COMP "rst_n" LOCATE = SITE "P38" LEVEL 1;
-COMP "esp_newData" LOCATE = SITE "P51" LEVEL 1;
 COMP "spi_sck" LOCATE = SITE "P43" LEVEL 1;
 COMP "spi_channel<0>" LOCATE = SITE "P46" LEVEL 1;
 COMP "spi_channel<1>" LOCATE = SITE "P61" LEVEL 1;
@@ -29,75 +28,20 @@ COMP "sensor" LOCATE = SITE "P2" LEVEL 1;
 COMP "spi_ss" LOCATE = SITE "P48" LEVEL 1;
 COMP "spi_miso" LOCATE = SITE "P45" LEVEL 1;
 COMP "spi_mosi" LOCATE = SITE "P44" LEVEL 1;
-TIMEGRP clock5MHz_clkfx = BEL "temp_9" BEL "temp_10" BEL "temp_12" BEL
-        "temp_13" BEL "temp_14" BEL "temp_15" BEL "temp_16" BEL "temp_17" BEL
-        "temp_18" BEL "temp_19" BEL "temp_20" BEL "temp_21" BEL "temp_22" BEL
-        "temp_23" BEL "temp_24" BEL "temp_25" BEL "temp_26" BEL "temp_27" BEL
-        "temp_28" BEL "temp_29" BEL "temp_30" BEL "temp_31" BEL
+TIMEGRP clock10MHz_clkout1 = BEL "fifo_ReadEn" BEL "fifo_WriteEn" BEL
         "tx_uart_newData" BEL "led_0" BEL "led_1" BEL "led_2" BEL "led_3" BEL
-        "led_4" BEL "led_5" BEL "led_6" BEL "led_7" BEL "tx_uart_data_0" BEL
-        "tx_uart_data_1" BEL "tx_uart_data_2" BEL "tx_uart_data_3" BEL
-        "tx_uart_data_4" BEL "tx_uart_data_5" BEL "tx_uart_data_6" BEL
-        "tx_uart_data_7" BEL "uart_counter_0" BEL "uart_counter_1" BEL
-        "uart_counter_2" BEL "counter/temp_0" BEL "counter/temp_1" BEL
-        "counter/temp_2" BEL "counter/temp_3" BEL "counter/temp_4" BEL
-        "counter/temp_5" BEL "counter/temp_6" BEL "counter/temp_7" BEL
-        "counter/temp_8" BEL "counter/temp_9" BEL "counter/temp_10" BEL
-        "counter/temp_11" BEL "counter/temp_12" BEL "counter/temp_13" BEL
-        "counter/temp_14" BEL "counter/temp_15" BEL "counter/temp_16" BEL
-        "counter/temp_17" BEL "counter/temp_18" BEL "counter/temp_19" BEL
-        "counter/temp_20" BEL "counter/temp_21" BEL "counter/temp_22" BEL
-        "counter/temp_23" BEL "counter/temp_24" BEL "counter/temp_25" BEL
-        "counter/temp_26" BEL "counter/temp_27" BEL "counter/temp_28" BEL
-        "counter/temp_29" BEL "counter/temp_30" BEL "counter/temp_31" BEL
-        "clock5MHz/clkout1_buf" BEL "lighthouse/sensor_value_31" BEL
-        "lighthouse/sensor_value_30" BEL "lighthouse/sensor_value_29" BEL
-        "lighthouse/sensor_value_28" BEL "lighthouse/sensor_value_27" BEL
-        "lighthouse/sensor_value_26" BEL "lighthouse/sensor_value_25" BEL
-        "lighthouse/sensor_value_24" BEL "lighthouse/sensor_value_23" BEL
-        "lighthouse/sensor_value_22" BEL "lighthouse/sensor_value_21" BEL
-        "lighthouse/sensor_value_20" BEL "lighthouse/sensor_value_19" BEL
-        "lighthouse/sensor_value_18" BEL "lighthouse/sensor_value_17" BEL
-        "lighthouse/sensor_value_16" BEL "lighthouse/sensor_value_15" BEL
-        "lighthouse/sensor_value_14" BEL "lighthouse/sensor_value_13" BEL
-        "lighthouse/sensor_value_12" BEL "lighthouse/sensor_value_10" BEL
-        "lighthouse/sensor_value_9" BEL "lighthouse/t_sweep_start_31" BEL
-        "lighthouse/t_sweep_start_30" BEL "lighthouse/t_sweep_start_29" BEL
-        "lighthouse/t_sweep_start_28" BEL "lighthouse/t_sweep_start_27" BEL
-        "lighthouse/t_sweep_start_26" BEL "lighthouse/t_sweep_start_25" BEL
-        "lighthouse/t_sweep_start_24" BEL "lighthouse/t_sweep_start_23" BEL
-        "lighthouse/t_sweep_start_22" BEL "lighthouse/t_sweep_start_21" BEL
-        "lighthouse/t_sweep_start_20" BEL "lighthouse/t_sweep_start_19" BEL
-        "lighthouse/t_sweep_start_18" BEL "lighthouse/t_sweep_start_17" BEL
-        "lighthouse/t_sweep_start_16" BEL "lighthouse/t_sweep_start_15" BEL
-        "lighthouse/t_sweep_start_14" BEL "lighthouse/t_sweep_start_13" BEL
-        "lighthouse/t_sweep_start_12" BEL "lighthouse/t_sweep_start_11" BEL
-        "lighthouse/t_sweep_start_10" BEL "lighthouse/t_sweep_start_9" BEL
-        "lighthouse/t_sweep_start_8" BEL "lighthouse/t_sweep_start_7" BEL
-        "lighthouse/t_sweep_start_6" BEL "lighthouse/t_sweep_start_5" BEL
-        "lighthouse/t_sweep_start_4" BEL "lighthouse/t_sweep_start_3" BEL
-        "lighthouse/t_sweep_start_2" BEL "lighthouse/t_sweep_start_1" BEL
-        "lighthouse/t_sweep_start_0" BEL "lighthouse/sweep_detected" BEL
-        "lighthouse/temp_sensor_value_12" BEL "lighthouse/temp_sweep_detected"
-        BEL "lighthouse/t_0_31" BEL "lighthouse/t_0_30" BEL
-        "lighthouse/t_0_29" BEL "lighthouse/t_0_28" BEL "lighthouse/t_0_27"
-        BEL "lighthouse/t_0_26" BEL "lighthouse/t_0_25" BEL
-        "lighthouse/t_0_24" BEL "lighthouse/t_0_23" BEL "lighthouse/t_0_22"
-        BEL "lighthouse/t_0_21" BEL "lighthouse/t_0_20" BEL
-        "lighthouse/t_0_19" BEL "lighthouse/t_0_18" BEL "lighthouse/t_0_17"
-        BEL "lighthouse/t_0_16" BEL "lighthouse/t_0_15" BEL
-        "lighthouse/t_0_14" BEL "lighthouse/t_0_13" BEL "lighthouse/t_0_12"
-        BEL "lighthouse/t_0_11" BEL "lighthouse/t_0_10" BEL "lighthouse/t_0_9"
-        BEL "lighthouse/t_0_8" BEL "lighthouse/t_0_7" BEL "lighthouse/t_0_6"
-        BEL "lighthouse/t_0_5" BEL "lighthouse/t_0_4" BEL "lighthouse/t_0_3"
-        BEL "lighthouse/t_0_2" BEL "lighthouse/t_0_1" BEL "lighthouse/t_0_0"
-        BEL "lighthouse/sensor_previous" BEL "esp_newData" BEL
-        "lighthouse/temp_sensor_value_10" BEL
-        "lighthouse/temp_sensor_value_9";
-PIN SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0> = BEL "SP6_BUFIO_INSERT_ML_BUFIO2_0"
-        PINNAME DIVCLK;
-PIN clock5MHz/dcm_sp_inst_pins<3> = BEL "clock5MHz/dcm_sp_inst" PINNAME CLKIN;
-TIMEGRP clk = BEL "avr_interface/cclk_detector/ctr_q_8" BEL
+        "led_4" BEL "led_5" BEL "led_6" BEL "led_7" BEL "temp_0" BEL "temp_1"
+        BEL "temp_2" BEL "temp_3" BEL "temp_4" BEL "temp_5" BEL "temp_6" BEL
+        "temp_7" BEL "temp_8" BEL "temp_9" BEL "temp_10" BEL "temp_11" BEL
+        "temp_12" BEL "temp_13" BEL "temp_14" BEL "temp_15" BEL "temp_16" BEL
+        "temp_17" BEL "temp_18" BEL "temp_19" BEL "temp_20" BEL "temp_21" BEL
+        "temp_22" BEL "temp_23" BEL "temp_24" BEL "temp_25" BEL "temp_26" BEL
+        "temp_27" BEL "temp_28" BEL "temp_29" BEL "temp_30" BEL "temp_31" BEL
+        "tx_uart_data_0" BEL "tx_uart_data_1" BEL "tx_uart_data_2" BEL
+        "tx_uart_data_3" BEL "tx_uart_data_4" BEL "tx_uart_data_5" BEL
+        "tx_uart_data_6" BEL "tx_uart_data_7" BEL "uart_counter_0" BEL
+        "uart_counter_1" BEL "uart_counter_2" BEL "clock10MHz/clkout2_buf" BEL
+        "avr_interface/cclk_detector/ctr_q_8" BEL
         "avr_interface/cclk_detector/ctr_q_7" BEL
         "avr_interface/cclk_detector/ctr_q_6" BEL
         "avr_interface/cclk_detector/ctr_q_5" BEL
@@ -121,17 +65,139 @@ TIMEGRP clk = BEL "avr_interface/cclk_detector/ctr_q_8" BEL
         "avr_interface/spi_slave/data_q_0" BEL
         "avr_interface/spi_slave/sck_old_q" BEL
         "avr_interface/spi_slave/mosi_q" BEL "avr_interface/spi_slave/sck_q"
-        BEL "avr_interface/spi_slave/ss_q" BEL "uart/txbitcnt_2" BEL
-        "uart/txbitcnt_0" BEL "uart/txcnt_7" BEL "uart/txcnt_6" BEL
+        BEL "avr_interface/spi_slave/ss_q" BEL "lighthouse/sensor_value_31"
+        BEL "lighthouse/sensor_value_30" BEL "lighthouse/sensor_value_29" BEL
+        "lighthouse/sensor_value_28" BEL "lighthouse/sensor_value_27" BEL
+        "lighthouse/sensor_value_26" BEL "lighthouse/sensor_value_25" BEL
+        "lighthouse/sensor_value_24" BEL "lighthouse/sensor_value_23" BEL
+        "lighthouse/sensor_value_22" BEL "lighthouse/sensor_value_21" BEL
+        "lighthouse/sensor_value_20" BEL "lighthouse/sensor_value_19" BEL
+        "lighthouse/sensor_value_18" BEL "lighthouse/sensor_value_17" BEL
+        "lighthouse/sensor_value_16" BEL "lighthouse/sensor_value_15" BEL
+        "lighthouse/sensor_value_14" BEL "lighthouse/sensor_value_13" BEL
+        "lighthouse/sensor_value_12" BEL "lighthouse/sensor_value_10" BEL
+        "lighthouse/sensor_value_9" BEL "lighthouse/sweep_detected" BEL
+        "uart/txbitcnt_2" BEL "uart/txbitcnt_0" BEL "uart/txcnt_6" BEL
         "uart/txcnt_5" BEL "uart/txcnt_4" BEL "uart/txcnt_3" BEL
-        "uart/txcnt_2" BEL "uart/txcnt_1" BEL "uart/txcnt_0" BEL
-        "uart/txstart" BEL "uart/txbitcnt_3" BEL "uart/txbitcnt_1" BEL
-        "uart/txsr_8" BEL "uart/txsr_7" BEL "uart/txsr_6" BEL "uart/txsr_5"
-        BEL "uart/txsr_4" BEL "uart/txsr_3" BEL "uart/txsr_2" BEL
-        "uart/txsr_1" BEL "uart/txsr_0" BEL "clk_IBUFG_BUFG" PIN
-        "SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0>" PIN
-        "clock5MHz/dcm_sp_inst_pins<3>";
+        "uart/txcnt_2" BEL "uart/txcnt_1" BEL "uart/txcnt_0" BEL "uart/txsr_8"
+        BEL "uart/txsr_7" BEL "uart/txsr_6" BEL "uart/txsr_5" BEL
+        "uart/txsr_4" BEL "uart/txsr_3" BEL "uart/txsr_2" BEL "uart/txsr_1"
+        BEL "uart/txsr_0" BEL "uart/txstart" BEL "fifo/DataOut_31" BEL
+        "fifo/DataOut_30" BEL "fifo/DataOut_29" BEL "fifo/DataOut_28" BEL
+        "fifo/DataOut_27" BEL "fifo/DataOut_26" BEL "fifo/DataOut_25" BEL
+        "fifo/DataOut_24" BEL "fifo/DataOut_23" BEL "fifo/DataOut_22" BEL
+        "fifo/DataOut_21" BEL "fifo/DataOut_20" BEL "fifo/DataOut_19" BEL
+        "fifo/DataOut_18" BEL "fifo/DataOut_17" BEL "fifo/DataOut_16" BEL
+        "fifo/DataOut_15" BEL "fifo/DataOut_14" BEL "fifo/DataOut_13" BEL
+        "fifo/DataOut_12" BEL "fifo/DataOut_11" BEL "fifo/DataOut_10" BEL
+        "fifo/DataOut_9" BEL "fifo/DataOut_8" BEL "fifo/DataOut_7" BEL
+        "fifo/DataOut_6" BEL "fifo/DataOut_5" BEL "fifo/DataOut_4" BEL
+        "fifo/DataOut_3" BEL "fifo/DataOut_2" BEL "fifo/DataOut_1" BEL
+        "fifo/DataOut_0" BEL "fifo/fifo_proc.Looped" BEL
+        "fifo/fifo_proc.Head_3" BEL "fifo/fifo_proc.Head_2" BEL
+        "fifo/fifo_proc.Head_1" BEL "fifo/fifo_proc.Head_0" BEL
+        "fifo/fifo_proc.Tail_3" BEL "fifo/fifo_proc.Tail_2" BEL
+        "fifo/fifo_proc.Tail_1" BEL "fifo/fifo_proc.Tail_0" BEL "esp_newData"
+        BEL "uart/txbitcnt_3" BEL "uart/txbitcnt_1" BEL "fifo/Full" BEL
+        "fifo/fifo_proc.prev_data" BEL "fifo/Mram_Memory62/SP" BEL
+        "fifo/Mram_Memory62/DP" BEL "fifo/Mram_Memory61/SP" BEL
+        "fifo/Mram_Memory61/DP" BEL "fifo/Mram_Memory1_RAMA_D1" BEL
+        "fifo/Mram_Memory1_RAMA" BEL "fifo/Mram_Memory1_RAMB_D1" BEL
+        "fifo/Mram_Memory1_RAMB" BEL "fifo/Mram_Memory1_RAMC_D1" BEL
+        "fifo/Mram_Memory1_RAMC" BEL "fifo/Mram_Memory1_RAMD_D1" BEL
+        "fifo/Mram_Memory1_RAMD" BEL "fifo/Mram_Memory2_RAMA_D1" BEL
+        "fifo/Mram_Memory2_RAMA" BEL "fifo/Mram_Memory2_RAMB_D1" BEL
+        "fifo/Mram_Memory2_RAMB" BEL "fifo/Mram_Memory2_RAMC_D1" BEL
+        "fifo/Mram_Memory2_RAMC" BEL "fifo/Mram_Memory2_RAMD_D1" BEL
+        "fifo/Mram_Memory2_RAMD" BEL "fifo/Mram_Memory3_RAMA_D1" BEL
+        "fifo/Mram_Memory3_RAMA" BEL "fifo/Mram_Memory3_RAMB_D1" BEL
+        "fifo/Mram_Memory3_RAMB" BEL "fifo/Mram_Memory3_RAMC_D1" BEL
+        "fifo/Mram_Memory3_RAMC" BEL "fifo/Mram_Memory3_RAMD_D1" BEL
+        "fifo/Mram_Memory3_RAMD" BEL "fifo/Mram_Memory4_RAMA_D1" BEL
+        "fifo/Mram_Memory4_RAMA" BEL "fifo/Mram_Memory4_RAMB_D1" BEL
+        "fifo/Mram_Memory4_RAMB" BEL "fifo/Mram_Memory4_RAMC_D1" BEL
+        "fifo/Mram_Memory4_RAMC" BEL "fifo/Mram_Memory4_RAMD_D1" BEL
+        "fifo/Mram_Memory4_RAMD" BEL "fifo/Mram_Memory5_RAMA_D1" BEL
+        "fifo/Mram_Memory5_RAMA" BEL "fifo/Mram_Memory5_RAMB_D1" BEL
+        "fifo/Mram_Memory5_RAMB" BEL "fifo/Mram_Memory5_RAMC_D1" BEL
+        "fifo/Mram_Memory5_RAMC" BEL "fifo/Mram_Memory5_RAMD_D1" BEL
+        "fifo/Mram_Memory5_RAMD";
+TIMEGRP clock10MHz_clkout0 = BEL "counter/temp_0" BEL "counter/temp_1" BEL
+        "counter/temp_2" BEL "counter/temp_3" BEL "counter/temp_4" BEL
+        "counter/temp_5" BEL "counter/temp_6" BEL "counter/temp_7" BEL
+        "counter/temp_8" BEL "counter/temp_9" BEL "counter/temp_10" BEL
+        "counter/temp_11" BEL "counter/temp_12" BEL "counter/temp_13" BEL
+        "counter/temp_14" BEL "counter/temp_15" BEL "counter/temp_16" BEL
+        "counter/temp_17" BEL "counter/temp_18" BEL "counter/temp_19" BEL
+        "counter/temp_20" BEL "counter/temp_21" BEL "counter/temp_22" BEL
+        "counter/temp_23" BEL "counter/temp_24" BEL "counter/temp_25" BEL
+        "counter/temp_26" BEL "counter/temp_27" BEL "counter/temp_28" BEL
+        "counter/temp_29" BEL "counter/temp_30" BEL "counter/temp_31" BEL
+        "clock10MHz/clkout1_buf" BEL "lighthouse/temp_sensor_value_14" BEL
+        "lighthouse/temp_sensor_value_15" BEL
+        "lighthouse/temp_sensor_value_13" BEL
+        "lighthouse/temp_sensor_value_17" BEL
+        "lighthouse/temp_sensor_value_18" BEL
+        "lighthouse/temp_sensor_value_16" BEL
+        "lighthouse/temp_sensor_value_20" BEL
+        "lighthouse/temp_sensor_value_21" BEL
+        "lighthouse/temp_sensor_value_19" BEL
+        "lighthouse/temp_sensor_value_23" BEL
+        "lighthouse/temp_sensor_value_24" BEL
+        "lighthouse/temp_sensor_value_22" BEL
+        "lighthouse/temp_sensor_value_26" BEL
+        "lighthouse/temp_sensor_value_27" BEL
+        "lighthouse/temp_sensor_value_25" BEL
+        "lighthouse/temp_sensor_value_29" BEL
+        "lighthouse/temp_sensor_value_30" BEL
+        "lighthouse/temp_sensor_value_28" BEL
+        "lighthouse/temp_sensor_value_31" BEL "lighthouse/start_valid_sync_31"
+        BEL "lighthouse/start_valid_sync_30" BEL
+        "lighthouse/start_valid_sync_29" BEL "lighthouse/start_valid_sync_28"
+        BEL "lighthouse/start_valid_sync_27" BEL
+        "lighthouse/start_valid_sync_26" BEL "lighthouse/start_valid_sync_25"
+        BEL "lighthouse/start_valid_sync_24" BEL
+        "lighthouse/start_valid_sync_23" BEL "lighthouse/start_valid_sync_22"
+        BEL "lighthouse/start_valid_sync_21" BEL
+        "lighthouse/start_valid_sync_20" BEL "lighthouse/start_valid_sync_19"
+        BEL "lighthouse/start_valid_sync_18" BEL
+        "lighthouse/start_valid_sync_17" BEL "lighthouse/start_valid_sync_16"
+        BEL "lighthouse/start_valid_sync_15" BEL
+        "lighthouse/start_valid_sync_14" BEL "lighthouse/start_valid_sync_13"
+        BEL "lighthouse/start_valid_sync_12" BEL
+        "lighthouse/start_valid_sync_11" BEL "lighthouse/start_valid_sync_10"
+        BEL "lighthouse/start_valid_sync_9" BEL
+        "lighthouse/start_valid_sync_8" BEL "lighthouse/start_valid_sync_7"
+        BEL "lighthouse/start_valid_sync_6" BEL
+        "lighthouse/start_valid_sync_5" BEL "lighthouse/start_valid_sync_4"
+        BEL "lighthouse/start_valid_sync_3" BEL
+        "lighthouse/start_valid_sync_2" BEL "lighthouse/start_valid_sync_1"
+        BEL "lighthouse/start_valid_sync_0" BEL
+        "lighthouse/temp_sensor_value_12" BEL "lighthouse/temp_sweep_detected"
+        BEL "lighthouse/sensor_previous" BEL "lighthouse/t_0_31" BEL
+        "lighthouse/t_0_30" BEL "lighthouse/t_0_29" BEL "lighthouse/t_0_28"
+        BEL "lighthouse/t_0_27" BEL "lighthouse/t_0_26" BEL
+        "lighthouse/t_0_25" BEL "lighthouse/t_0_24" BEL "lighthouse/t_0_23"
+        BEL "lighthouse/t_0_22" BEL "lighthouse/t_0_21" BEL
+        "lighthouse/t_0_20" BEL "lighthouse/t_0_19" BEL "lighthouse/t_0_18"
+        BEL "lighthouse/t_0_17" BEL "lighthouse/t_0_16" BEL
+        "lighthouse/t_0_15" BEL "lighthouse/t_0_14" BEL "lighthouse/t_0_13"
+        BEL "lighthouse/t_0_12" BEL "lighthouse/t_0_11" BEL
+        "lighthouse/t_0_10" BEL "lighthouse/t_0_9" BEL "lighthouse/t_0_8" BEL
+        "lighthouse/t_0_7" BEL "lighthouse/t_0_6" BEL "lighthouse/t_0_5" BEL
+        "lighthouse/t_0_4" BEL "lighthouse/t_0_3" BEL "lighthouse/t_0_2" BEL
+        "lighthouse/t_0_1" BEL "lighthouse/t_0_0" BEL
+        "lighthouse/temp_sensor_value_9" BEL
+        "lighthouse/temp_sensor_value_10";
+PIN SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0_pins<0> = BEL
+        "SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0" PINNAME DIVCLK;
+PIN clock10MHz/pll_base_inst/PLL_ADV_pins<2> = BEL
+        "clock10MHz/pll_base_inst/PLL_ADV" PINNAME CLKIN1;
+TIMEGRP clk = PIN "SP6_BUFIO2_INSERT_PLL1_ML_BUFIO2_0_pins<0>" PIN
+        "clock10MHz/pll_base_inst/PLL_ADV_pins<2>";
 TS_clk = PERIOD TIMEGRP "clk" 50 MHz HIGH 50%;
-TS_clock5MHz_clkfx = PERIOD TIMEGRP "clock5MHz_clkfx" TS_clk * 0.1 HIGH 50%;
+TS_clock10MHz_clkout1 = PERIOD TIMEGRP "clock10MHz_clkout1" TS_clk HIGH 50%;
+TS_clock10MHz_clkout0 = PERIOD TIMEGRP "clock10MHz_clkout0" TS_clk * 0.2 HIGH
+        50%;
 SCHEMATIC END;
 

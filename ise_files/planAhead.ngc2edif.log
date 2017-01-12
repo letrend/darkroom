@@ -52,3 +52,30 @@ WARNING:NetListWriters:306 - Signal bus uart/Result<3 : 0> on block mojo_top is
 Writing EDIF netlist file mojo_top.edif ...
 ngc2edif: Total memory usage is 106636 kilobytes
 
+Release 14.7 - ngc2edif P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design mojo_top.ngc ...
+WARNING:NetListWriters:298 - No output is written to mojo_top.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:306 - Signal bus temp<31 : 9> on block mojo_top is not
+   reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   lighthouse/Msub_GND_28_o_GND_28_o_sub_22_OUT<31:0>_lut<30 : 4> on block
+   mojo_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   lighthouse/Msub_GND_28_o_GND_28_o_sub_16_OUT<31:0>_lut<30 : 2> on block
+   mojo_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   lighthouse/Msub_GND_28_o_GND_28_o_sub_13_OUT<31:0>_lut<30 : 3> on block
+   mojo_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   lighthouse/Msub_GND_28_o_GND_28_o_sub_19_OUT<31:0>_lut<30 : 6> on block
+   mojo_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus uart/Result<3 : 0> on block mojo_top is
+   not reconstructed, because there are some missing bus signals.
+  finished :Prep
+Writing EDIF netlist file mojo_top.edif ...
+ngc2edif: Total memory usage is 106496 kilobytes
+

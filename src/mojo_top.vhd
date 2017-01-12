@@ -46,7 +46,8 @@ signal data_to_send		: std_logic;					-- indicates data to send in uart_data
 
 -- signals for sample test
 signal temp_timer		: std_logic_vector(31 downto 0);
-signal clk5MHz		: std_logic;
+signal clk10MHz		: std_logic;
+signal clk50MHz		: std_logic;
 signal clk_FB			: std_logic;
 signal tx_uart_block		: std_logic;
 signal tx_uart_busy		: std_logic;
@@ -62,6 +63,14 @@ signal uart_counter		: integer range 0 to 5;
 signal sweep_count		: std_logic_vector(31 downto 0);
 signal temp: std_logic_vector(31 downto 0);
 
+signal fifo_WriteEn	: STD_LOGIC;
+signal fifo_DataIn	: STD_LOGIC_VECTOR (31 downto 0);
+signal fifo_ReadEn	: STD_LOGIC;
+signal fifo_DataOut	: STD_LOGIC_VECTOR (31 downto 0);
+signal fifo_Count 	: natural range 0 to 255;
+signal fifo_Empty	: STD_LOGIC;
+signal fifo_Full	: STD_LOGIC;
+
 
 begin
 
@@ -75,10 +84,18 @@ rst	<= NOT rst_n;						-- generate non-inverted reset signal from rst_n button
 --avr_rx <= 'Z';						-- keep AVR output lines high-Z
 --spi_channel <= "ZZZZ";				-- keep AVR output lines high-Z
 
+clock10MHz: entity work.clk10MHz
+port map(
+		clk 	=> clk,
+		rst	=> rst,
+		clk10MHz_out 	=> clk10MHz,
+		clk50MHz_out 	=> clk50MHz
+	);
+
 -- instantiate the avr_interface (to handle USB UART and analog sampling, etc.)
 avr_interface : entity work.avr_interface
 	port map (
-		clk			=> clk,				-- 50Mhz clock
+		clk			=> clk50MHz,				-- 50Mhz clock
 		rst			=> rst,				-- reset signal
 		-- AVR MCU pin connections (that will be managed)
 		cclk		=> cclk,
@@ -104,16 +121,9 @@ avr_interface : entity work.avr_interface
 		rx_data		=> rx_data			-- received data (only when new_tx_data = '1')
 	);
 
-clock5MHz: entity work.clk5MHz
-port map(
-		clk 	=> clk,
-		rst	=> rst,
-		clk_out 	=> clk5MHz
-	);
-
 counter: entity work.counter
 	port map(
-		clock 	=> clk5MHz,
+		clock 	=> clk10MHz,
 		output 	=> temp_timer
 	);
 
@@ -125,7 +135,8 @@ sweep_counter: entity work.counter
 	
 lighthouse: entity work.lighthouse
 	port map(
-		clk 			=> clk5MHz,
+		clk 			=> clk50MHz,
+		clk10MHz 	=> clk10MHz,
 		sensor	 	=> sensor,
 		timer			=> temp_timer,
 		sweep_detected => sweep_detected,
@@ -134,7 +145,7 @@ lighthouse: entity work.lighthouse
 	
 uart: entity work.RS232
 	port map(
-		CLK		=> clk,
+		CLK		=> clk50MHz,
 		RXD		=> esp_rx,
 		RX_DATA 	=> rx_uart_data,
 		RX_BUSY	=> rx_uart_busy,
@@ -144,11 +155,24 @@ uart: entity work.RS232
       TX_Busy 	=> tx_uart_busy
 	);
 	
-darkroom: process(clk5MHz, rst)
+fifo: entity work.STD_FIFO
+	port map(
+		CLK		=> clk50MHz,
+		RST		=> rst,
+		WriteEn	=> fifo_WriteEn,
+		DataIn	=> sweep_value,
+		ReadEn	=> fifo_ReadEn,
+		DataOut	=> fifo_DataOut,
+		Empty		=> fifo_Empty,
+		Full	   => fifo_Full
+	);
+	
+darkroom: process(clk50MHz, rst)
 constant ss: character := 's'; 
 begin
-	if rising_edge(clk5MHz) then
+	if rising_edge(clk50MHz) then
 		tx_uart_newData <= '0';
+		fifo_ReadEn <= '0';
 		if(tx_uart_busy = '0') and (uart_counter < 4) then -- if uart not busy and not all data was sent
 			case uart_counter is
 			  when 0      =>  tx_uart_data <= temp(7 downto 0);--std_logic_vector(to_unsigned(65,8));--;
@@ -159,13 +183,20 @@ begin
 			end case;
 			tx_uart_newData <= '1';
 			uart_counter <= uart_counter + 1;	
-		elsif (tx_uart_busy = '0') and (uart_counter >= 4) and (sweep_detected = '1') then  -- if all data was sent and there is new data available
+		elsif (tx_uart_busy = '0') and (uart_counter >= 4) and (fifo_Full = '1') then  -- if all data was sent and there is new data available
 			uart_counter <= 0; 
 			esp_newData <= '0';
-			temp <= sweep_value;
+			fifo_ReadEn <= '1';
 		elsif (uart_counter >= 4) then
 			esp_newData <= '1'; -- active low
 		end if;
+		
+		fifo_WriteEn <= '0';
+		if (sweep_detected = '1') and (uart_counter >= 4) then
+			temp <= fifo_DataOut;
+			fifo_WriteEn <= sweep_detected;
+		end if;
+		
 		led <= sweep_count(7 downto 0);
 	end if;
 end process darkroom;
